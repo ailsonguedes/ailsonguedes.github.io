@@ -1,0 +1,14 @@
+/* src/index.css ou src/main.css */
+
+/* Define a cor de fundo para a tela inteira */
+body {
+  background-color: #000000; /* Preto absoluto */
+  color: #ffffff; /* Opcional: define a cor do texto padrão para branco, para contraste */
+  margin: 0; /* Remove a margem padrão do navegador */
+  padding: 0;
+}
+
+/* Garante que o elemento HTML também cubra a altura total */
+html {
+  height: 100%;
+}

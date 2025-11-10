@@ -1,0 +1,48 @@
+/* ProjectItem.module.css */
+
+.projectContainer {
+    /* 1. Define a mesma largura máxima */
+    max-width: 1000px; 
+    /* 2. Centraliza o container */
+    margin-left: auto;
+    margin-right: auto;
+
+    /* Espaçamento abaixo do NavBar */
+    margin-top: -1.5rem; /* 64px (ajuste conforme o gosto) */
+    margin-bottom: -2rem;
+    /* Estilos de base do card externo (borda, fundo, etc.) */
+    padding: 0 19.1rem;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+
+.header {
+  display: flex;
+  align-items: baseline; /* Alinha os itens pela linha base do texto */
+  margin-bottom: 0rem;
+  padding-bottom: 0.1rem;
+}
+
+.projectYear {
+    /* Alinhado à esquerda */
+    font-size: 0.9rem;
+    color: #585858; /* Cor de destaque */
+    font-weight: 500;
+    margin: 0;
+
+    /* MUDANÇA 1: Movê-lo um pouco para a esquerda com margem negativa */
+    margin-left: -9rem; 
+    
+    /* MUDANÇA 2: Dá um pequeno respiro entre o ano e o título */
+    margin-right: 1.5rem;
+    
+    /* MUDANÇA 3: Empurra o ano para baixo (deslocamento vertical) */
+    transform: translateY(1.7em);
+}
+
+/* Opcional: Estilos para o wrapper que contém o ProjectCard, se precisar de mais padding */
+.contentWrapper {
+  margin-left: -5.7rem;
+  margin-top: -0.1rem;
+  padding: 0.5rem 0;
+}

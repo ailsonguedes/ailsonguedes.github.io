@@ -1,0 +1,36 @@
+/* Hero.module.css */
+
+.heroContainer {
+  /* --- A MÁGICA (Sincronizado com .navContainer) --- */
+
+  /* 1. Define a mesma largura máxima */
+  max-width: 1000px; 
+
+  /* 2. Centraliza o container */
+  margin-left: auto;
+  margin-right: auto;
+
+  /* 3. Usa o mesmo padding lateral (essencial para o alinhamento) */
+  padding: 0 20rem; 
+
+  /* --- Estilo do Hero --- */
+
+  /* Espaçamento abaixo do NavBar */
+  margin-top: 2rem; /* 64px (ajuste conforme o gosto) */
+  margin-bottom: -1rem;
+}
+
+.heroTitle {
+  font-size: 1.2rem; /* 40px */
+  color: white;
+  margin: 0; /* Remove margem padrão do h1 */
+  padding: 0;
+}
+
+.heroText {
+  font-size: 0.9rem; /* 18px */
+  color: #cccccc; /* Um cinza claro para diferenciar do título */
+  line-height: 1.6; /* Melhora a legibilidade das duas linhas */
+  margin-top: 1.5rem; /* Espaço entre o título e o texto */
+  max-width: 100%; /* Opcional: se quiser que o texto pare antes do fim */
+}

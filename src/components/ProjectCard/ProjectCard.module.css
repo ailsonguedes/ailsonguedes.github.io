@@ -1,0 +1,36 @@
+.projectLink{
+    text-decoration: none;
+    margin-top: -4rem;
+}
+
+
+.projectTitleLink {
+  /* Garante que o link ocupe o espaço e seja fácil de clicar */
+  text-decoration: none; 
+  color: inherit;
+  margin: 0;
+}
+
+.projectTitle {
+  /* Estiliza o título (e alinha) */
+  font-size: 1rem; 
+  font-weight: 700;
+  color: white;
+  margin: 0;
+}
+
+.projectTitleLink:hover .projectTitle {
+  color: #424242; /* Efeito hover no título */
+}
+
+/* ------------------- Estrutura da Descrição ------------------- */
+
+.projectDescription {
+  /* Garante que a descrição comece no mesmo alinhamento horizontal do título */
+  font-size: 1rem;
+  color: #6b6a6a;
+  line-height: 1.5;
+  margin-top: 0; 
+  /* Se você precisar que a descrição ocupe um espaço específico, 
+     use max-width no seu ProjectsSection, não neste card. */
+}
