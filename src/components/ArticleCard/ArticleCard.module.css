@@ -1,0 +1,95 @@
+/* ------------------------------------------------------------------- */
+/* ArticleCard.module.css - Estilo para cada artigo individual        */
+/* ------------------------------------------------------------------- */
+
+.articleLink{
+    /* Base do link/card: Usa Flexbox para o layout de duas colunas (Data + Conteúdo) */
+
+    display: flex; 
+    flex-wrap: nowrap; 
+    text-decoration: none;
+    margin: 1rem 0 0 0; 
+    color: inherit;
+    width: 100%;
+    margin-left: -9rem;
+    
+    /* A transição de cor do link, mas o sublinhado está no .articleTitle */
+    transition: color 0.5s ease;
+}
+
+/* Efeito hover no link completo */
+.articleLink:hover {
+    /* Deixado vazio, pois a ação principal está no .articleTitle:hover */
+}
+
+/* ------------------- Coluna 1: Data (Esquerda/Margem) ------------------- */
+.articleDate {
+    /* Define a largura da coluna da data (recuo de 7.8rem) */
+
+    flex: 0 0 7.4rem; /* Largura fixa */
+    text-align: right; 
+    
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #6b6a6a; 
+    
+    margin: 0;
+    padding-right: 1.5rem; /* Espaçamento entre a data e o título */
+    
+    transition: color 0.3s ease;
+}
+
+/* ------------------- Coluna 2: Conteúdo (Título/Descrição Recuados) ------------------- */
+.articleContent {
+    flex: 1; /* Ocupa o espaço restante */
+    min-width: 0; 
+}
+
+.articleTitle {
+    margin-top: 0; 
+    
+    font-size: 1rem; 
+    font-weight: 700;
+    color: white;
+    margin-bottom: 0; 
+
+    /* Essencial para que o sublinhado tenha apenas a largura do texto */
+    display: inline-block; 
+    padding-bottom: 2px; 
+    
+    /* Configuração para o sublinhado animado no TÍTULO */
+    background-image: linear-gradient(#6d6d6d, #f9f9fa);
+    background-position: left bottom; 
+    background-repeat: no-repeat;
+    background-size: 0% 1px; /* Invisível por padrão */
+    
+    /* Transição do sublinhado (3s) e da cor do texto (0.5s) */
+    transition: background-size 3s ease, color 0.5s ease;
+}
+
+/* 💡 Ativa o sublinhado no TÍTULO e muda sua cor quando o LINK recebe hover */
+.articleLink:hover .articleTitle {
+    color: #424242; /* Mudança de cor do texto */
+    background-size: 100% 1px; /* O sublinhado é ativado e cresce */
+}
+
+
+/* ------------------- Estrutura da Descrição ------------------- */
+.articleDescription {
+    font-size: 1rem;
+    color: #6b6a6a;
+    line-height: 1.5;
+    margin-top: 0; 
+}
+
+/* ------------------- Responsividade para Mobile ------------------- */
+@media (max-width: 640px) {
+    .articleLink {
+        flex-direction: column; /* Empilha data e conteúdo em telas pequenas */
+    }
+    .articleDate {
+        flex-basis: auto; 
+        padding-right: 0;
+        margin-bottom: 0.25rem;
+    }
+}

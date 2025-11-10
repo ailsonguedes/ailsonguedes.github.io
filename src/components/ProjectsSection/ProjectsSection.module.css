@@ -5,7 +5,8 @@
 .projectsContainer {
     /* --- A MÁGICA (Sincronizado com .navContainer) --- */
     /* 1. Define a mesma largura máxima */
-    max-width: 1000px; 
+
+    max-width: 600px; 
     /* 2. Centraliza o container */
     margin-left: auto;
     margin-right: auto;
@@ -26,15 +27,15 @@
     /* 1. Faz o título ser um bloco que ocupa a largura total para que a margem funcione */
     display: block; 
     width: 100%;
-    margin-top: -15px;
+    margin-top: -1px;
     /* 2. Alinha o conteúdo à direita */
     text-align: left; 
     /* 3. ADICIONA MARGEM ESQUERDA PARA CRIAR UM RECÚO (Ajuste o valor 20% conforme o desejado) */
     /* Isso empurra o texto para longe da borda direita por 20% da largura do contêiner */
-    margin-left: 9rem; 
-    width: 20%; /* Ocupa 80% da largura restante */
+    margin-left: 1.5rem; 
+    width: 40%; /* Ocupa 80% da largura restante */
     
-    margin-bottom: 0.5rem;
+    margin-bottom: -1rem;
 
 }
 
@@ -45,7 +46,7 @@
     width: 100%;
     text-align: left; 
     /* 💡 MUDANÇA (Reforço): Garante que não haja margem automática que empurre para a direita */
-    margin-left: 0.6rem;
+    margin-left: -7rem;
     
     /* Espaçamento grande entre os diferentes anos (ProjectItem) */
     gap: 0rem;
@@ -56,7 +57,7 @@
     text-align: left; /* Alinha o texto do link à esquerda */
     width: 30%;
     /* APLICAR O MESMO AJUSTE DE MARGEM DO .cardGrid PARA ALINHAMENTO */
-    margin-left: 7.8rem;
+    margin-left: 0.1rem;
     
     /* Espaçamento em relação ao conteúdo acima */
     margin-top: 1rem; 

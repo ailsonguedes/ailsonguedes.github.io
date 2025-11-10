@@ -1,0 +1,98 @@
+/* ------------------------------------------------------------------- */
+/* ArticlesSection.module.css - Adaptado de ProjectsSection            */
+/* ------------------------------------------------------------------- */
+
+.articlesContainer {
+    /* --- A MÁGICA (Sincronizado com .navContainer) --- */
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    /* Usa o mesmo padding lateral (essencial para o alinhamento) */
+    padding: 1rem 1rem; 
+    margin-left: 14rem;
+    /* Espaçamento abaixo do NavBar */
+    margin-top: 1rem; 
+}
+
+.sectionTitle {
+    /* Adaptação direta de .sectionTitle */
+    font-size: 0.9rem;
+    font-weight: 1000;
+    color: hsl(0, 0%, 60%); 
+    display: block; 
+    width: 100%;
+    margin-top: -15px;
+    
+    text-align: left; 
+    
+    /* Recuo idêntico ao dos projetos */
+    margin-left: 9rem; 
+    width: 40%; 
+    
+    margin-bottom: 0.5rem;
+}
+
+.cardGrid {
+    /* Adaptação direta de .cardGrid */
+    display: block;
+    width: 40%;
+    text-align: left; 
+    
+    /* Alinhamento idêntico ao dos projetos */
+    margin-left: 9rem;
+    /* Espaçamento grande entre os artigos individuais */
+    gap: 0rem;
+}
+
+.sectionViewMoreLink {
+    /* Adaptação direta de .sectionViewMoreLink */
+    display: block;
+    text-align: left; 
+    width: 30%;
+    
+    /* Alinhamento idêntico ao dos projetos */
+    margin-left: 7.8rem;
+    
+    margin-top: 1rem; 
+    padding-left: 1rem; 
+    
+    font-size: 0.9rem;
+    color: #646464;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+/* Nota: O seu CSS original usava .viewMoreLink:hover, mas vou usar .sectionViewMoreLink:hover para consistência */
+.sectionViewMoreLink:hover {
+    color: #E5E7EB;
+}
+
+
+/* ------------------------------------------------------------------- */
+/* Mídia Queries para Responsividade */
+/* ------------------------------------------------------------------- */
+
+@media (max-width: 1024px) {
+    .articlesContainer {
+        padding: 5rem 2rem;
+    }
+    
+    .sectionTitle {
+        font-size: 2.5rem;
+        margin-bottom: 3.5rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .articlesContainer {
+        padding: 4rem 1.5rem;
+    }
+    
+    .sectionTitle {
+        font-size: 2rem;
+        text-align: center; 
+        width: 100%; 
+        /* Mantendo a cor da borda do ProjectSection */
+        border-bottom: 3px solid #6366F1;
+    }
+}

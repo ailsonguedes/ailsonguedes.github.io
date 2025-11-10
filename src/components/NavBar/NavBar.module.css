@@ -5,7 +5,7 @@
   margin-top: 6rem; /* Adiciona 2rem (cerca de 32px) de margem acima do NavBar */
 
   /* 2. Centralização Horizontal */
-  max-width: 1000px; /* Define uma largura máxima para o conteúdo da sua navegação */
+  max-width: 550px; /* Define uma largura máxima para o conteúdo da sua navegação */
   margin-left: auto; /* Centraliza o contêiner à esquerda */
   margin-right: auto; /* Centraliza o contêiner à direita */
   /* NOTA: 'margin: 2rem auto 0;' é uma forma mais curta de combinar os itens 1 e 2 */

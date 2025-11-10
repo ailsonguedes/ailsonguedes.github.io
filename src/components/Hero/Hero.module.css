@@ -2,16 +2,15 @@
 
 .heroContainer {
   /* --- A MÁGICA (Sincronizado com .navContainer) --- */
-
   /* 1. Define a mesma largura máxima */
-  max-width: 1000px; 
+  max-width: 550px; 
 
   /* 2. Centraliza o container */
   margin-left: auto;
   margin-right: auto;
 
   /* 3. Usa o mesmo padding lateral (essencial para o alinhamento) */
-  padding: 0 20rem; 
+  padding: 0 2rem; 
 
   /* --- Estilo do Hero --- */
 
