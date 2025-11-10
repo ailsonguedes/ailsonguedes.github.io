@@ -1,30 +1,59 @@
-import styles from './ProjectsSection.module.css'; // O CSS para o layout da seção
-import { ProjectItem } from '../ProjectItem/ProjectItem'; // O componente agrupador de ano
-// Importe os dados E o tipo ProjectGroup do seu arquivo de dados
-import { projectsSectionData, type ProjectGroup } from '../../pages/ProjectsSection/ProjectsSectionData'; 
+import styles from './ProjectsSection.module.css';
+import { ProjectItem } from '../ProjectItem/ProjectItem'; 
+import { projectsSectionData, type Project } from '../../pages/ProjectsSection/ProjectsSectionData'; 
+
+/**
+ * 💡 Função para agrupar e classificar os projetos por ano.
+ * Retorna um objeto onde as chaves são os anos (ex: { '2025': [proj1, proj2], '2023': [proj3], ... })
+ */
+const groupProjectsByYear = (projects: Project[]) => {
+    // 1. Agrupa os projetos por ano
+    const grouped = projects.reduce((acc, project) => {
+        const year = project.year;
+        if (!acc[year]) {
+            acc[year] = [];
+        }
+        acc[year].push(project);
+        return acc;
+    }, {} as Record<string, Project[]>);
+
+    // 2. Classifica os anos em ordem decrescente (do mais novo para o mais antigo)
+    const sortedYears = Object.keys(grouped).sort((a, b) => b.localeCompare(a));
+    
+    // 3. Constrói o array final de grupos na ordem correta
+    return sortedYears.map(year => ({
+        year,
+        projects: grouped[year],
+    }));
+};
+
+const SECTION_VIEW_ALL_LINK = "/todos-os-projetos"; 
 
 export function ProjectsSection(){
+    // 💡 Chamada da função para obter os dados agrupados e classificados
+    const groupedAndSortedProjects = groupProjectsByYear(projectsSectionData);
+
     return (
-        // O elemento principal que será centralizado na página
         <section className={styles.projectsContainer}>
             
-            {/* O título da seção (ex: "Projetos") */}
-            <h3 className={styles.sectionTitle}>SOME PROJECTS</h3> 
+            <h3 className={styles.sectionTitle}>ALGUNS PROJETOS</h3> 
 
             <div className={styles.cardGrid}>
-                {/* Mapeia os dados, informando o tipo ProjectGroup para evitar o erro 'any' */}
-                {projectsSectionData.map((group: ProjectGroup) => (
+                {/* Itera sobre os grupos de ano já classificados */}
+                {groupedAndSortedProjects.map(group => (
                     <ProjectItem 
                         key={group.year} 
                         year={group.year}
-                        projects={group.projects} // Passa o array de projetos
+                        // O ProjectItem só precisa receber o array de projetos e o ano
+                        projects={group.projects} 
                     />
                 ))}
-            </div>
-
-            <a href="" className={styles.viewMoreLink}>
+            </div> 
+            
+            <a href={SECTION_VIEW_ALL_LINK} className={styles.sectionViewMoreLink}>
                 view more...
             </a>
+
         </section>
     );
 }

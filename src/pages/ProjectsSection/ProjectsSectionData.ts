@@ -1,32 +1,35 @@
-// Você pode colocar isso em um arquivo separado (ex: types/projects.ts)
 export interface Project {
   title: string;
   description: string;
+  year: string; // 💡 NOVO: Ano agora faz parte do projeto individual
   link: string;
 }
 
-export interface ProjectGroup {
-  year: string;
-  link: string;
-  projects: Project[];
-}
+// 💡 A estrutura de dados agora é uma lista PLANA de projetos
+export const projectsSectionData: Project[] = [
+  {
+    title: "Portfolio Web Model", 
+    description: "Meu portfólio pessoal...", 
+    year: "2025", 
+    link: "https://gelzin.com/" 
+  },
+  { 
+    title: "API CAR", 
+    description: "a simple api...", 
+    year: "2023", 
+    link: "https://api-car-exemplo.com/" 
+  },
+  { 
+    title: "Website Antigo", 
+    description: "Um projeto de 2024.", 
+    year: "2024", 
+    link: "https://old-site.com/" 
+  },
+  { 
+    title: "Outro Projeto 2025", 
+    description: "Mais um projeto de 2025.", 
+    year: "2025", 
+    link: "https://another-2025.com/" 
+  },
 
-// Exemplo de dados para usar no ProjectsSection.tsx
-export const projectsSectionData: ProjectGroup[] = [
-  {
-    year: "2025",
-    link: "https://gelzin.com/",
-    projects: [
-      { title: "Portfolio Web Model", description: "Meu portfólio pessoal...", link: "https://gelzin.com/" },
-      { title: "Projeto 02", description: "Descrição do Projeto 02...", link: "https://gemini.google.com/app?hl=pt-BR" },
-    ],
-  },
-  {
-    year: "2024",
-    link: "#",
-    projects: [
-      { title: "API de Música", description: "Um backend em Node.js...", link: "#" },
-      { title: "Projeto 04", description: "Descrição do Projeto 04...", link: "#" },
-    ],
-  },
 ];

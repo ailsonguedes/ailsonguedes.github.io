@@ -7,11 +7,12 @@
     margin-left: auto;
     margin-right: auto;
 
+
     /* Espaçamento abaixo do NavBar */
-    margin-top: -1.5rem; /* 64px (ajuste conforme o gosto) */
+    margin-top: 0.5rem; /* 64px (ajuste conforme o gosto) */
     margin-bottom: -2rem;
     /* Estilos de base do card externo (borda, fundo, etc.) */
-    padding: 0 19.1rem;
+    padding: 0 14rem;
     transition: border-color 0.3s ease, transform 0.3s ease;
 }
 
@@ -42,6 +43,7 @@
 
 /* Opcional: Estilos para o wrapper que contém o ProjectCard, se precisar de mais padding */
 .contentWrapper {
+  width: 200px;
   margin-left: -5.7rem;
   margin-top: -0.1rem;
   padding: 0.5rem 0;

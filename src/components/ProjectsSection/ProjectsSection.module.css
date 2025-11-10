@@ -4,7 +4,6 @@
 
 .projectsContainer {
     /* --- A MÁGICA (Sincronizado com .navContainer) --- */
-    
     /* 1. Define a mesma largura máxima */
     max-width: 1000px; 
     /* 2. Centraliza o container */
@@ -12,19 +11,18 @@
     margin-right: auto;
 
     /* 3. Usa o mesmo padding lateral (essencial para o alinhamento) */
-    padding: 1rem 1rem; 
+    padding: 1.2rem 1rem; 
 
     /* --- Estilo do Hero --- */
 
     /* Espaçamento abaixo do NavBar */
-    margin-top: 2.5rem; /* 64px (ajuste conforme o gosto) */
+    margin-top: 1.8rem; /* 64px (ajuste conforme o gosto) */
 }
 
 .sectionTitle {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     font-weight: 1000;
-    color: #999999; 
-
+    color: hsl(0, 0%, 60%); 
     /* 1. Faz o título ser um bloco que ocupa a largura total para que a margem funcione */
     display: block; 
     width: 100%;
@@ -33,36 +31,36 @@
     text-align: left; 
     /* 3. ADICIONA MARGEM ESQUERDA PARA CRIAR UM RECÚO (Ajuste o valor 20% conforme o desejado) */
     /* Isso empurra o texto para longe da borda direita por 20% da largura do contêiner */
-    margin-left: 13.5rem; 
+    margin-left: 9rem; 
     width: 20%; /* Ocupa 80% da largura restante */
     
     margin-bottom: 0.5rem;
 
-
 }
 
 .cardGrid {
+
     /* Garante que os grupos de ProjectItem fiquem em coluna, um abaixo do outro */
     display: block;
     width: 100%;
     text-align: left; 
     /* 💡 MUDANÇA (Reforço): Garante que não haja margem automática que empurre para a direita */
-    margin-left: 0%;
+    margin-left: 0.6rem;
     
     /* Espaçamento grande entre os diferentes anos (ProjectItem) */
     gap: 0rem;
 }
 
-.viewMoreLink {
+.sectionViewMoreLink {
     display: block;
     text-align: left; /* Alinha o texto do link à esquerda */
     width: 30%;
     /* APLICAR O MESMO AJUSTE DE MARGEM DO .cardGrid PARA ALINHAMENTO */
-    margin-left: 20.5%;
+    margin-left: 7.8rem;
     
     /* Espaçamento em relação ao conteúdo acima */
     margin-top: 1rem; 
-    padding-left: 0.5rem; /* Um pequeno padding se necessário */
+    padding-left: 1rem; /* Um pequeno padding se necessário */
     
     font-size: 0.9rem;
     color: #646464;

@@ -1,15 +1,21 @@
 .projectLink{
     text-decoration: none;
-    margin-top: -4rem;
+    margin-top: 1rem;
+    
+    /* Configuração para o sublinhado animado (Sublinhado invisível por padrão) */
+    background-image: linear-gradient(#6d6d6d, #f9f9fa);
+    background-position: left bottom; /* Inicia na parte inferior */
+    background-repeat: no-repeat;
+    background-size: 0% 1px; /* O sublinhado tem 1px de altura e 0% de largura */
+    transition: background-size 3s ease, color 0.5s ease; /* Transição para a animação */
 }
 
-
-.projectTitleLink {
-  /* Garante que o link ocupe o espaço e seja fácil de clicar */
-  text-decoration: none; 
-  color: inherit;
-  margin: 0;
+/* Efeito hover no link completo */
+.projectLink:hover {
+    /* 💡 Aumenta a largura do sublinhado de 0% para 100% */
+    background-size: 100% 1px;
 }
+
 
 .projectTitle {
   /* Estiliza o título (e alinha) */
@@ -17,10 +23,18 @@
   font-weight: 700;
   color: white;
   margin: 0;
+
+  /* Configuração para o sublinhado animado */
+  display: inline-block; /* Crucial para o sublinhado não ocupar 100% da largura, mas sim apenas o texto */
+  padding-bottom: 2px; /* Espaço entre o texto e o sublinhado */
+
+  /* Suaviza a animação de sublinhado e a mudança de cor */
+  transition: background-size 0.5s ease, color 0.5s ease; 
 }
 
-.projectTitleLink:hover .projectTitle {
-  color: #424242; /* Efeito hover no título */
+/* 💡 Efeito hover no título (mudança de cor permanece) */
+.projectLink:hover .projectTitle {
+  color: #424242; 
 }
 
 /* ------------------- Estrutura da Descrição ------------------- */
