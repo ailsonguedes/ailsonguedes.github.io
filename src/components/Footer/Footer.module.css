@@ -1,0 +1,81 @@
+/* ------------------------------------------------------------------- */
+/* Footer.module.css - Estilo para o componente de rodapé             */
+/* ------------------------------------------------------------------- */
+
+.footerContainer {
+    /* Cor de fundo escura, consistente com o tema */
+    background-color: #000000;
+    padding: 3rem 1rem;
+}
+
+/* Wrapper Interno: Define a largura máxima e alinha o conteúdo */
+.footerInnerWrapper {
+    /* Usa a mesma largura máxima de 1000px dos seus outros componentes */
+    max-width: 600px; 
+    margin: 0 auto; 
+    
+    /* Configuração Flexbox para alinhar LeftContainer à esquerda e RightContainer à direita */
+    display: flex;
+    justify-content: space-between; /* Empurra os containers para as extremidades */
+    align-items: center; /* Alinhamento vertical centralizado */
+    
+    padding: 0 1rem; /* Padding interno para telas menores */
+}
+
+/* Containers Esquerdo e Direito */
+.footerLeftContainer,
+.footerRightContainer {
+    display: flex;
+    align-items: center;
+    gap: 1rem; /* Espaçamento entre os itens dentro dos containers */
+}
+
+/* Link Geral */
+.footerLink {
+    text-decoration: none;
+    color: #9ca3af; /* Cor de texto cinza claro */
+    transition: color 0.3s ease;
+}
+
+/* Efeito Hover */
+.footerLink:hover {
+    color: #E5E7EB; /* Cor branca no hover */
+}
+
+/* Texto de Domínio */
+.footerText {
+    margin: 0;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* Ícones */
+.footerIcon {
+    /* 💡 ESTE É O CÓDIGO QUE MUDA O ÍCONE PRETO PARA CINZA CLARO */
+    filter: invert(60%) sepia(0%) saturate(0%) hue-rotate(230deg) brightness(100%) contrast(90%); /* Cor cinza nos ícones */
+    transition: filter 0.3s ease;
+}
+
+/* Efeito Hover nos Ícones (muda para branco) */
+.footerLink:hover .footerIcon {
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(230deg) brightness(100%) contrast(100%); /* Cor branca no hover */
+}
+
+/* ------------------- Responsividade ------------------- */
+@media (max-width: 768px) {
+    .footerInnerWrapper {
+        flex-direction: column; /* Empilha os containers em telas menores */
+        gap: 1.5rem;
+    }
+
+    .footerLeftContainer {
+        order: 2; /* Move o link principal para baixo em mobile */
+    }
+
+    .footerRightContainer {
+        order: 1; /* Move as redes sociais para cima em mobile */
+        /* Centraliza os ícones em mobile */
+        width: 100%;
+        justify-content: center;
+    }
+}

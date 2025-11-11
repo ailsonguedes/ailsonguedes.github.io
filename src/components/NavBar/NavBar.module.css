@@ -87,7 +87,7 @@
 .navLeftContainer:hover::before {
     opacity: 1; /* A luz aparece */
     /* Aplica a animação para mover a luz de cima para baixo e repete */
-    animation: sweepLight 3s ease-in-out forwards;
+    animation: sweepLight 2s ease-in-out forwards;
 }
 
 /* Os outros estilos do seu layout devem ser mantidos */

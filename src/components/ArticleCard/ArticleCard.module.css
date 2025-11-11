@@ -4,7 +4,6 @@
 
 .articleLink{
     /* Base do link/card: Usa Flexbox para o layout de duas colunas (Data + Conteúdo) */
-
     display: flex; 
     flex-wrap: nowrap; 
     text-decoration: none;
