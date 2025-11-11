@@ -7,29 +7,29 @@ export interface Project {
 
 // 💡 A estrutura de dados agora é uma lista PLANA de projetos
 export const projectsSectionData: Project[] = [
-  {
-    title: "Portfolio Web Model", 
-    description: "Meu portfólio pessoal...", 
-    year: "2025", 
-    link: "https://gelzin.com/" 
-  },
   { 
-    title: "API CAR", 
-    description: "a simple api...", 
+    title: "API Catalogo de Livros", 
+    description: "API Rest Desenvolvida utilizando Django.", 
     year: "2023", 
-    link: "https://api-car-exemplo.com/" 
+    link: "https://github.com/ailsonguedes/API-Catalogo-de-Livros" 
+  },
+  {
+    title: "QR Generator", 
+    description: "Um gerador de QR Code web feito com Flask.", 
+    year: "2023", 
+    link: "https://github.com/ailsonguedes/QR-Generator-" 
   },
   { 
-    title: "Website Antigo", 
-    description: "Um projeto de 2024.", 
-    year: "2024", 
-    link: "https://old-site.com/" 
-  },
-  { 
-    title: "Outro Projeto 2025", 
-    description: "Mais um projeto de 2025.", 
+    title: "Gerador de Frases (IA)", 
+    description: "Um gerador de frases simples feito com python integrando um agende de IA.", 
     year: "2025", 
-    link: "https://another-2025.com/" 
+    link: "https://github.com/ailsonguedes/Gerador-de-Frases-IA" 
+  },
+  { 
+    title: "Catalogo de Livros", 
+    description: "Aplicação Web de consulta de livros feito com Angular e Django.", 
+    year: "2024", 
+    link: "https://github.com/ailsonguedes/Catalogo_de_Livros--Angular-DJango-" 
   },
 
 ];

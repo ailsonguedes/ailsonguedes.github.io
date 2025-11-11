@@ -14,10 +14,10 @@ export function NavBar(){
                 <div className={styles.navSpace}></div>
 
                 <div className={styles.navRightContainer}>
-                    <a className={styles.navLinks}>Home</a>
-                    <a className={styles.navLinks}>Blog</a>
-                    <a className={styles.navLinks}>Projects</a>
-                    <a className={styles.navLinks}>CV</a>
+                    <a className={styles.navLinks} href='#'>Home</a>
+                    <a className={styles.navLinks} href='https://medium.com/@ailsonsixseven' target='_blank'>Blog</a>
+                    <a className={styles.navLinks} href='https://github.com/ailsonguedes' target='_blank'>Projects</a>
+                    <a className={styles.navLinks} href='#'>CV</a>
                 </div>
             </nav>
         </>

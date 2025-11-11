@@ -69,7 +69,7 @@
     transition: color 0.3s ease;
 }
 
-.viewMoreLink:hover {
+.sectionViewMoreLink:hover {
     color: #E5E7EB;
 }
 

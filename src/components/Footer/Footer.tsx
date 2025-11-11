@@ -26,17 +26,17 @@ export function Footer(){
                 <div className={styles.footerRightContainer}>
                     
                     {/* Exemplo de link para e-mail/contato */}
-                    <a href="mailto:contato@nosllyah.com" className={styles.footerLink}>
+                    <a href="mailto:ailsonsixseven@gmail.com" target='_blank' className={styles.footerLink}>
                         <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/mail.svg" alt="Email" className={styles.footerIcon} width="20" height="20"></img>
                     </a>
 
                     {/* GitHub */}
-                    <a href="https://github.com/seuusuario" className={styles.footerLink}>
+                    <a href="https://github.com/ailsonguedes" target='_blank' className={styles.footerLink}>
                         <img src={GITHUB_ICON_URL} alt="GitHub" className={styles.footerIcon} width="20" height="20"></img>
                     </a>
 
                     {/* LinkedIn */}
-                    <a href="https://linkedin.com/in/seuusuario" className={styles.footerLink}>
+                    <a href="https://www.linkedin.com/in/ailson-guedes-059795149/" target='_blank' className={styles.footerLink}>
                         <img src={LINKEDIN_ICON_URL} alt="LinkedIn" className={styles.footerIcon} width="20" height="20"></img>
                     </a>
                 </div>

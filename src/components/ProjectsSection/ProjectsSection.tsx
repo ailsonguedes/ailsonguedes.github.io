@@ -50,7 +50,7 @@ export function ProjectsSection(){
                 ))}
             </div> 
             
-            <a href={SECTION_VIEW_ALL_LINK} className={styles.sectionViewMoreLink}>
+            <a href="https://github.com/ailsonguedes" target='_blank' className={styles.sectionViewMoreLink}>
                 view more...
             </a>
 
