@@ -35,7 +35,7 @@ const sortArticlesByDate = (articles: Article[]) => {
     });
 };
 
-const SECTION_VIEW_ALL_LINK = "/todos-os-artigos";
+/* const SECTION_VIEW_ALL_LINK = "/todos-os-artigos"; */
 
 export function ArticlesSection(){
     const sortedArticles = sortArticlesByDate(articlesSectionData);

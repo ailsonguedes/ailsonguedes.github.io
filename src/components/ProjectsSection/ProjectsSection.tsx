@@ -27,7 +27,7 @@ const groupProjectsByYear = (projects: Project[]) => {
     }));
 };
 
-const SECTION_VIEW_ALL_LINK = "/todos-os-projetos"; 
+/* const SECTION_VIEW_ALL_LINK = "/todos-os-projetos"; */
 
 export function ProjectsSection(){
     // 💡 Chamada da função para obter os dados agrupados e classificados
