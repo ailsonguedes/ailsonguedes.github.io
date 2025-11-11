@@ -10,11 +10,11 @@ export function ArticleCard({ article }: ArticleCardProps){
     const formattedDate = `${article.month} ${article.day}, ${article.year}`;
     
     return (
-        // O link principal usa Flexbox para alinhar a data à esquerda e o conteúdo à direita
+      <>
+
+        <p className={styles.articleDate}>{formattedDate}</p>
+
         <a href={article.link} className={styles.articleLink} target="_blank" rel="noopener noreferrer">
-            
-            {/* Coluna 1: A data (empurrada para a margem) */}
-            <p className={styles.articleDate}>{formattedDate}</p>
             
             {/* Coluna 2: Conteúdo (título e descrição recuados) */}
             <div className={styles.articleContent}>
@@ -23,5 +23,6 @@ export function ArticleCard({ article }: ArticleCardProps){
             </div>
             
         </a>
+    </>
     );
 }

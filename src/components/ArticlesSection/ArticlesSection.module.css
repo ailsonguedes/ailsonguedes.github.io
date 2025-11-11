@@ -26,10 +26,10 @@
     text-align: left; 
     
     /* Recuo idêntico ao dos projetos */
-    margin-left: 9rem; 
+    margin-left: 9.5rem; 
     width: 40%; 
     
-    margin-bottom: 0.5rem;
+    margin-bottom: -0.8rem;
 }
 
 .cardGrid {

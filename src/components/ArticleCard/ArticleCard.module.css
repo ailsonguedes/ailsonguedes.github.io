@@ -10,7 +10,7 @@
     margin: 1rem 0 0 0; 
     color: inherit;
     width: 100%;
-    margin-left: -9rem;
+    margin-left: 0.4rem;
     
     /* A transição de cor do link, mas o sublinhado está no .articleTitle */
     transition: color 0.5s ease;
@@ -24,18 +24,18 @@
 /* ------------------- Coluna 1: Data (Esquerda/Margem) ------------------- */
 .articleDate {
     /* Define a largura da coluna da data (recuo de 7.8rem) */
-
     flex: 0 0 7.4rem; /* Largura fixa */
     text-align: right; 
     
     font-size: 0.9rem;
     font-weight: 500;
     color: #6b6a6a; 
-    
     margin: 0;
-    padding-right: 1.5rem; /* Espaçamento entre a data e o título */
-    
-    transition: color 0.3s ease;
+    margin-right: 20rem;
+    margin-left: -10rem;
+    padding-right: 1rem; /* Espaçamento entre a data e o título */
+    transform: translateY(1.7em);
+
 }
 
 /* ------------------- Coluna 2: Conteúdo (Título/Descrição Recuados) ------------------- */
@@ -46,7 +46,6 @@
 
 .articleTitle {
     margin-top: 0; 
-    
     font-size: 1rem; 
     font-weight: 700;
     color: white;

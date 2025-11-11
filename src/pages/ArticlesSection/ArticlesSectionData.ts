@@ -26,7 +26,7 @@ export const articlesSectionData: Article[] = [
     link: "https://gelzin.com/article/2023/08/05" 
   },
   { 
-    title: "Article November 2025", 
+    title: "Article November 2025 ", 
     description: "Um artigo de novembro, deve vir primeiro.", 
     year: "2025", 
     month: "November", 

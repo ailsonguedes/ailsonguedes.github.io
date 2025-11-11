@@ -10,9 +10,10 @@ export function Hero(){
 
                 <div className={styles.heroUnderContainer}>
                     <p className={styles.heroText}>
-                        I'm a Brazilian software developer, 
-                        musician, and music producer passionate about technology 
-                        and innovation, always seeking knowledge and growth.
+                        Desenvolvedor de Software, Músico e Produtor Musical. 
+                        Sou movido pelo desafio de criar soluções robustas e de alta performance, 
+                        onde a funcionalidade e a simplicidade técnica prevalecem para entregar 
+                        resultados sólidos e impactantes.
                     </p>
                 </div>
             </div>
