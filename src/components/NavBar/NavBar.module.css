@@ -19,7 +19,8 @@
   justify-content: space-between; /* Mantém o logo à esquerda e os links à direita */
   align-items: center;
 
-  background-color: var(--cor-fundo-pagina);
+  /* background-color: var(--cor-fundo-pagina); */
+  background-color: transparent;
   color: var(--cor-texto-principal);
 }
 
