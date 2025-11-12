@@ -23,20 +23,23 @@ export function Footer(){
                 {/* 1. Container Esquerdo (Idêntico) */}
                 <div className={styles.footerLeftContainer}>
                     {/*  NOSSO NOVO BOTÃO DE TEMA  */}
-                    <button 
-                        className={styles.themeToggle} // Um novo estilo para o botão
-                        onClick={toggleTheme}         // A função do nosso hook!
-                        title="Alternar tema"         // Dica para acessibilidade
-                    >
-                        {/* Renderização condicional: 
-                          Mostra o Sol se o tema for 'dark', ou a Lua se for 'light'
-                        */}
-                        {theme === 'light' ? (
-                            <img src={MOON_ICON_URL} alt="Tema Escuro" className={styles.footerIcon} width="20" height="20" />
-                        ) : (
-                            <img src={SUN_ICON_URL} alt="Tema Claro" className={styles.footerIcon} width="20" height="20" />
-                        )}
-                    </button>                    <a href="ailsonguedes.com" className={styles.footerLink}>
+                    <div className={styles.footerLeftButtonContainer}>
+                        <button 
+                            className={styles.themeToggle} // Um novo estilo para o botão
+                            onClick={toggleTheme}         // A função do nosso hook!
+                            title="Alternar tema"         // Dica para acessibilidade
+                        >
+                            {/* Renderização condicional: 
+                            Mostra o Sol se o tema for 'dark', ou a Lua se for 'light'
+                            */}
+                            {theme === 'light' ? (
+                                <img src={MOON_ICON_URL} alt="Tema Escuro" className={styles.footerIcon} width="20" height="20" />
+                            ) : (
+                                <img src={SUN_ICON_URL} alt="Tema Claro" className={styles.footerIcon} width="20" height="20" />
+                            )}
+                        </button> 
+                    </div>                   
+                    <a href="ailsonguedes.com" className={styles.footerLink}>
                         <p className={styles.footerText}>ailsonguedes.github.io</p>
                     </a>
                 </div>

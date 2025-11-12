@@ -25,7 +25,7 @@ html[data-theme="dark"] {
     --cor-texto-principal: #222222;
     
     /* --- LAYOUT E BORDAS --- */
-    --cor-borda-componente: #E0E0E0; 
+    --cor-borda-componente: #3A3A3A; /* #E0E0E0 */
 
     /* --- HOVER E INTERAÇÃO (fundo) --- */
     --cor-fundo-hover-componente: #bcbcbc; 
@@ -45,7 +45,7 @@ html[data-theme="dark"] {
     --cor-texto-principal: #EFEFEF;
     
     /* --- LAYOUT E BORDAS --- */
-    --cor-borda-componente: #3A3A3A; 
+    --cor-borda-componente: #E0E0E0; /* #3A3A3A */
 
     /* --- HOVER E INTERAÇÃO (fundo) --- */
     --cor-fundo-hover-componente: #2C2C2C; 

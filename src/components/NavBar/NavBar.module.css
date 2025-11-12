@@ -36,7 +36,7 @@
     background-color: transparent;
 
     /* MUDANÇA 1: Borda sempre visível e com a cor da luz */
-    border: 2px solid var(--cor-borda-componente); /* Define a cor da borda que você quer sempre ativa */
+    border: 1px solid var(--cor-borda-componente); /* Define a cor da borda que você quer sempre ativa */
   
     transition: box-shadow 0.3s ease; /* Transição apenas para a sombra ao hover */
 }
