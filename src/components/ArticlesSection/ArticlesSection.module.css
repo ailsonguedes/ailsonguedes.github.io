@@ -9,7 +9,7 @@
     margin-right: auto;
     /* Usa o mesmo padding lateral (essencial para o alinhamento) */
     padding: 1rem 1rem; 
-    margin-left: 14rem;
+    margin-left: 21rem;
     /* Espaçamento abaixo do NavBar */
     margin-top: 1rem; 
 }
@@ -21,7 +21,7 @@
     color: hsl(0, 0%, 60%); 
     display: block; 
     width: 100%;
-    margin-top: -15px;
+    margin-top: -10px;
     
     text-align: left; 
     
@@ -50,11 +50,11 @@
     text-align: left; 
     width: 30%;
     
-    /* Alinhamento idêntico ao dos projetos */
-    margin-left: 7.8rem;
+    /* Alinhado com .articleTitle (cardGrid margin-left: 9rem + articleLink margin-left: 0.4rem) */
+    margin-left: 9.4rem;
     
     margin-top: 1rem; 
-    padding-left: 1rem; 
+    padding-left: 0; 
     
     font-size: 0.9rem;
     color: #646464;
@@ -72,27 +72,138 @@
 /* Mídia Queries para Responsividade */
 /* ------------------------------------------------------------------- */
 
-@media (max-width: 1024px) {
+/* iPad 13" e tablets grandes */
+@media (max-width: 1366px) {
     .articlesContainer {
-        padding: 5rem 2rem;
+        padding: 1rem 1rem;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 1.5rem;
+        max-width: 600px;
     }
     
     .sectionTitle {
-        font-size: 2.5rem;
-        margin-bottom: 3.5rem;
+        font-size: 0.85rem;
+        margin-left: 1rem;
+        width: auto;
+        margin-bottom: -1rem;
+    }
+    
+    .cardGrid {
+        margin-left: -3rem;
+        width: 100%;
+    }
+    
+    .sectionViewMoreLink {
+        margin-left: 0.5rem;
+        padding-left: 1rem;
+        width: auto;
+        margin-top: 1.8rem;
     }
 }
 
-@media (max-width: 640px) {
+/* iPad 11" e tablets médios */
+@media (max-width: 1194px) {
     .articlesContainer {
-        padding: 4rem 1.5rem;
+        padding: 1rem 1rem;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 1.5rem;
+        max-width: 600px;
+    }
+}
+
+/* iPad padrão e iPad Mini landscape */
+@media (max-width: 1024px) {
+    .articlesContainer {
+        padding: 1rem 1rem;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 1.5rem;
+        max-width: 600px;
     }
     
     .sectionTitle {
-        font-size: 2rem;
-        text-align: center; 
-        width: 100%; 
-        /* Mantendo a cor da borda do ProjectSection */
-        border-bottom: 3px solid #6366F1;
+        font-size: 0.85rem;
+        margin-left: 1rem;
+        width: auto;
+        margin-bottom: -1rem;
+    }
+    
+    .cardGrid {
+        margin-left: -3rem;
+        width: 100%;
+    }
+    
+    .sectionViewMoreLink {
+        margin-left: 0.5rem;
+        padding-left: 1rem;
+        width: auto;
+        margin-top: 1.8rem;
+    }
+}
+
+/* Tablets pequenos e celulares grandes */
+@media (max-width: 768px) {
+    .articlesContainer {
+        padding: 1rem 0.75rem;
+        margin-top: 1rem;
+    }
+    
+    .sectionTitle {
+        font-size: 0.8rem;
+        margin-left: 0.5rem;
+    }
+    
+    .cardGrid {
+        margin-left: 0.5rem;
+    }
+    
+    .sectionViewMoreLink {
+        margin-left: 0.5rem;
+        font-size: 0.85rem;
+    }
+}
+
+/* Celulares */
+@media (max-width: 640px) {
+    .articlesContainer {
+        padding: 0.75rem 0.5rem;
+        margin-top: 0.75rem;
+    }
+    
+    .sectionTitle {
+        font-size: 0.75rem;
+        text-align: left;
+        width: 100%;
+        margin-left: 0;
+        margin-bottom: 0.5rem;
+    }
+    
+    .cardGrid {
+        margin-left: 0;
+        width: 100%;
+    }
+    
+    .sectionViewMoreLink {
+        margin-left: 0;
+        padding-left: 0.5rem;
+        font-size: 0.8rem;
+        width: auto;
+    }
+}
+
+/* Celulares pequenos */
+@media (max-width: 480px) {
+    .articlesContainer {
+        padding: 0.5rem 0.25rem;
+    }
+    
+    .sectionTitle {
+        font-size: 0.7rem;
+    }
+    
+    .sectionViewMoreLink {
+        font-size: 0.75rem;
     }
 }

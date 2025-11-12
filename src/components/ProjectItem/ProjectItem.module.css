@@ -43,8 +43,109 @@
 
 /* Opcional: Estilos para o wrapper que contém o ProjectCard, se precisar de mais padding */
 .contentWrapper {
-  width: 200px;
+  width: auto;
+  min-width: 400px;
+  max-width: 100%;
   margin-left: -5.7rem;
   margin-top: -0.1rem;
   padding: 0.5rem 0;
+}
+
+/* ------------------------------------------------------------------- */
+/* Mídia Queries para Responsividade */
+/* ------------------------------------------------------------------- */
+
+/* iPad 13" e tablets grandes */
+@media (max-width: 1366px) {
+  .projectContainer {
+    padding: 0 1rem;
+    max-width: 600px;
+  }
+  
+  .projectYear {
+    margin-left: -1.5rem;
+    margin-right: 1rem;
+    font-size: 0.85rem;
+  }
+  
+  .contentWrapper {
+    margin-left: -0.5rem;
+    min-width: 300px;
+  }
+}
+
+/* iPad 11" e tablets médios */
+@media (max-width: 1194px) {
+  .projectContainer {
+    padding: 0 1rem;
+    max-width: 600px;
+  }
+}
+
+/* iPad padrão e iPad Mini landscape */
+@media (max-width: 1024px) {
+  .projectContainer {
+    padding: 0 1rem;
+    max-width: 600px;
+  }
+  
+  .projectYear {
+    margin-left: -1.5rem;
+    margin-right: 1rem;
+    font-size: 0.85rem;
+  }
+  
+  .contentWrapper {
+    margin-left: -0.5rem;
+    min-width: 300px;
+  }
+}
+
+/* Tablets pequenos e celulares grandes */
+@media (max-width: 768px) {
+  .projectContainer {
+    padding: 0 1rem;
+  }
+  
+  .projectYear {
+    margin-left: -1rem;
+    font-size: 0.85rem;
+  }
+  
+  .contentWrapper {
+    margin-left: 0;
+    min-width: 250px;
+  }
+}
+
+/* Celulares */
+@media (max-width: 640px) {
+  .projectContainer {
+    padding: 0 0.5rem;
+    margin-bottom: -1rem;
+  }
+  
+  .projectYear {
+    margin-left: 0;
+    margin-right: 0.5rem;
+    font-size: 0.8rem;
+    transform: translateY(0);
+  }
+  
+  .contentWrapper {
+    margin-left: 0;
+    min-width: 100%;
+    padding: 0.25rem 0;
+  }
+}
+
+/* Celulares pequenos */
+@media (max-width: 480px) {
+  .projectContainer {
+    padding: 0 0.25rem;
+  }
+  
+  .projectYear {
+    font-size: 0.75rem;
+  }
 }
