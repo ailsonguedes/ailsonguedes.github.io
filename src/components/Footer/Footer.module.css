@@ -4,7 +4,7 @@
 
 .footerContainer {
     /* Cor de fundo escura, consistente com o tema */
-    background-color: #000000;
+    background-color: var(--cor-fundo-pagina);
     padding: 3rem 1rem;
 }
 
@@ -33,13 +33,13 @@
 /* Link Geral */
 .footerLink {
     text-decoration: none;
-    color: #9ca3af; /* Cor de texto cinza claro */
+    color: var(--cor-universal-base); /* Cor de texto cinza claro */
     transition: color 0.3s ease;
 }
 
 /* Efeito Hover */
 .footerLink:hover {
-    color: #E5E7EB; /* Cor branca no hover */
+    color: var(--cor--universal-hovere); /* Cor branca no hover */
 }
 
 /* Texto de Domínio */
@@ -61,6 +61,40 @@
     filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(230deg) brightness(100%) contrast(100%); /* Cor branca no hover */
 }
 
+.themeToggle {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    
+    /* Para alinhar com os outros ícones se eles tiverem margins/paddings */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* O .footerIcon dentro do botão se comportará como os outros */
+  .themeToggle .footerIcon {
+    /* O CSS que você já tem para .footerIcon será aplicado aqui */
+    /* (como cor, hover, etc.) */
+  }
+
+  /* Footer.module.css */
+
+.footerIcon {
+    /* ...seus outros estilos (width, height)... */
+    color: var(--cor-universal-base); /* <-- Pega a cor do theme.css */
+    transition: color 0.3s ease;
+  }
+  
+  /* O hover também! */
+  .footerLink:hover .footerIcon,
+  .themeToggle:hover .footerIcon {
+    color: var(--cor--universal-hover);
+  }
+
+  
 /* ------------------------------------------------------------------- */
 /* Mídia Queries para Responsividade */
 /* ------------------------------------------------------------------- */

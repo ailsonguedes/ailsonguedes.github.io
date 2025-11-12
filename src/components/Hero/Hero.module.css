@@ -22,7 +22,7 @@
 .heroTitle {
   font-family: "Open Sans", sans-serif;
   font-size: 1.2rem; /* 40px */
-  color: white;
+  color: var(--cor-texto-principal);
   margin: 0; /* Remove margem padrão do h1 */
   padding: 0;
 }
@@ -30,7 +30,7 @@
 .heroText {
   font-family: "Open Sans", sans-serif;
   font-size: 0.9rem; /* 18px */
-  color: #cccccc; /* Um cinza claro para diferenciar do título */
+  color: var(--cor-texto-secundario); /* Um cinza claro para diferenciar do título */
   line-height: 1.6; /* Melhora a legibilidade das duas linhas */
   margin-top: 1.5rem; /* Espaço entre o título e o texto */
   max-width: 100%; /* Opcional: se quiser que o texto pare antes do fim */

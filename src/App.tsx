@@ -6,6 +6,8 @@ import { ProjectsSection } from './components/ProjectsSection/ProjectsSection'
 import { ArticlesSection } from './components/ArticlesSection/ArticlesSection'
 import { Footer } from './components/Footer/Footer'
 
+import '../src/assets/css/theme.css'
+
 function App() {
 
   return (

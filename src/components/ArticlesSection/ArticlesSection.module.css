@@ -18,7 +18,7 @@
     /* Adaptação direta de .sectionTitle */
     font-size: 0.9rem;
     font-weight: 1000;
-    color: hsl(0, 0%, 60%); 
+    color: var(--cor-texto-secundario); 
     display: block; 
     width: 100%;
     margin-top: -10px;
@@ -57,14 +57,14 @@
     padding-left: 0; 
     
     font-size: 0.9rem;
-    color: #646464;
+    color: var(--cor-texto-secundario);
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 /* Nota: O seu CSS original usava .viewMoreLink:hover, mas vou usar .sectionViewMoreLink:hover para consistência */
 .sectionViewMoreLink:hover {
-    color: #E5E7EB;
+    color: var(--cor-link-hover);
 }
 
 

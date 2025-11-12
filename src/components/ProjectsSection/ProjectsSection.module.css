@@ -22,7 +22,7 @@
 .sectionTitle {
     font-size: 0.9rem;
     font-weight: 1000;
-    color: hsl(0, 0%, 60%); 
+    color: var(--cor-texto-secundario); 
     /* 1. Faz o título ser um bloco que ocupa a largura total para que a margem funcione */
     display: block; 
     width: 100%;
@@ -63,13 +63,13 @@
     padding-left: 1rem; /* Um pequeno padding se necessário */
     
     font-size: 0.9rem;
-    color: #646464;
+    color: var(--cor-texto-secundario);
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 .sectionViewMoreLink:hover {
-    color: #E5E7EB;
+    color: var(--cor-link-hover);
 }
 
 /* ------------------------------------------------------------------- */

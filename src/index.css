@@ -2,8 +2,8 @@
 
 /* Define a cor de fundo para a tela inteira */
 body {
-  background-color: #000000; /* Preto absoluto */
-  color: #ffffff; /* Opcional: define a cor do texto padrão para branco, para contraste */
+  background-color: var(--cor-fundo-pagina); /* Preto absoluto */
+  color: var(--cor-texto-principal); /* Opcional: define a cor do texto padrão para branco, para contraste */
   margin: 0; /* Remove a margem padrão do navegador */
   padding: 0;
 }

@@ -3,37 +3,34 @@
 /* ------------------------------------------------------------------- */
 
 .articleLink{
-    /* Base do link/card: Usa Flexbox para o layout de duas colunas (Data + Conteúdo) */
+    /* Base do link/card */
     display: flex; 
     flex-wrap: nowrap; 
     text-decoration: none;
-    margin: 1rem 0 0 0; 
+    margin: 1rem 0 0 0.4rem; 
     color: inherit;
     width: 100%;
-    margin-left: 0.4rem;
     
     /* A transição de cor do link, mas o sublinhado está no .articleTitle */
     transition: color 0.5s ease;
 }
 
-/* Efeito hover no link completo */
-/* Deixado vazio, pois a ação principal está no .articleTitle:hover */
-
 /* ------------------- Coluna 1: Data (Esquerda/Margem) ------------------- */
 .articleDate {
-    /* Define a largura da coluna da data (recuo de 7.8rem) */
     flex: 0 0 7.4rem; /* Largura fixa */
     text-align: right; 
     
     font-size: 0.9rem;
     font-weight: 500;
-    color: #6b6a6a; 
+    
+    /* 🎨 CORREÇÃO TEMA: Usa a cor universal base para um cinza consistente */
+    color: var(--cor-universal-base); 
+    
     margin: 0;
-    margin-right: 20rem;
+    margin-right: 20rem; /* Margens agressivas. Mantenha se for intencional */
     margin-left: -10rem;
-    padding-right: 1rem; /* Espaçamento entre a data e o título */
+    padding-right: 1rem;
     transform: translateY(1.7em);
-
 }
 
 /* ------------------- Coluna 2: Conteúdo (Título/Descrição Recuados) ------------------- */
@@ -46,26 +43,29 @@
     margin-top: 0; 
     font-size: 1rem; 
     font-weight: 700;
-    color: white;
+    /* Usa a cor principal para o título, que muda no hover */
+    color: var(--cor-texto-principal); 
     margin-bottom: 0; 
 
-    /* Essencial para que o sublinhado tenha apenas a largura do texto */
+    /* Essencial para o sublinhado */
     display: inline-block; 
     padding-bottom: 2px; 
     
-    /* Configuração para o sublinhado animado no TÍTULO */
-    background-image: linear-gradient(#6d6d6d, #f9f9fa);
+    /* 💡 CORREÇÃO SUBLINHADO: Simplifica para cor sólida usando o universal base */
+    background-image: linear-gradient(to right, var(--cor-universal-base), var(--cor-universal-base));
     background-position: left bottom; 
     background-repeat: no-repeat;
     background-size: 0% 1px; /* Invisível por padrão */
     
-    /* Transição do sublinhado (3s) e da cor do texto (0.5s) */
-    transition: background-size 3s ease, color 0.5s ease;
+    /* 💡 CORREÇÃO TRANSIÇÃO: Velocidade de transição padrão de 0.5s */
+    transition: background-size 0.5s ease, color 0.5s ease;
 }
 
-/* 💡 Ativa o sublinhado no TÍTULO e muda sua cor quando o LINK recebe hover */
+/* 💡 Ativa o sublinhado e muda a cor do texto quando o LINK recebe hover */
 .articleLink:hover .articleTitle {
-    color: #424242; /* Mudança de cor do texto */
+    /* 🎨 CORREÇÃO TEMA: Usa a variável universal de HOVER (sempre branco) */
+    color: var(--cor-universal-hover); 
+    
     background-size: 100% 1px; /* O sublinhado é ativado e cresce */
 }
 
@@ -73,7 +73,8 @@
 /* ------------------- Estrutura da Descrição ------------------- */
 .articleDescription {
     font-size: 1rem;
-    color: #6b6a6a;
+    /* 🎨 CORREÇÃO TEMA: Usa a cor universal base */
+    color: var(--cor-universal-base);
     line-height: 1.5;
     margin-top: 0; 
     margin-left: 0.3rem;
