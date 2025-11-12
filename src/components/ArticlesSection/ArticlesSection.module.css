@@ -64,7 +64,7 @@
 
 /* Nota: O seu CSS original usava .viewMoreLink:hover, mas vou usar .sectionViewMoreLink:hover para consistência */
 .sectionViewMoreLink:hover {
-    color: var(--cor-link-hover);
+    color: var(--cor-universal-hover);
 }
 
 

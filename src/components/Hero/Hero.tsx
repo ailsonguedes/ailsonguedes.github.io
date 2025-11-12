@@ -10,10 +10,7 @@ export function Hero(){
 
                 <div className={styles.heroUnderContainer}>
                     <p className={styles.heroText}>
-                        Desenvolvedor de Software, Músico e Produtor Musical. 
-                        Sou movido pelo desafio de criar soluções robustas e de alta performance, 
-                        onde a funcionalidade e a simplicidade técnica prevalecem para entregar 
-                        resultados sólidos e impactantes.
+                        Desenvolvedor de Software, Músico e Produtor Musical. Sou movido pelo desafio de criar soluções robustas e de alta performance, onde a funcionalidade e a simplicidade técnica prevalecem para entregar resultados sólidos e impactantes.
                     </p>
                 </div>
             </div>

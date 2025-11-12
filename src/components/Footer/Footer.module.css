@@ -52,14 +52,14 @@
 
 /* Ícones */
 .footerIcon {
-    /* 💡 ESTE É O CÓDIGO QUE MUDA O ÍCONE PRETO PARA CINZA CLARO */
-    filter: invert(60%) sepia(0%) saturate(0%) hue-rotate(230deg) brightness(100%) contrast(90%); /* Cor cinza nos ícones */
+    /*  ESTE É O CÓDIGO QUE MUDA O ÍCONE PRETO PARA CINZA CLARO */
+    filter: invert(60%) sepia(0%) saturate(0%) hue-rotate(230deg) brightness(50%) contrast(90%); /* Cor cinza nos ícones */
     transition: filter 0.3s ease;
 }
 
 /* Efeito Hover nos Ícones (muda para branco) */
 .footerLink:hover .footerIcon {
-    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(230deg) brightness(100%) contrast(100%); /* Cor branca no hover */
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(230deg) brightness(70%) contrast(100%); /* Cor branca no hover */
 }
 
 .themeToggle {
@@ -82,6 +82,22 @@
   }
 
   /* Footer.module.css */
+  .footerLeftButtonContainer {
+    width: 30px; 
+    height: 30px;
+    border-radius: 100%;
+    
+    /* Mantenha também as propriedades de centralização aqui */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Adicione as transições para um efeito suave, se desejar */
+    transition: background-color 0.2s ease;
+}
+
+.footerLeftButtonContainer:hover{
+    background-color: rgba(149, 148, 148, 0.097);
+}
 
 .footerIcon {
     /* ...seus outros estilos (width, height)... */
@@ -93,6 +109,7 @@
   .footerLink:hover .footerIcon,
   .themeToggle:hover .footerIcon {
     color: var(--cor--universal-hover);
+
   }
 
   
