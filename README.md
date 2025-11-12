@@ -36,4 +36,4 @@ Para demonstrar a flexibilidade do design e acessibilidade, o portfólio possui 
 |
 
 
-**Desenvolvido por:** [Ailson Guedes/[@ailsonguedes](https://github.com/ailsonguedes)]
+**Desenvolvido por:** [Ailson Guedes / [@ailsonguedes](https://github.com/ailsonguedes)]
