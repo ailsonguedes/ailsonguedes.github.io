@@ -7,7 +7,6 @@ import { useTheme } from '../../hooks/useTheme'; // <-- Ajuste o caminho se nece
 // URLs dos ícones (incluindo Sol e Lua)
 const GITHUB_ICON_URL = "https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/github.svg";
 const LINKEDIN_ICON_URL = "https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/linkedin.svg";
-const HOME_ICON_URL = "https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/home.svg";
 const MAIL_ICON_URL = "https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/mail.svg";
 const MOON_ICON_URL = "https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/moon.svg";
 const SUN_ICON_URL = "https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/sun.svg";
