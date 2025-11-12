@@ -4,7 +4,8 @@
 
 .footerContainer {
     /* Cor de fundo escura, consistente com o tema */
-    background-color: var(--cor-fundo-pagina);
+    /* background-color: var(--cor-fundo-pagina); */
+    background-color: transparent;
     padding: 3rem 1rem;
 }
 

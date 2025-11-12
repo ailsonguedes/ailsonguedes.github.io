@@ -28,7 +28,7 @@ html[data-theme="dark"] {
     --cor-borda-componente: #E0E0E0; 
 
     /* --- HOVER E INTERAÇÃO (fundo) --- */
-    --cor-fundo-hover-componente: #F5F5F5; 
+    --cor-fundo-hover-componente: #bcbcbc; 
 
     /* IMPORTANTE: As cores de links/ícones são herdadas do bloco universal acima */
 }
