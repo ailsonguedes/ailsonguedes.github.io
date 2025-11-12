@@ -1,47 +1,50 @@
-.projectLink{
-    text-decoration: none;
-    margin-top: 0.3rem;
-    /* Configuração para o sublinhado animado (Sublinhado invisível por padrão) */
-    background-image: linear-gradient(#6d6d6d, #f9f9fa);
-    background-position: left bottom; /* Inicia na parte inferior */
-    background-repeat: no-repeat;
-    background-size: 0% 1px; /* O sublinhado tem 1px de altura e 0% de largura */
-    transition: background-size 3s ease, color 0.5s ease; /* Transição para a animação */
+/* ------------------------------------------------------------------- */
+/* 1. CLASSE DO LINK COMPLETO (Apenas para layout) */
+/* ------------------------------------------------------------------- */
+.projectLink {
+  text-decoration: none;
+  margin-top: 0.3rem;
+  /* Removemos as regras de sublinhado daqui */
 }
 
-/* Efeito hover no link completo */
-.projectLink:hover {
-    /* Aumenta a largura do sublinhado de 0% para 100% */
-    background-size: 100% 1px;
+/* Efeito hover no link completo (usa a classe do título para aplicar o sublinhado) */
+.projectLink:hover .projectTitle {
+  /* Aumenta a largura do sublinhado de 0% para 100% */
+  background-size: 100% 1px;
 }
 
-
+/* ------------------------------------------------------------------- */
+/* 2. CLASSE DO TÍTULO (Onde o texto e o sublinhado devem viver) */
+/* ------------------------------------------------------------------- */
 .projectTitle {
   /* Estiliza o título (e alinha) */
   font-size: 1rem; 
   font-weight: 700;
-  color: white;
+  /* Cor do texto: usa a cor principal para o título */
+  color: var(--cor-texto-principal); 
   margin: 0;
 
-  /* Configuração para o sublinhado animado */
-  display: inline-block; /* Crucial para o sublinhado não ocupar 100% da largura, mas sim apenas o texto */
+  /* REGRAS CRUCIAIS PARA O SUBLINHADO ANIMADO */
+  display: inline-block; /* CRUCIAL: Limita o sublinhado ao tamanho do texto */
   padding-bottom: 2px; /* Espaço entre o texto e o sublinhado */
 
-  /* Suaviza a animação de sublinhado e a mudança de cor */
+  /* 💡 CORREÇÃO AQUI: Simplifica o gradient para garantir uma linha sólida. */
+  /* A linha usará a cor de base universal (#888888) */
+  background-image: linear-gradient(to right, var(--cor-universal-base), var(--cor-universal-base)); 
+  
+  background-position: left bottom; /* Inicia na parte inferior */
+  background-repeat: no-repeat;
+  background-size: 0% 1px; /* O sublinhado tem 1px de altura e 0% de largura */
+  
+  /* Transição suave */
   transition: background-size 0.5s ease, color 0.5s ease; 
 }
-
-/* 💡 Efeito hover no título (mudança de cor permanece) */
-.projectLink:hover .projectTitle {
-  color: #424242; 
-}
-
 /* ------------------- Estrutura da Descrição ------------------- */
 
 .projectDescription {
   /* Garante que a descrição comece no mesmo alinhamento horizontal do título */
   font-size: 1rem;
-  color: #6b6a6a;
+  color: var(--cor-universal-base);
   line-height: 1.5;
   margin-top: 0; 
   width: 400px;

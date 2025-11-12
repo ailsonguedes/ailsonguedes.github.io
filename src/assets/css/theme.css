@@ -1,0 +1,62 @@
+/* assets/css/theme.css */
+
+/* ------------------------------------------------------------------- */
+/* VARIÁVEIS UNIVERSAIS (Cinza de Contraste e Branco de Hover)        */
+/* Estas variáveis terão o mesmo valor em ambos os temas.             */
+/* ------------------------------------------------------------------- */
+:root, 
+html[data-theme="dark"] {
+    /* Base Color: Um cinza médio que tem bom contraste contra #FFFFFF e #1E1E1E */
+    --cor-universal-base: #858383; 
+    
+    /* Hover Color: Branco puro para garantir que SEMPRE clareie */
+    --cor-universal-hover: #b0afaf;
+}
+
+/* ------------------------------------------------------------------- */
+/* 1. Tema Claro (Padrão) - Cores de Fundo e Texto Principal */
+/* ------------------------------------------------------------------- */
+:root {
+    /* --- FUNDOS --- */
+    --cor-fundo-pagina: #f0f2f5; 
+    --cor-fundo-componente: #FFFFFF; 
+    
+    /* --- TEXTOS PRINCIPAIS --- */
+    --cor-texto-principal: #222222;
+    
+    /* --- LAYOUT E BORDAS --- */
+    --cor-borda-componente: #E0E0E0; 
+
+    /* --- HOVER E INTERAÇÃO (fundo) --- */
+    --cor-fundo-hover-componente: #F5F5F5; 
+
+    /* IMPORTANTE: As cores de links/ícones são herdadas do bloco universal acima */
+}
+
+/* ------------------------------------------------------------------- */
+/* 2. Tema Escuro - Cores de Fundo e Texto Principal */
+/* ------------------------------------------------------------------- */
+html[data-theme="dark"] {
+    /* --- FUNDOS --- */
+    --cor-fundo-pagina: #121212; 
+    --cor-fundo-componente: #1E1E1E; 
+    
+    /* --- TEXTOS PRINCIPAIS --- */
+    --cor-texto-principal: #EFEFEF;
+    
+    /* --- LAYOUT E BORDAS --- */
+    --cor-borda-componente: #3A3A3A; 
+
+    /* --- HOVER E INTERAÇÃO (fundo) --- */
+    --cor-fundo-hover-componente: #2C2C2C; 
+
+    /* IMPORTANTE: As cores de links/ícones são herdadas do bloco universal acima */
+}
+
+/* 4. Aplicando ao Body... */
+body {
+    background-color: var(--cor-fundo-pagina);
+    color: var(--cor-texto-principal);
+    
+    transition: background-color 0.3s ease, color 0.3s ease;
+}

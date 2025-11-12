@@ -1,44 +1,61 @@
+// Footer.tsx
 import styles from './Footer.module.css';
 
-// URLs de ícones de exemplo para substituir imports locais
+// Importa o hook que acabamos de criar
+import { useTheme } from '../../hooks/useTheme'; // <-- Ajuste o caminho se necessário
+
+// URLs dos ícones (incluindo Sol e Lua)
 const GITHUB_ICON_URL = "https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/github.svg";
 const LINKEDIN_ICON_URL = "https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/linkedin.svg";
+const HOME_ICON_URL = "https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/home.svg";
+const MAIL_ICON_URL = "https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/mail.svg";
+const MOON_ICON_URL = "https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/moon.svg";
+const SUN_ICON_URL = "https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/sun.svg";
+
 
 export function Footer(){
-    // Nota: O ícone vazio (primeiro <img>) foi substituído por um ícone de casa/home
-    const HOME_ICON_URL = "https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/home.svg";
+    // Aqui está a mágica!
+    const { theme, toggleTheme } = useTheme();
 
     return(
         <footer className={styles.footerContainer}>
             <div className={styles.footerInnerWrapper}>
                 
-                {/* 1. Container Esquerdo: Logo e Link Principal */}
+                {/* 1. Container Esquerdo (Idêntico) */}
                 <div className={styles.footerLeftContainer}>
-                    {/* Ícone Home/Logo principal */}
-                    <img src={HOME_ICON_URL} alt="Home" className={styles.footerIcon} width="20" height="20"></img>
-
-                    <a href="ailsonguedes.com" className={styles.footerLink}>
-                        <p className={styles.footerText}>ailsonguedes.com</p>
+                    {/*  NOSSO NOVO BOTÃO DE TEMA  */}
+                    <button 
+                        className={styles.themeToggle} // Um novo estilo para o botão
+                        onClick={toggleTheme}         // A função do nosso hook!
+                        title="Alternar tema"         // Dica para acessibilidade
+                    >
+                        {/* Renderização condicional: 
+                          Mostra o Sol se o tema for 'dark', ou a Lua se for 'light'
+                        */}
+                        {theme === 'light' ? (
+                            <img src={MOON_ICON_URL} alt="Tema Escuro" className={styles.footerIcon} width="20" height="20" />
+                        ) : (
+                            <img src={SUN_ICON_URL} alt="Tema Claro" className={styles.footerIcon} width="20" height="20" />
+                        )}
+                    </button>                    <a href="ailsonguedes.com" className={styles.footerLink}>
+                        <p className={styles.footerText}>ailsonguedes.github.io</p>
                     </a>
                 </div>
 
-                {/* 2. Container Direito: Links de Redes Sociais */}
+                {/* 2. Container Direito (Com o novo botão) */}
                 <div className={styles.footerRightContainer}>
                     
-                    {/* Exemplo de link para e-mail/contato */}
+                    {/* Links de contato (Idênticos) */}
                     <a href="mailto:ailsonsixseven@gmail.com" target='_blank' className={styles.footerLink}>
-                        <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/mail.svg" alt="Email" className={styles.footerIcon} width="20" height="20"></img>
+                        <img src={MAIL_ICON_URL} alt="Email" className={styles.footerIcon} width="20" height="20"></img>
                     </a>
-
-                    {/* GitHub */}
                     <a href="https://github.com/ailsonguedes" target='_blank' className={styles.footerLink}>
                         <img src={GITHUB_ICON_URL} alt="GitHub" className={styles.footerIcon} width="20" height="20"></img>
                     </a>
-
-                    {/* LinkedIn */}
                     <a href="https://www.linkedin.com/in/ailson-guedes-059795149/" target='_blank' className={styles.footerLink}>
                         <img src={LINKEDIN_ICON_URL} alt="LinkedIn" className={styles.footerIcon} width="20" height="20"></img>
                     </a>
+                    
                 </div>
             </div>
         </footer>

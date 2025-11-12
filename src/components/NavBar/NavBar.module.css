@@ -19,8 +19,8 @@
   justify-content: space-between; /* Mantém o logo à esquerda e os links à direita */
   align-items: center;
 
-  background-color: black;
-  color: white;
+  background-color: var(--cor-fundo-pagina);
+  color: var(--cor-texto-principal);
 }
 
 .navLeftContainer{
@@ -35,7 +35,7 @@
     background-color: transparent;
 
     /* MUDANÇA 1: Borda sempre visível e com a cor da luz */
-    border: 1px solid #ffffff; /* Define a cor da borda que você quer sempre ativa */
+    border: 2px solid var(--cor-borda-componente); /* Define a cor da borda que você quer sempre ativa */
   
     transition: box-shadow 0.3s ease; /* Transição apenas para a sombra ao hover */
 }
@@ -82,7 +82,7 @@
 }
 
 .navLeftContainer:hover {
-    box-shadow: 0 0 10px #8d8d8d; /* Brilho ao hover */
+    box-shadow: 0 0 10px var(--cor-hover-icone); /* Brilho ao hover */
 }
 
 .navLeftContainer:hover::before {
@@ -107,33 +107,26 @@
 }
 
 .navLinks {
-    /*--- Resetando o visual do link padrão ---*/
+    /* O link deve começar com a cor do texto base (Escuro no tema claro, Claro no tema escuro) */
+    color: var(--cor-universal-base); 
+    
+    /* Garante a transição suave */
+    transition: color 0.3s ease, background-color 0.3s ease; 
+    
+    /* Outros estilos de link (ex: padding, margin, font-weight) */
+    padding: 0.5rem 1rem;
     text-decoration: none;
-    /* Remove o sublinhado */
-
-    /*--- Estilo e cores (Visual de botão) ---*/
-    background-color: transparent;
-    color: white;
-    border: none;
-    cursor: pointer;
-
-    /*--- Tipografia e Box Model ---*/
-    font-size: 16px;
-    padding: 5px 6px; /* Espaço interno para parecer um botão */
-    border: 5px;
-
-    /* Permite que o flexbox controle o alinhamento */
-    display: inline-block;
-
-    transition: background-color 0.3s ease;
-    /* É importante ter uma transição para a mudança ser suave */
-    transition: color 0.6s ease; /* Adicione 'color' à transição, se ainda não estiver lá */
 }
 
+/* 2. ESTADO HOVER (Quando o mouse ESTÁ em cima) */
 .navLinks:hover {
-    /* Define os estilos que serão aplicados ao passar o mouse */
-    color: #464646; /* Exemplo: Mudar a cor do texto para amarelo/laranja (escolha sua cor) */
-    /* background-color: rgba(255, 255, 255, 0.1); */ /* Opcional: Adicionar um leve fundo */
+    /* CORREÇÃO SEMÂNTICA: Use a variável correta para links. 
+       Isso fará a cor ir para #000 (claro) ou #FFF (escuro). 
+    */
+    color: var(--cor-universal-hover);
+    
+    /* Se quiser o fundo levemente acinzentado no hover, use esta variável P&B */
+    /* background-color: var(--cor-fundo-hover-componente); */
 }
 
 /* ------------------------------------------------------------------- */

@@ -27,7 +27,7 @@
 .projectYear {
     /* Alinhado à esquerda */
     font-size: 0.9rem;
-    color: #585858; /* Cor de destaque */
+    color: var(--cor-texto-secundario); /* Cor de destaque */
     font-weight: 500;
     margin: 0;
 
