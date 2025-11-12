@@ -135,3 +135,84 @@
     color: #464646; /* Exemplo: Mudar a cor do texto para amarelo/laranja (escolha sua cor) */
     /* background-color: rgba(255, 255, 255, 0.1); */ /* Opcional: Adicionar um leve fundo */
 }
+
+/* ------------------------------------------------------------------- */
+/* Mídia Queries para Responsividade */
+/* ------------------------------------------------------------------- */
+
+/* Tablets */
+@media (max-width: 1024px) {
+    .navContainer {
+        padding: 0 2rem;
+        margin-top: 3rem;
+    }
+    
+    .navLinks {
+        font-size: 14px;
+        padding: 4px 5px;
+    }
+}
+
+/* Tablets pequenos e celulares grandes */
+@media (max-width: 768px) {
+    .navContainer {
+        padding: 0 1.5rem;
+        margin-top: 2rem;
+        max-width: 100%;
+    }
+    
+    .navLeftContainer {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .navLinks {
+        font-size: 13px;
+        padding: 3px 4px;
+        gap: 3px;
+    }
+    
+    .navRightContainer {
+        gap: 3px;
+    }
+}
+
+/* Celulares */
+@media (max-width: 640px) {
+    .navContainer {
+        padding: 0 1rem;
+        margin-top: 1.5rem;
+    }
+    
+    .navLeftContainer {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .navLinks {
+        font-size: 12px;
+        padding: 2px 3px;
+    }
+    
+    .navRightContainer {
+        gap: 2px;
+    }
+}
+
+/* Celulares pequenos */
+@media (max-width: 480px) {
+    .navContainer {
+        padding: 0 0.5rem;
+        margin-top: 1rem;
+    }
+    
+    .navLeftContainer {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .navLinks {
+        font-size: 11px;
+        padding: 2px;
+    }
+}

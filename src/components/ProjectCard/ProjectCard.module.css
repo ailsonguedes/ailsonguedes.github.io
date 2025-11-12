@@ -44,6 +44,62 @@
   color: #6b6a6a;
   line-height: 1.5;
   margin-top: 0; 
+  width: 400px;
+  max-width: 400px;
   /* Se você precisar que a descrição ocupe um espaço específico, 
      use max-width no seu ProjectsSection, não neste card. */
+}
+
+/* ------------------------------------------------------------------- */
+/* Mídia Queries para Responsividade */
+/* ------------------------------------------------------------------- */
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .projectTitle {
+    font-size: 0.95rem;
+  }
+  
+  .projectDescription {
+    font-size: 0.9rem;
+    width: 300px;
+    max-width: 300px;
+  }
+}
+
+/* Tablets pequenos e celulares grandes */
+@media (max-width: 768px) {
+  .projectTitle {
+    font-size: 0.9rem;
+  }
+  
+  .projectDescription {
+    font-size: 0.85rem;
+    width: 250px;
+    max-width: 250px;
+  }
+}
+
+/* Celulares */
+@media (max-width: 640px) {
+  .projectTitle {
+    font-size: 0.85rem;
+  }
+  
+  .projectDescription {
+    font-size: 0.8rem;
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+/* Celulares pequenos */
+@media (max-width: 480px) {
+  .projectTitle {
+    font-size: 0.8rem;
+  }
+  
+  .projectDescription {
+    font-size: 0.75rem;
+  }
 }

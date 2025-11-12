@@ -17,9 +17,7 @@
 }
 
 /* Efeito hover no link completo */
-.articleLink:hover {
-    /* Deixado vazio, pois a ação principal está no .articleTitle:hover */
-}
+/* Deixado vazio, pois a ação principal está no .articleTitle:hover */
 
 /* ------------------- Coluna 1: Data (Esquerda/Margem) ------------------- */
 .articleDate {
@@ -78,16 +76,143 @@
     color: #6b6a6a;
     line-height: 1.5;
     margin-top: 0; 
+    margin-left: 0.3rem;
+    width: 400px;
+    max-width: 400px;
 }
 
-/* ------------------- Responsividade para Mobile ------------------- */
+/* ------------------------------------------------------------------- */
+/* Mídia Queries para Responsividade */
+/* ------------------------------------------------------------------- */
+
+/* iPad 13" e tablets grandes */
+@media (max-width: 1366px) {
+    .articleLink {
+        margin-left: 0.4rem;
+    }
+    
+    .articleDate {
+        flex: 0 0 5rem;
+        margin-right: 1.5rem;
+        margin-left: -1.5rem;
+        font-size: 0.85rem;
+        padding-right: 0.75rem;
+    }
+    
+    .articleTitle {
+        font-size: 0.95rem;
+    }
+    
+    .articleDescription {
+        font-size: 0.9rem;
+        width: 300px;
+        max-width: 300px;
+        margin-left: 0.3rem;
+    }
+}
+
+/* iPad 11" e tablets médios */
+@media (max-width: 1194px) {
+    .articleLink {
+        margin-left: 0.4rem;
+    }
+    
+    .articleDate {
+        flex: 0 0 5rem;
+        margin-right: 1.5rem;
+        margin-left: -1.5rem;
+        font-size: 0.85rem;
+        padding-right: 0.75rem;
+    }
+}
+
+/* iPad padrão e iPad Mini landscape */
+@media (max-width: 1024px) {
+    .articleLink {
+        margin-left: 0.4rem;
+    }
+    
+    .articleDate {
+        flex: 0 0 5rem;
+        margin-right: 1.5rem;
+        margin-left: -1.5rem;
+        font-size: 0.85rem;
+        padding-right: 0.75rem;
+    }
+    
+    .articleTitle {
+        font-size: 0.95rem;
+    }
+    
+    .articleDescription {
+        font-size: 0.9rem;
+        width: 300px;
+        max-width: 300px;
+        margin-left: 0.3rem;
+    }
+}
+
+/* Tablets pequenos e celulares grandes */
+@media (max-width: 768px) {
+    .articleDate {
+        flex: 0 0 5rem;
+        margin-right: 5rem;
+        margin-left: -2rem;
+        font-size: 0.8rem;
+    }
+    
+    .articleTitle {
+        font-size: 0.9rem;
+    }
+    
+    .articleDescription {
+        font-size: 0.85rem;
+        width: 250px;
+        max-width: 250px;
+    }
+}
+
+/* Celulares */
 @media (max-width: 640px) {
     .articleLink {
         flex-direction: column; /* Empilha data e conteúdo em telas pequenas */
+        margin-left: 0;
     }
+    
     .articleDate {
         flex-basis: auto; 
         padding-right: 0;
         margin-bottom: 0.25rem;
+        margin-right: 0;
+        margin-left: 0;
+        text-align: left;
+        transform: translateY(0);
+        font-size: 0.75rem;
+    }
+    
+    .articleTitle {
+        font-size: 0.85rem;
+    }
+    
+    .articleDescription {
+        font-size: 0.8rem;
+        width: 100%;
+        max-width: 100%;
+        margin-left: 0;
+    }
+}
+
+/* Celulares pequenos */
+@media (max-width: 480px) {
+    .articleDate {
+        font-size: 0.7rem;
+    }
+    
+    .articleTitle {
+        font-size: 0.8rem;
+    }
+    
+    .articleDescription {
+        font-size: 0.75rem;
     }
 }

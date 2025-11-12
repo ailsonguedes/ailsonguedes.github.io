@@ -19,10 +19,13 @@ export function ArticleCard({ article }: ArticleCardProps){
             {/* Coluna 2: Conteúdo (título e descrição recuados) */}
             <div className={styles.articleContent}>
               <h5 className={styles.articleTitle}>{article.title}</h5>
-              <p className={styles.articleDescription}>{article.description}</p>
             </div>
             
         </a>
+
+        <p className={styles.articleDescription}>{article.description}</p>
+
+
     </>
     );
 }
