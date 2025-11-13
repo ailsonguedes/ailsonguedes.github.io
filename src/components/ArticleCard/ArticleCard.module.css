@@ -4,20 +4,37 @@
 
 .articleLink{
     /* Base do link/card */
+    position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex; 
+    -webkit-flex-wrap: nowrap;
     flex-wrap: nowrap; 
     text-decoration: none;
-    margin: 1rem 0 0 0.4rem; 
+    margin: 1rem 0 0 0; 
     color: inherit;
     width: 100%;
+    /* Padding esquerdo para alinhar conteúdo com o Hero */
+    padding-left: 2rem;
+    /* Box-sizing para compatibilidade */
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
     
     /* A transição de cor do link, mas o sublinhado está no .articleTitle */
+    -webkit-transition: color 0.5s ease;
+    -moz-transition: color 0.5s ease;
     transition: color 0.5s ease;
 }
 
 /* ------------------- Coluna 1: Data (Esquerda/Margem) ------------------- */
 .articleDate {
-    flex: 0 0 7.4rem; /* Largura fixa */
+    /* Data posicionada à esquerda do conteúdo (antes do padding do Hero) */
+    position: absolute;
+    left: 23.5%;
+    /* Largura fixa para a coluna de datas */
+    width: 7.5rem;
     text-align: right; 
     
     font-size: 0.9rem;
@@ -27,10 +44,16 @@
     color: var(--cor-universal-base); 
     
     margin: 0;
-    margin-right: 20rem; /* Margens agressivas. Mantenha se for intencional */
-    margin-left: -10rem;
     padding-right: 1rem;
-    transform: translateY(1.7em);
+    /* Compatibilidade cross-browser para transform */
+    -webkit-transform: translateY(1.7em);
+    -moz-transform: translateY(1.7em);
+    -ms-transform: translateY(1.7em);
+    transform: translateY(0.5em);
+    /* Melhora renderização em diferentes navegadores */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
 }
 
 /* ------------------- Coluna 2: Conteúdo (Título/Descrição Recuados) ------------------- */
@@ -52,13 +75,23 @@
     padding-bottom: 2px; 
     
     /* 💡 CORREÇÃO SUBLINHADO: Simplifica para cor sólida usando o universal base */
+    background-image: -webkit-linear-gradient(to right, var(--cor-universal-base), var(--cor-universal-base));
+    background-image: -moz-linear-gradient(to right, var(--cor-universal-base), var(--cor-universal-base));
     background-image: linear-gradient(to right, var(--cor-universal-base), var(--cor-universal-base));
     background-position: left bottom; 
     background-repeat: no-repeat;
+    -webkit-background-size: 0% 1px;
     background-size: 0% 1px; /* Invisível por padrão */
     
     /* 💡 CORREÇÃO TRANSIÇÃO: Velocidade de transição padrão de 0.5s */
+    -webkit-transition: background-size 0.5s ease, color 0.5s ease;
+    -moz-transition: background-size 0.5s ease, color 0.5s ease;
     transition: background-size 0.5s ease, color 0.5s ease;
+    
+    /* Melhora renderização de texto */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
 }
 
 /* 💡 Ativa o sublinhado e muda a cor do texto quando o LINK recebe hover */
@@ -66,6 +99,7 @@
     /* 🎨 CORREÇÃO TEMA: Usa a variável universal de HOVER (sempre branco) */
     color: var(--cor-universal-hover); 
     
+    -webkit-background-size: 100% 1px;
     background-size: 100% 1px; /* O sublinhado é ativado e cresce */
 }
 
@@ -77,9 +111,9 @@
     color: var(--cor-universal-base);
     line-height: 1.5;
     margin-top: 0; 
-    margin-left: 0.3rem;
-    width: 400px;
-    max-width: 400px;
+    margin-left: 2rem;
+    width: 100%;
+    max-width: 520px;
 }
 
 /* ------------------------------------------------------------------- */

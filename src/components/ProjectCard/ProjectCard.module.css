@@ -10,6 +10,7 @@
 /* Efeito hover no link completo (usa a classe do título para aplicar o sublinhado) */
 .projectLink:hover .projectTitle {
   /* Aumenta a largura do sublinhado de 0% para 100% */
+  -webkit-background-size: 100% 1px;
   background-size: 100% 1px;
 }
 
@@ -30,14 +31,24 @@
 
   /* 💡 CORREÇÃO AQUI: Simplifica o gradient para garantir uma linha sólida. */
   /* A linha usará a cor de base universal (#888888) */
+  background-image: -webkit-linear-gradient(to right, var(--cor-universal-base), var(--cor-universal-base));
+  background-image: -moz-linear-gradient(to right, var(--cor-universal-base), var(--cor-universal-base));
   background-image: linear-gradient(to right, var(--cor-universal-base), var(--cor-universal-base)); 
   
   background-position: left bottom; /* Inicia na parte inferior */
   background-repeat: no-repeat;
+  -webkit-background-size: 0% 1px;
   background-size: 0% 1px; /* O sublinhado tem 1px de altura e 0% de largura */
   
-  /* Transição suave */
-  transition: background-size 0.5s ease, color 0.5s ease; 
+  /* Transição suave - compatibilidade cross-browser */
+  -webkit-transition: background-size 0.5s ease, color 0.5s ease;
+  -moz-transition: background-size 0.5s ease, color 0.5s ease;
+  transition: background-size 0.5s ease, color 0.5s ease;
+  
+  /* Melhora renderização de texto */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 /* ------------------- Estrutura da Descrição ------------------- */
 

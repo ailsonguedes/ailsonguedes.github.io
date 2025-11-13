@@ -3,15 +3,20 @@
 /* ------------------------------------------------------------------- */
 
 .projectsContainer {
-    /* --- A MÁGICA (Sincronizado com .navContainer) --- */
-    /* 1. Define a mesma largura máxima */
-    max-width: 600px; 
+    /* --- A MÁGICA (Sincronizado com .heroContainer) --- */
+    /* 1. Define a mesma largura máxima do Hero */
+    max-width: 550px; 
     /* 2. Centraliza o container */
     margin-left: auto;
     margin-right: auto;
 
-    /* 3. Usa o mesmo padding lateral (essencial para o alinhamento) */
-    padding: 1.2rem 1rem; 
+    /* Box-sizing para compatibilidade cross-browser */
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+
+    /* 3. Usa o mesmo padding lateral do Hero (essencial para o alinhamento) */
+    padding: 1.2rem 2rem; 
 
     /* --- Estilo do Hero --- */
 
@@ -27,44 +32,45 @@
     display: block; 
     width: 100%;
     margin-top: -1px;
-    /* 2. Alinha o conteúdo à direita */
+    /* 2. Alinha o conteúdo à esquerda, alinhado com o Hero */
     text-align: left; 
-    /* 3. ADICIONA MARGEM ESQUERDA PARA CRIAR UM RECÚO (Ajuste o valor 20% conforme o desejado) */
-    /* Isso empurra o texto para longe da borda direita por 20% da largura do contêiner */
-    margin-left: 1.5rem; 
-    width: 40%; /* Ocupa 80% da largura restante */
+    /* 3. Título alinhado com o conteúdo do Hero (padding do Hero é 2rem, então começa em 0) */
+    margin-left: -2rem;
+    width: auto;
     
-    margin-bottom: -1rem;
+    margin-bottom: 0.5rem;
 
 }
 
 .cardGrid {
-
     /* Garante que os grupos de ProjectItem fiquem em coluna, um abaixo do outro */
     display: block;
     width: 100%;
     text-align: left; 
-    /* 💡 MUDANÇA (Reforço): Garante que não haja margem automática que empurre para a direita */
-    margin-left: -7rem;
+    /* Alinhado com o conteúdo do Hero (sem offset negativo) */
+    margin-left: -4rem;
     
     /* Espaçamento grande entre os diferentes anos (ProjectItem) */
-    gap: 0rem;
+    gap: 1rem;
 }
 
 .sectionViewMoreLink {
     display: block;
     text-align: left; /* Alinha o texto do link à esquerda */
-    width: 30%;
-    /* APLICAR O MESMO AJUSTE DE MARGEM DO .cardGrid PARA ALINHAMENTO */
-    margin-left: 0.1rem;
+    width: auto;
+    /* Alinhado com o conteúdo do Hero */
+    margin-left: -2rem;
     
     /* Espaçamento aumentado para compensar o margin-bottom: -2rem do .projectContainer */
     margin-top: 1.8rem; 
-    padding-left: 1rem; /* Um pequeno padding se necessário */
+    padding-left: 0;
     
     font-size: 0.9rem;
     color: var(--cor-texto-secundario);
     text-decoration: none;
+    /* Compatibilidade cross-browser para transition */
+    -webkit-transition: color 0.3s ease;
+    -moz-transition: color 0.3s ease;
     transition: color 0.3s ease;
 }
 
