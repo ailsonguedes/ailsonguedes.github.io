@@ -1,0 +1,15 @@
+# Browsers que queremos suportar
+# Pelo menos 2 versões mais recentes dos principais navegadores
+> 0.5%
+last 2 versions
+Firefox ESR
+not dead
+not op_mini all
+
+# Navegadores específicos para garantir compatibilidade
+Chrome >= 90
+Firefox >= 88
+Edge >= 90
+Safari >= 14
+iOS >= 14
+
