@@ -83,9 +83,11 @@
 
   /* Footer.module.css */
   .footerLeftButtonContainer {
+    position: relative;
     width: 30px; 
     height: 30px;
     border-radius: 100%;
+    overflow: hidden;
     
     /* Mantenha também as propriedades de centralização aqui */
     display: flex;
@@ -103,6 +105,7 @@
     /* ...seus outros estilos (width, height)... */
     color: var(--cor-universal-base); /* <-- Pega a cor do theme.css */
     transition: color 0.3s ease;
+    will-change: transform, opacity;
   }
   
   /* O hover também! */
@@ -113,6 +116,25 @@
   }
 
   
+.themeIconSlide {
+    animation: footerIconSlideDown 0.4s ease forwards;
+}
+
+@keyframes footerIconSlideDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-120%);
+    }
+    70% {
+        opacity: 1;
+        transform: translateY(10%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 /* ------------------------------------------------------------------- */
 /* Mídia Queries para Responsividade */
 /* ------------------------------------------------------------------- */
