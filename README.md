@@ -23,17 +23,22 @@ O projeto foi construído utilizando uma **stack moderna e eficiente**, garantin
 ## Funcionalidades Principais
 
 * **Design Responsivo:** Layout adaptável para desktop, tablets e smartphones.
-* **Temas Claro e Escuro (Toggle):** Alternância instantânea entre modos de visualização para melhor conforto do usuário.
+* **Temas light e dark (Toggle):** Alternância instantânea entre modos de visualização para melhor conforto do usuário.
 * **Seção de Projetos:** Exposição detalhada dos projetos de desenvolvimento com links e descrições.
 * **Blog/Artigos:** Espaço dedicado para artigos técnicos e reflexões sobre tecnologia.
 
 ## Galeria de Imagens: Temas de Interface
 
-Para demonstrar a flexibilidade do design e acessibilidade, o portfólio possui modos de tema claro e escuro.
+Para demonstrar a flexibilidade do design e acessibilidade, o portfólio possui modos de tema light e dark.
 
-| Modo Claro | Modo Escuro |
+| Modo Dark | Modo Light |
 | :---: | :---: |
 |
+<div style="display: flex; justify-content: space-around;">
+    <img src="./img/thema-dark.png" alt="Modo Escuro" style="width: 200px; height: 200px; object-fit: cover;">
+    <img src="./img/thema-light.png" alt="Descrição da Imagem 2" style="width: 200px; height: 200px; object-fit: cover;">
+</div>
 
+<br>
 
 **Desenvolvido por:** [Ailson Guedes / [@ailsonguedes](https://github.com/ailsonguedes)]
