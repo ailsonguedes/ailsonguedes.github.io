@@ -6,26 +6,24 @@ interface ArticleCardProps {
 }
 
 export function ArticleCard({ article }: ArticleCardProps){
-    // Formata a data para exibir 'Mês Dia, Ano'
-    const formattedDate = `${article.month} ${article.day}, ${article.year}`;
-    
-    return (
-      <>
-
+  // Formata a data para exibir 'Mês Dia, Ano'
+  const formattedDate = `${article.month} ${article.day}, ${article.year}`;
+  
+  return (
+    // Envolva tudo em uma div principal com a classe de layout.
+  <div className={styles.articleCardContainer}> 
+        
+        {/* Item Flex 1: Data */}
         <p className={styles.articleDate}>{formattedDate}</p>
 
+        {/* Item Flex 2: Link/Conteúdo */}
         <a href={article.link} className={styles.articleLink} target="_blank" rel="noopener noreferrer">
             
-            {/* Coluna 2: Conteúdo (título e descrição recuados) */}
             <div className={styles.articleContent}>
               <h5 className={styles.articleTitle}>{article.title}</h5>
             </div>
             
         </a>
-
-        <p className={styles.articleDescription}>{article.description}</p>
-
-
-    </>
-    );
+      </div>
+  );
 }
