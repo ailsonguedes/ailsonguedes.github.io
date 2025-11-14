@@ -1,22 +1,42 @@
 /* ------------------------------------------------------------------- */
 /* ArticleCard.module.css - Estilo para cada artigo individual        */
 /* ------------------------------------------------------------------- */
-
-.articleLink{
-    /* Base do link/card */
-    position: relative;
+.articleCardContainer {
+    /* Prefixo para navegadores antigos (IE 10) */
+    display: -ms-flexbox; 
+    /* Prefixo para navegadores baseados em WebKit (Chrome, Safari, Edge mais antigos) */
     display: -webkit-box;
     display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex; 
-    -webkit-flex-wrap: nowrap;
-    flex-wrap: nowrap; 
+    display: flex;
+    /* Alinha a data e o link verticalmente ao centro */
+    align-items: center;
+    /* Alinha a data e o link verticalmente ao centro (crucial para o alinhamento horizontal) */
+    -webkit-box-align: center; /* WebKit */
+    -ms-flex-align: center;    /* IE 10 */
+    -webkit-align-items: center; /* WebKit */
+    align-items: center; 
+    /* Margem superior para separar os cards, tirada do .articleLink antigo */
+    margin: 1rem 0rem 0 -7rem; 
+}
+
+.articleLink{
+/* Base do link/card - Mantém as propriedades de estilo e link */
+    
+    /* REMOVIDAS: position, display: flex, flex-wrap (agora gerenciadas pelo .articleCardContainer) */
+    
+    position: relative; /* Mantido se for necessário para sublinhado/hover, mas verifique se é realmente essencial */
+    
     text-decoration: none;
-    margin: 1rem 0 0 0; 
+    /* REMOVIDA: margin: 1rem 0 0 0; (agora está no .articleCardContainer) */
+    
     color: inherit;
+    /* Adicionado flex: 1 para que o link/título ocupe todo o espaço restante */
+    flex: 1;
     width: 100%;
-    /* Padding esquerdo para alinhar conteúdo com o Hero */
-    padding-left: 2rem;
+    
+    /* REMOVIDO: padding-left: 2rem; (agora o espaçamento é feito com margin-right no .articleDate) */
+    padding-left: 0;
+    
     /* Box-sizing para compatibilidade */
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
@@ -30,27 +50,27 @@
 
 /* ------------------- Coluna 1: Data (Esquerda/Margem) ------------------- */
 .articleDate {
-    /* Data posicionada à esquerda do conteúdo (antes do padding do Hero) */
-    position: absolute;
-    left: 23.5%;
-    /* Largura fixa para a coluna de datas */
-    width: 7.5rem;
-    text-align: right; 
+/* REMOVA: position: absolute; */
+    /* REMOVA: left: 24%; */
     
+    /* Garante que a data não se encolha */
+    flex-shrink: 0; 
+    /* Largura fixa para a coluna de datas */
+    width: 7.5rem; 
+    text-align: right;
     font-size: 0.9rem;
     font-weight: 500;
     
-    /* 🎨 CORREÇÃO TEMA: Usa a cor universal base para um cinza consistente */
-    color: var(--cor-universal-base); 
+    color: var(--cor-universal-base);
     
     margin: 0;
+    /* Espaço entre a data e o título/link */
+    margin-right: 0.5rem; 
     padding-right: 1rem;
-    /* Compatibilidade cross-browser para transform */
-    -webkit-transform: translateY(1.7em);
-    -moz-transform: translateY(1.7em);
-    -ms-transform: translateY(1.7em);
-    transform: translateY(0.5em);
-    /* Melhora renderização em diferentes navegadores */
+    
+    /* REMOVA: -webkit-transform: translateY(0.5em); e variações */
+    /* REMOVA: transform: translateY(0.5em); */
+    
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
@@ -58,21 +78,24 @@
 
 /* ------------------- Coluna 2: Conteúdo (Título/Descrição Recuados) ------------------- */
 .articleContent {
-    flex: 1; /* Ocupa o espaço restante */
-    min-width: 0; 
+    flex: 1;
+    min-width: 0;
+    /* Garante que não há margem superior no contêiner do título */
+    margin-top: 0;
 }
 
 .articleTitle {
-    margin-top: 0; 
-    font-size: 1rem; 
+    margin: 0;
+    margin-top: 0rem; 
+    font-size: 0.9rem; 
     font-weight: 700;
     /* Usa a cor principal para o título, que muda no hover */
     color: var(--cor-texto-principal); 
-    margin-bottom: 0; 
+    margin-bottom: 0rem; 
 
     /* Essencial para o sublinhado */
     display: inline-block; 
-    padding-bottom: 2px; 
+    padding-bottom: 9px; 
     
     /* 💡 CORREÇÃO SUBLINHADO: Simplifica para cor sólida usando o universal base */
     background-image: -webkit-linear-gradient(to right, var(--cor-universal-base), var(--cor-universal-base));
@@ -105,6 +128,7 @@
 
 
 /* ------------------- Estrutura da Descrição ------------------- */
+
 .articleDescription {
     font-size: 1rem;
     /* 🎨 CORREÇÃO TEMA: Usa a cor universal base */
