@@ -3,61 +3,55 @@
 /* ------------------------------------------------------------------- */
 
 .articlesContainer {
-    /* --- A MÁGICA (Sincronizado com .navContainer) --- */
-    max-width: 800px;
+    /* --- A MÁGICA (Sincronizado com .heroContainer) --- */
+    /* 1. Define a mesma largura máxima do Hero */
+    max-width: 550px; 
+    /* 2. Centraliza o container */
     margin-left: auto;
     margin-right: auto;
-    
     /* Box-sizing para compatibilidade cross-browser */
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
-    
-    /* Usa o mesmo padding lateral (essencial para o alinhamento) */
-    padding: 1rem 1rem; 
-    margin-left: 21rem;
+    /* 3. Usa o mesmo padding lateral do Hero (essencial para o alinhamento) */
+    padding: 1rem 2rem; 
     /* Espaçamento abaixo do NavBar */
     margin-top: 1rem; 
 }
 
 .sectionTitle {
-    /* Adaptação direta de .sectionTitle */
     font-size: 0.9rem;
     font-weight: 1000;
     color: var(--cor-texto-secundario); 
     display: block; 
     width: 100%;
-    margin-top: -10px;
+    margin-top: -1px;
     
     text-align: left; 
     
-    /* Recuo idêntico ao dos projetos */
-    margin-left: 9.5rem; 
-    width: 40%; 
-    
+    /* Título alinhado com o conteúdo do Hero (padding do container já posiciona corretamente) */
+    margin-left: 0;
     margin-bottom: 1rem;
 }
 
 .cardGrid {
-    /* Adaptação direta de .cardGrid */
+    /* Garante que os artigos fiquem em coluna, um abaixo do outro */
     display: block;
     width: 100%;
     text-align: left; 
-    
     /* Alinhado com o conteúdo do Hero */
-    margin-left: 7.5rem;
+    margin-left: -1rem;
     /* Espaçamento grande entre os artigos individuais */
     gap: 1rem;
 }
 
 .sectionViewMoreLink {
-    /* Adaptação direta de .sectionViewMoreLink */
     display: block;
     text-align: left; 
     width: auto;
     
     /* Alinhado com o conteúdo do Hero */
-    margin-left: 9.5rem;
+    margin-left: 0;
     
     margin-top: 1rem; 
     padding-left: 0; 
@@ -81,110 +75,92 @@
 /* Mídia Queries para Responsividade */
 /* ------------------------------------------------------------------- */
 
-/* iPad 13" e tablets grandes */
+/* Tablets grandes e laptops pequenos (1024px - 1366px) */
 @media (max-width: 1366px) {
     .articlesContainer {
         padding: 1rem 1rem;
-        margin-left: auto;
-        margin-right: auto;
         margin-top: 1.5rem;
         max-width: 600px;
     }
     
     .sectionTitle {
         font-size: 0.85rem;
-        margin-left: 1rem;
-        width: auto;
-        margin-bottom: -1rem;
+        margin-left: 0;
+        margin-bottom: 1rem;
     }
     
     .cardGrid {
-        margin-left: -3rem;
+        margin-left: 0;
         width: 100%;
     }
     
     .sectionViewMoreLink {
-        margin-left: 0.5rem;
-        padding-left: 1rem;
-        width: auto;
+        margin-left: 0;
+        font-size: 0.85rem;
         margin-top: 1.8rem;
     }
 }
 
-/* iPad 11" e tablets médios */
-@media (max-width: 1194px) {
-    .articlesContainer {
-        padding: 1rem 1rem;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 1.5rem;
-        max-width: 600px;
-    }
-}
-
-/* iPad padrão e iPad Mini landscape */
+/* Tablets landscape (iPad, etc.) - 768px a 1024px */
 @media (max-width: 1024px) {
     .articlesContainer {
         padding: 1rem 1rem;
-        margin-left: auto;
-        margin-right: auto;
         margin-top: 1.5rem;
         max-width: 600px;
     }
     
     .sectionTitle {
         font-size: 0.85rem;
-        margin-left: 1rem;
-        width: auto;
-        margin-bottom: -1rem;
+        margin-left: 0;
+        margin-bottom: 1rem;
     }
     
     .cardGrid {
-        margin-left: -3rem;
+        margin-left: 0;
         width: 100%;
     }
     
     .sectionViewMoreLink {
-        margin-left: 0.5rem;
-        padding-left: 1rem;
-        width: auto;
+        margin-left: 0;
+        font-size: 0.85rem;
         margin-top: 1.8rem;
     }
 }
 
-/* Tablets pequenos e celulares grandes */
+/* Tablets portrait e celulares grandes (640px - 768px) */
 @media (max-width: 768px) {
     .articlesContainer {
-        padding: 1rem 0.75rem;
+        padding: 1rem 1rem;
         margin-top: 1rem;
+        max-width: 100%;
     }
     
     .sectionTitle {
         font-size: 0.8rem;
-        margin-left: 0.5rem;
+        margin-left: 0;
     }
     
     .cardGrid {
-        margin-left: 0.5rem;
+        margin-left: 0;
+        width: 100%;
     }
     
     .sectionViewMoreLink {
-        margin-left: 0.5rem;
+        margin-left: 0;
         font-size: 0.85rem;
     }
 }
 
-/* Celulares */
+/* Celulares médios e grandes (480px - 640px) */
 @media (max-width: 640px) {
     .articlesContainer {
-        padding: 0.75rem 0.5rem;
+        padding: 0.75rem 0.75rem;
         margin-top: 0.75rem;
+        max-width: 100%;
     }
     
     .sectionTitle {
         font-size: 0.75rem;
-        text-align: left;
-        width: 100%;
         margin-left: 0;
         margin-bottom: 0.5rem;
     }
@@ -196,16 +172,15 @@
     
     .sectionViewMoreLink {
         margin-left: 0;
-        padding-left: 0.5rem;
         font-size: 0.8rem;
-        width: auto;
     }
 }
 
-/* Celulares pequenos */
+/* Celulares pequenos e médios (360px - 480px) */
 @media (max-width: 480px) {
     .articlesContainer {
-        padding: 0.5rem 0.25rem;
+        padding: 0.5rem 0.75rem;
+        max-width: 100%;
     }
     
     .sectionTitle {
@@ -214,5 +189,21 @@
     
     .sectionViewMoreLink {
         font-size: 0.75rem;
+    }
+}
+
+/* Celulares muito pequenos (até 360px) */
+@media (max-width: 360px) {
+    .articlesContainer {
+        padding: 0.5rem 0.5rem;
+        max-width: 100%;
+    }
+    
+    .sectionTitle {
+        font-size: 0.65rem;
+    }
+    
+    .sectionViewMoreLink {
+        font-size: 0.7rem;
     }
 }

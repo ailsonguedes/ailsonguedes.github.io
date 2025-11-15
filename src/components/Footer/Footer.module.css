@@ -146,7 +146,8 @@
     }
     
     .footerInnerWrapper {
-        padding: 0 0.75rem;
+        padding: 0 1rem;
+        max-width: 100%;
     }
     
     .footerText {
@@ -156,13 +157,20 @@
 
 /* Tablets pequenos e celulares grandes */
 @media (max-width: 768px) {
+    .footerContainer {
+        padding: 2rem 1rem;
+    }
+    
     .footerInnerWrapper {
         flex-direction: column; /* Empilha os containers em telas menores */
         gap: 1.5rem;
+        padding: 0 1rem;
     }
 
     .footerLeftContainer {
         order: 2; /* Move o link principal para baixo em mobile */
+        justify-content: center;
+        width: 100%;
     }
 
     .footerRightContainer {

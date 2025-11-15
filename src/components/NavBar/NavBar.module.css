@@ -12,7 +12,7 @@
   /* NOTA: 'margin: 2rem auto 0;' é uma forma mais curta de combinar os itens 1 e 2 */
 
   /* 3. Espaçamento Lateral (para telas menores) */
-  padding: 0 20rem; /* Alterado de 25rem para 2rem (ou 1.5rem, etc.) */
+  padding: 0 2rem; /* Padding responsivo ajustado via media queries */
 
   /* 4. Estilos de layout (preservando o alinhamento atual) */
   display: flex;
@@ -139,11 +139,12 @@
     .navContainer {
         padding: 0 2rem;
         margin-top: 3rem;
+        max-width: 100%;
     }
     
     .navLinks {
-        font-size: 14px;
-        padding: 4px 5px;
+        font-size: 0.875rem;
+        padding: 0.4rem 0.5rem;
     }
 }
 
@@ -161,13 +162,12 @@
     }
     
     .navLinks {
-        font-size: 13px;
-        padding: 3px 4px;
-        gap: 3px;
+        font-size: 0.813rem;
+        padding: 0.3rem 0.4rem;
     }
     
     .navRightContainer {
-        gap: 3px;
+        gap: 0.3rem;
     }
 }
 
@@ -184,19 +184,19 @@
     }
     
     .navLinks {
-        font-size: 12px;
-        padding: 2px 3px;
+        font-size: 0.75rem;
+        padding: 0.25rem 0.3rem;
     }
     
     .navRightContainer {
-        gap: 2px;
+        gap: 0.2rem;
     }
 }
 
 /* Celulares pequenos */
 @media (max-width: 480px) {
     .navContainer {
-        padding: 0 0.5rem;
+        padding: 0 0.75rem;
         margin-top: 1rem;
     }
     
@@ -206,7 +206,11 @@
     }
     
     .navLinks {
-        font-size: 11px;
-        padding: 2px;
+        font-size: 0.688rem;
+        padding: 0.2rem 0.25rem;
+    }
+    
+    .navRightContainer {
+        gap: 0.1rem;
     }
 }
