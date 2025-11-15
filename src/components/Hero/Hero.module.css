@@ -40,7 +40,7 @@
 /* Mídia Queries para Responsividade */
 /* ------------------------------------------------------------------- */
 
-/* iPad 13" e tablets grandes */
+/* Tablets grandes e laptops pequenos (1024px - 1366px) */
 @media (max-width: 1366px) {
   .heroContainer {
     max-width: 600px;
@@ -57,16 +57,7 @@
   }
 }
 
-/* iPad 11" e tablets médios */
-@media (max-width: 1194px) {
-  .heroContainer {
-    max-width: 600px;
-    padding: 0 1rem;
-    margin-top: 1.5rem;
-  }
-}
-
-/* iPad padrão e iPad Mini landscape */
+/* Tablets landscape (iPad, etc.) - 768px a 1024px */
 @media (max-width: 1024px) {
   .heroContainer {
     max-width: 600px;
@@ -83,9 +74,10 @@
   }
 }
 
-/* Tablets pequenos e celulares grandes */
+/* Tablets portrait e celulares grandes (640px - 768px) */
 @media (max-width: 768px) {
   .heroContainer {
+    max-width: 100%;
     padding: 0 1rem;
     margin-top: 1rem;
   }
@@ -100,9 +92,10 @@
   }
 }
 
-/* Celulares */
+/* Celulares médios e grandes (480px - 640px) */
 @media (max-width: 640px) {
   .heroContainer {
+    max-width: 100%;
     padding: 0 0.75rem;
     margin-top: 0.75rem;
   }
@@ -118,10 +111,11 @@
   }
 }
 
-/* Celulares pequenos */
+/* Celulares pequenos e médios (360px - 480px) */
 @media (max-width: 480px) {
   .heroContainer {
-    padding: 0 0.5rem;
+    max-width: 100%;
+    padding: 0 0.75rem;
   }
   
   .heroTitle {
@@ -130,5 +124,21 @@
   
   .heroText {
     font-size: 0.7rem;
+  }
+}
+
+/* Celulares muito pequenos (até 360px) */
+@media (max-width: 360px) {
+  .heroContainer {
+    max-width: 100%;
+    padding: 0 0.5rem;
+  }
+  
+  .heroTitle {
+    font-size: 0.85rem;
+  }
+  
+  .heroText {
+    font-size: 0.65rem;
   }
 }

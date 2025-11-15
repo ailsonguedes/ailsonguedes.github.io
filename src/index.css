@@ -1,14 +1,28 @@
 /* src/index.css ou src/main.css */
 
+/* Garante que o elemento HTML também cubra a altura total */
+html {
+  height: 100%;
+  /* Melhora a renderização de texto em dispositivos móveis */
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
 /* Define a cor de fundo para a tela inteira */
 body {
   background-color: var(--cor-fundo-pagina); /* Preto absoluto */
   color: var(--cor-texto-principal); /* Opcional: define a cor do texto padrão para branco, para contraste */
   margin: 0; /* Remove a margem padrão do navegador */
   padding: 0;
+  /* Previne scroll horizontal em mobile */
+  overflow-x: hidden;
+  /* Melhora a renderização de texto */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Garante que o elemento HTML também cubra a altura total */
-html {
-  height: 100%;
+/* Garante que todos os elementos respeitem o box-sizing */
+* {
+  box-sizing: border-box;
 }

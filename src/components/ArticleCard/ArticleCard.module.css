@@ -16,12 +16,13 @@
     -webkit-align-items: center; /* WebKit */
     align-items: center; 
     /* Margem superior para separar os cards, tirada do .articleLink antigo */
-    margin: 1rem 0rem 0 -7rem; 
+    margin: 1rem 0rem 0 0; 
+    margin-left: -1rem;
 }
 
 .articleLink{
 /* Base do link/card - Mantém as propriedades de estilo e link */
-    
+
     /* REMOVIDAS: position, display: flex, flex-wrap (agora gerenciadas pelo .articleCardContainer) */
     
     position: relative; /* Mantido se for necessário para sublinhado/hover, mas verifique se é realmente essencial */
@@ -65,8 +66,8 @@
     
     margin: 0;
     /* Espaço entre a data e o título/link */
-    margin-right: 0.5rem; 
-    padding-right: 1rem;
+    margin-right: 1rem; 
+    padding-right: -1rem;
     
     /* REMOVA: -webkit-transform: translateY(0.5em); e variações */
     /* REMOVA: transform: translateY(0.5em); */
@@ -74,6 +75,7 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
+    margin-left: -6.5rem;
 }
 
 /* ------------------- Coluna 2: Conteúdo (Título/Descrição Recuados) ------------------- */
@@ -144,18 +146,23 @@
 /* Mídia Queries para Responsividade */
 /* ------------------------------------------------------------------- */
 
-/* iPad 13" e tablets grandes */
+/* Tablets grandes e laptops pequenos (1024px - 1366px) */
 @media (max-width: 1366px) {
+    .articleCardContainer {
+        margin: 1rem 0 0 0;
+        margin-left: 0;
+    }
+    
     .articleLink {
-        margin-left: 0.4rem;
+        margin-left: 0;
     }
     
     .articleDate {
-        flex: 0 0 5rem;
-        margin-right: 1.5rem;
-        margin-left: -1.5rem;
+        flex: 0 0 6rem;
+        margin-right: 1rem;
+        margin-left: 0;
         font-size: 0.85rem;
-        padding-right: 0.75rem;
+        width: 6rem;
     }
     
     .articleTitle {
@@ -164,114 +171,151 @@
     
     .articleDescription {
         font-size: 0.9rem;
-        width: 300px;
-        max-width: 300px;
-        margin-left: 0.3rem;
-    }
-}
-
-/* iPad 11" e tablets médios */
-@media (max-width: 1194px) {
-    .articleLink {
-        margin-left: 0.4rem;
-    }
-    
-    .articleDate {
-        flex: 0 0 5rem;
-        margin-right: 1.5rem;
-        margin-left: -1.5rem;
-        font-size: 0.85rem;
-        padding-right: 0.75rem;
-    }
-}
-
-/* iPad padrão e iPad Mini landscape */
-@media (max-width: 1024px) {
-    .articleLink {
-        margin-left: 0.4rem;
-    }
-    
-    .articleDate {
-        flex: 0 0 5rem;
-        margin-right: 1.5rem;
-        margin-left: -1.5rem;
-        font-size: 0.85rem;
-        padding-right: 0.75rem;
-    }
-    
-    .articleTitle {
-        font-size: 0.95rem;
-    }
-    
-    .articleDescription {
-        font-size: 0.9rem;
-        width: 300px;
-        max-width: 300px;
-        margin-left: 0.3rem;
-    }
-}
-
-/* Tablets pequenos e celulares grandes */
-@media (max-width: 768px) {
-    .articleDate {
-        flex: 0 0 5rem;
-        margin-right: 5rem;
-        margin-left: -2rem;
-        font-size: 0.8rem;
-    }
-    
-    .articleTitle {
-        font-size: 0.9rem;
-    }
-    
-    .articleDescription {
-        font-size: 0.85rem;
-        width: 250px;
-        max-width: 250px;
-    }
-}
-
-/* Celulares */
-@media (max-width: 640px) {
-    .articleLink {
-        flex-direction: column; /* Empilha data e conteúdo em telas pequenas */
-        margin-left: 0;
-    }
-    
-    .articleDate {
-        flex-basis: auto; 
-        padding-right: 0;
-        margin-bottom: 0.25rem;
-        margin-right: 0;
-        margin-left: 0;
-        text-align: left;
-        transform: translateY(0);
-        font-size: 0.75rem;
-    }
-    
-    .articleTitle {
-        font-size: 0.85rem;
-    }
-    
-    .articleDescription {
-        font-size: 0.8rem;
-        width: 100%;
         max-width: 100%;
         margin-left: 0;
     }
 }
 
-/* Celulares pequenos */
+/* Tablets landscape (iPad, etc.) - 768px a 1024px */
+@media (max-width: 1024px) {
+    .articleCardContainer {
+        margin: 1rem 0 0 0;
+        margin-left: 0;
+    }
+    
+    .articleLink {
+        margin-left: 0;
+    }
+    
+    .articleDate {
+        flex: 0 0 5.5rem;
+        margin-right: 0.75rem;
+        margin-left: 0;
+        font-size: 0.85rem;
+        width: 5.5rem;
+    }
+    
+    .articleTitle {
+        font-size: 0.9rem;
+    }
+    
+    .articleDescription {
+        font-size: 0.85rem;
+        max-width: 100%;
+        margin-left: 0;
+    }
+}
+
+/* Tablets portrait e celulares grandes (640px - 768px) */
+@media (max-width: 768px) {
+    .articleCardContainer {
+        margin: 1rem 0 0 0;
+        margin-left: 0;
+    }
+    
+    .articleLink {
+        margin-left: 0;
+    }
+    
+    .articleDate {
+        flex: 0 0 4.5rem;
+        margin-right: 0.75rem;
+        margin-left: 0;
+        font-size: 0.8rem;
+        width: 4.5rem;
+    }
+    
+    .articleTitle {
+        font-size: 0.875rem;
+    }
+    
+    .articleDescription {
+        font-size: 0.8rem;
+        max-width: 100%;
+        margin-left: 0;
+        line-height: 1.4;
+    }
+}
+
+/* Celulares médios e grandes (480px - 640px) */
+@media (max-width: 640px) {
+    .articleCardContainer {
+        flex-direction: column; /* Empilha data e conteúdo em telas pequenas */
+        margin: 1rem 0 0 0;
+        margin-left: 0;
+        align-items: flex-start;
+    }
+    
+    .articleLink {
+        width: 100%;
+        margin-left: 0;
+    }
+    
+    .articleDate {
+        flex-basis: auto; 
+        flex-shrink: 0;
+        padding-right: 0;
+        margin-bottom: 0.5rem;
+        margin-right: 0;
+        margin-left: 0;
+        text-align: left;
+        width: auto;
+        font-size: 0.75rem;
+    }
+    
+    .articleTitle {
+        font-size: 0.85rem;
+        padding-bottom: 6px;
+    }
+    
+    .articleDescription {
+        font-size: 0.8rem;
+        max-width: 100%;
+        margin-left: 0;
+        line-height: 1.4;
+    }
+}
+
+/* Celulares pequenos e médios (360px - 480px) */
 @media (max-width: 480px) {
+    .articleCardContainer {
+        margin: 0.875rem 0 0 0;
+    }
+    
     .articleDate {
         font-size: 0.7rem;
+        margin-bottom: 0.4rem;
     }
     
     .articleTitle {
         font-size: 0.8rem;
+        padding-bottom: 5px;
     }
     
     .articleDescription {
         font-size: 0.75rem;
+        line-height: 1.35;
+    }
+}
+
+/* Celulares muito pequenos (até 360px) */
+@media (max-width: 360px) {
+    .articleCardContainer {
+        margin: 0.75rem 0 0 0;
+    }
+    
+    .articleDate {
+        font-size: 0.65rem;
+        margin-bottom: 0.35rem;
+    }
+    
+    .articleTitle {
+        font-size: 0.75rem;
+        padding-bottom: 4px;
+    }
+    
+    .articleDescription {
+        font-size: 0.7rem;
+        line-height: 1.3;
     }
 }
