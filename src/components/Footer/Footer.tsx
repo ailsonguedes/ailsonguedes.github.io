@@ -7,6 +7,7 @@ import { useTheme } from '../../hooks/useTheme'; // <-- Ajuste o caminho se nece
 
 // URLs dos ícones (incluindo Sol e Lua)
 const GITHUB_ICON_URL = "https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/github.svg";
+const GITLAB_ICON_URL = "https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/gitlab.svg";
 const LINKEDIN_ICON_URL = "https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/linkedin.svg";
 const MAIL_ICON_URL = "https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/mail.svg";
 const MOON_ICON_URL = "https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/moon.svg";
@@ -88,6 +89,9 @@ export function Footer(){
                     </a>
                     <a href="https://github.com/ailsonguedes" target='_blank' className={styles.footerLink}>
                         <img src={GITHUB_ICON_URL} alt="GitHub" className={styles.footerIcon} width="20" height="20"></img>
+                    </a>
+                    <a href="https://gitlab.com/ailsonguedes" target='_blank' className={styles.footerLink}>
+                        <img src={GITLAB_ICON_URL} alt="GitLab" className={styles.footerIcon} width="20" height="20"></img>
                     </a>
                     <a href="https://www.linkedin.com/in/ailson-guedes-059795149/" target='_blank' className={styles.footerLink}>
                         <img src={LINKEDIN_ICON_URL} alt="LinkedIn" className={styles.footerIcon} width="20" height="20"></img>
