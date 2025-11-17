@@ -1,7 +1,7 @@
 // ProjectItem.tsx
 
 import { ProjectCard } from '../ProjectCard/ProjectCard'; // Importa o Card
-import { type Project } from '../../pages/ProjectsSection/ProjectsSectionData'; // Importa o tipo Project
+import { type Project } from '../../../pages/ProjectsSection/ProjectsSectionData'; // Importa o tipo Project
 import styles from './ProjectItem.module.css';
 
 interface ProjectItemProps {

@@ -2,12 +2,12 @@ import './App.css'
 
 import { NavBar } from './components/NavBar/NavBar'
 import { Hero } from './components/Hero/Hero'
-import { ProjectsSection } from './components/ProjectsSection/ProjectsSection'
-import { ArticlesSection } from './components/ArticlesSection/ArticlesSection'
+import { ProjectsSection } from './components/Projects/ProjectsSection/ProjectsSection'
+import { ArticlesSection } from './components/Articles/ArticlesSection/ArticlesSection'
 import { Footer } from './components/Footer/Footer'
 
 import { BrowserRouter, Routes, Route } from "react-router-dom"
-import { CurriculumVittae } from './components/CurriculumVittae/CurriculumVittae'
+import { CurriculumVittae } from './components/CurriculumVitae/CurriculumVitae'
 
 import '../src/assets/css/theme.css'
 

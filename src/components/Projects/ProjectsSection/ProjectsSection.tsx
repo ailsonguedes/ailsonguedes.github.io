@@ -1,6 +1,6 @@
 import styles from './ProjectsSection.module.css';
 import { ProjectItem } from '../ProjectItem/ProjectItem'; 
-import { projectsSectionData, type Project } from '../../pages/ProjectsSection/ProjectsSectionData'; 
+import { projectsSectionData, type Project } from '../../../pages/ProjectsSection/ProjectsSectionData'; 
 
 /**
  * 💡 Função para agrupar e classificar os projetos por ano.

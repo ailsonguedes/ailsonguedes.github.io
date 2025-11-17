@@ -1,6 +1,6 @@
 import styles from './ArticlesSection.module.css'; 
 import { ArticleCard } from '../ArticleCard/ArticleCard.tsx'; 
-import { articlesSectionData, type Article } from '../../pages/ArticlesSection/ArticlesSectionData.ts'; 
+import { articlesSectionData, type Article } from '../../../pages/ArticlesSection/ArticlesSectionData.ts'; 
 
 /**
  * Mapeamento para converter o nome do mês para seu índice (0-11) para uso no construtor Date.
