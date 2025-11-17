@@ -1,5 +1,5 @@
 import styles from './ArticleCard.module.css';
-import { type Article } from '../../pages/ArticlesSection/ArticlesSectionData.ts'; 
+import { type Article } from '../../../pages/ArticlesSection/ArticlesSectionData.ts'; 
 
 interface ArticleCardProps {
   article: Article;

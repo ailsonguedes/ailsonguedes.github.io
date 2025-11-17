@@ -1,6 +1,6 @@
 import { Route, Routes} from "react-router-dom"
 
-import { CurriculumVittae } from "../components/CurriculumVittae/CurriculumVittae"
+import { CurriculumVittae } from "../components/CurriculumVitae/CurriculumVitae"
 
 export function AppRoutes(){
     return(
