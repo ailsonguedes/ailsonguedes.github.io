@@ -1,216 +1,102 @@
-/* NavBar.module.css */
+/* NavBar.module.css - Modernizado com práticas CSS modernas */
+/* Usa clamp(), min(), flexbox wrap para adaptação automática */
 
 .navContainer {
+    margin-top: clamp(1rem, 8vw, 6rem);
+    max-width: min(550px, 100%);
+    margin-inline: auto;
+    padding-inline: clamp(0.75rem, 4vw, 2rem);
     
-  /* 1. Distância do Topo */
-  margin-top: 6rem; /* Adiciona 2rem (cerca de 32px) de margem acima do NavBar */
-
-  /* 2. Centralização Horizontal */
-  max-width: 550px; /* Define uma largura máxima para o conteúdo da sua navegação */
-  margin-left: auto; /* Centraliza o contêiner à esquerda */
-  margin-right: auto; /* Centraliza o contêiner à direita */
-  /* NOTA: 'margin: 2rem auto 0;' é uma forma mais curta de combinar os itens 1 e 2 */
-
-  /* 3. Espaçamento Lateral (para telas menores) */
-  padding: 0 2rem; /* Padding responsivo ajustado via media queries */
-
-  /* 4. Estilos de layout (preservando o alinhamento atual) */
-  display: flex;
-  justify-content: space-between; /* Mantém o logo à esquerda e os links à direita */
-  align-items: center;
-
-  /* background-color: var(--cor-fundo-pagina); */
-  background-color: transparent;
-  color: var(--cor-texto-principal);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: clamp(0.5rem, 1vw, 1rem);
+    
+    background-color: transparent;
+    color: var(--cor-texto-principal);
 }
 
-.navLeftContainer{
+.navLeftContainer {
     position: relative;
-    width: 50px;
-    height: 50px;
+    width: clamp(35px, 5vw, 50px);
+    height: clamp(35px, 5vw, 50px);
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
     border-radius: 8px;
     background-color: transparent;
-
-    /* MUDANÇA 1: Borda sempre visível e com a cor da luz */
-    border: 1px solid var(--cor-borda-componente); /* Define a cor da borda que você quer sempre ativa */
-  
-    transition: box-shadow 0.3s ease; /* Transição apenas para a sombra ao hover */
+    border: 1px solid var(--cor-borda-componente);
+    transition: box-shadow 0.3s ease;
 }
 
-.navLeftContainer img{
-    /* ... (Estilos da imagem, inalterados) ... */
+.navLeftContainer img {
     max-width: 100%;
     max-height: 100%;
     display: block;
     z-index: 10;
 }
 
-.navLeftContainer::before{
+.navLeftContainer::before {
     content: '';
     position: absolute;
-    /* Posiciona a luz verticalmente fora do topo e do centro horizontalmente */
     top: 0;
     left: 120%;
-    transform: translate(-50%, -100%); /* Começa totalmente fora do topo */
-
+    transform: translate(-50%, -100%);
+    
     width: 200%;
     height: 5px;
     background: linear-gradient(
-        100deg, /* Original 90deg*/
+        100deg,
         transparent 0%,
-        #8d8d8d 50%, /* A cor central do raio */
-        transparent 100%    
+        #8d8d8d 50%,
+        transparent 100%
     );
-
+    
     filter: blur(2px);
-    opacity: 0; /* Começa invisível */
+    opacity: 0;
     z-index: 5;
     transition: opacity 0.3s ease;
 }
 
-/* 💡 NOVO KEYFRAMES: Animação de Varredura (de cima para baixo) */
 @keyframes sweepLight {
-  0% {
-    transform: translate(-80%, -100%); /* Começa no topo (escondido) */
-  }
-  100% {
-    transform: translate(-85%, 1200%); /* Termina na base (escondido) */
-  }
+    0% {
+        transform: translate(-80%, -100%);
+    }
+    100% {
+        transform: translate(-85%, 1200%);
+    }
 }
 
 .navLeftContainer:hover {
-    box-shadow: 0 0 10px var(--cor-hover-icone); /* Brilho ao hover */
+    box-shadow: 0 0 10px var(--cor-hover-icone);
 }
 
 .navLeftContainer:hover::before {
-    opacity: 1; /* A luz aparece */
-    /* Aplica a animação para mover a luz de cima para baixo e repete */
+    opacity: 1;
     animation: sweepLight 2s ease-in-out forwards;
 }
 
-/* Os outros estilos do seu layout devem ser mantidos */
 .navSpace {
-    /* flex: 1 é a mágica aqui: 
-     Faz este item ocupar todo o espaço restante. 
-     Ele "empurra" o item seguinte (navLinks) para a direita o máximo possível. 
-     Como o navLinks não tem margem, ele encosta no fim, e o navLinks se centra com base no espaço restante. */
     flex: 1;
 }
 
-.navRightContainer{
-    /* margin-left: auto; <- Essa também seria uma ótima solução para o item links */
+.navRightContainer {
     display: flex;
-    gap: 5px;
+    flex-wrap: wrap;
+    gap: clamp(0.1rem, 0.5vw, 5px);
+    align-items: center;
 }
 
 .navLinks {
-    /* O link deve começar com a cor do texto base (Escuro no tema claro, Claro no tema escuro) */
-    color: var(--cor-universal-base); 
-    
-    /* Garante a transição suave */
-    transition: color 0.3s ease, background-color 0.3s ease; 
-    
-    /* Outros estilos de link (ex: padding, margin, font-weight) */
-    padding: 0.5rem 1rem;
+    color: var(--cor-universal-base);
+    transition: color 0.3s ease, background-color 0.3s ease;
+    padding: clamp(0.2rem, 0.5vw, 0.5rem) clamp(0.3rem, 1vw, 1rem);
     text-decoration: none;
+    font-size: clamp(0.688rem, 1vw + 0.3rem, 0.875rem);
 }
 
-/* 2. ESTADO HOVER (Quando o mouse ESTÁ em cima) */
 .navLinks:hover {
-    /* CORREÇÃO SEMÂNTICA: Use a variável correta para links. 
-       Isso fará a cor ir para #000 (claro) ou #FFF (escuro). 
-    */
     color: var(--cor-universal-hover);
-    
-    /* Se quiser o fundo levemente acinzentado no hover, use esta variável P&B */
-    /* background-color: var(--cor-fundo-hover-componente); */
-}
-
-/* ------------------------------------------------------------------- */
-/* Mídia Queries para Responsividade */
-/* ------------------------------------------------------------------- */
-
-/* Tablets */
-@media (max-width: 1024px) {
-    .navContainer {
-        padding: 0 2rem;
-        margin-top: 3rem;
-        max-width: 100%;
-    }
-    
-    .navLinks {
-        font-size: 0.875rem;
-        padding: 0.4rem 0.5rem;
-    }
-}
-
-/* Tablets pequenos e celulares grandes */
-@media (max-width: 768px) {
-    .navContainer {
-        padding: 0 1.5rem;
-        margin-top: 2rem;
-        max-width: 100%;
-    }
-    
-    .navLeftContainer {
-        width: 45px;
-        height: 45px;
-    }
-    
-    .navLinks {
-        font-size: 0.813rem;
-        padding: 0.3rem 0.4rem;
-    }
-    
-    .navRightContainer {
-        gap: 0.3rem;
-    }
-}
-
-/* Celulares */
-@media (max-width: 640px) {
-    .navContainer {
-        padding: 0 1rem;
-        margin-top: 1.5rem;
-    }
-    
-    .navLeftContainer {
-        width: 40px;
-        height: 40px;
-    }
-    
-    .navLinks {
-        font-size: 0.75rem;
-        padding: 0.25rem 0.3rem;
-    }
-    
-    .navRightContainer {
-        gap: 0.2rem;
-    }
-}
-
-/* Celulares pequenos */
-@media (max-width: 480px) {
-    .navContainer {
-        padding: 0 0.75rem;
-        margin-top: 1rem;
-    }
-    
-    .navLeftContainer {
-        width: 35px;
-        height: 35px;
-    }
-    
-    .navLinks {
-        font-size: 0.688rem;
-        padding: 0.2rem 0.25rem;
-    }
-    
-    .navRightContainer {
-        gap: 0.1rem;
-    }
 }

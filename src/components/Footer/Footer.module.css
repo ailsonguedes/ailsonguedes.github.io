@@ -1,34 +1,40 @@
 /* ------------------------------------------------------------------- */
 /* Footer.module.css - Estilo para o componente de rodapé             */
+/* Modernizado com práticas CSS modernas: clamp(), flexbox wrap */
+/* Elimina todas as media queries baseadas em largura de tela */
 /* ------------------------------------------------------------------- */
 
 .footerContainer {
-    /* Cor de fundo escura, consistente com o tema */
-    /* background-color: var(--cor-fundo-pagina); */
     background-color: transparent;
-    padding: 3rem 1rem;
+    margin-block-start: clamp(3rem, 7vw, 6rem);
+    padding: clamp(1rem, 3vw, 3rem) clamp(0.5rem, 2vw, 1rem);
 }
 
 /* Wrapper Interno: Define a largura máxima e alinha o conteúdo */
 .footerInnerWrapper {
-    /* Usa a mesma largura máxima de 1000px dos seus outros componentes */
-    max-width: 600px; 
+    max-width: min(600px, 100%);
     margin: 0 auto; 
     
-    /* Configuração Flexbox para alinhar LeftContainer à esquerda e RightContainer à direita */
+    /* Configuração Flexbox com wrap para adaptação automática */
     display: flex;
-    justify-content: space-between; /* Empurra os containers para as extremidades */
-    align-items: center; /* Alinhamento vertical centralizado */
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: clamp(1rem, 2vw, 1.5rem);
     
-    padding: 0 1rem; /* Padding interno para telas menores */
+    padding: 0 clamp(0.5rem, 2vw, 1rem);
 }
 
 /* Containers Esquerdo e Direito */
 .footerLeftContainer,
 .footerRightContainer {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
-    gap: 1rem; /* Espaçamento entre os itens dentro dos containers */
+    justify-content: center;
+    gap: clamp(0.5rem, 1.5vw, 1rem);
+    flex: 1 1 min-content;
+    min-width: min(200px, 100%);
 }
 
 /* Link Geral */
@@ -46,7 +52,7 @@
 /* Texto de Domínio */
 .footerText {
     margin: 0;
-    font-size: 0.9rem;
+    font-size: clamp(0.7rem, 1.2vw + 0.4rem, 0.9rem);
     font-weight: 500;
 }
 
@@ -76,16 +82,13 @@
   }
   
   /* O .footerIcon dentro do botão se comportará como os outros */
-  .themeToggle .footerIcon {
-    /* O CSS que você já tem para .footerIcon será aplicado aqui */
-    /* (como cor, hover, etc.) */
-  }
+  /* (herda os estilos de .footerIcon automaticamente) */
 
   /* Footer.module.css */
   .footerLeftButtonContainer {
     position: relative;
-    width: 30px; 
-    height: 30px;
+    width: clamp(25px, 2vw + 20px, 30px); 
+    height: clamp(25px, 2vw + 20px, 30px);
     border-radius: 100%;
     overflow: hidden;
     
@@ -135,89 +138,6 @@
     }
 }
 
-/* ------------------------------------------------------------------- */
-/* Mídia Queries para Responsividade */
-/* ------------------------------------------------------------------- */
-
-/* Tablets */
-@media (max-width: 1024px) {
-    .footerContainer {
-        padding: 2rem 1rem;
-    }
-    
-    .footerInnerWrapper {
-        padding: 0 1rem;
-        max-width: 100%;
-    }
-    
-    .footerText {
-        font-size: 0.85rem;
-    }
-}
-
-/* Tablets pequenos e celulares grandes */
-@media (max-width: 768px) {
-    .footerContainer {
-        padding: 2rem 1rem;
-    }
-    
-    .footerInnerWrapper {
-        flex-direction: column; /* Empilha os containers em telas menores */
-        gap: 1.5rem;
-        padding: 0 1rem;
-    }
-
-    .footerLeftContainer {
-        order: 2; /* Move o link principal para baixo em mobile */
-        justify-content: center;
-        width: 100%;
-    }
-
-    .footerRightContainer {
-        order: 1; /* Move as redes sociais para cima em mobile */
-        /* Centraliza os ícones em mobile */
-        width: 100%;
-        justify-content: center;
-    }
-    
-    .footerText {
-        font-size: 0.8rem;
-    }
-}
-
-/* Celulares */
-@media (max-width: 640px) {
-    .footerContainer {
-        padding: 1.5rem 0.75rem;
-    }
-    
-    .footerInnerWrapper {
-        padding: 0 0.5rem;
-        gap: 1rem;
-    }
-    
-    .footerText {
-        font-size: 0.75rem;
-    }
-    
-    .footerLeftContainer,
-    .footerRightContainer {
-        gap: 0.75rem;
-    }
-}
-
-/* Celulares pequenos */
-@media (max-width: 480px) {
-    .footerContainer {
-        padding: 1rem 0.5rem;
-    }
-    
-    .footerText {
-        font-size: 0.7rem;
-    }
-    
-    .footerLeftContainer,
-    .footerRightContainer {
-        gap: 0.5rem;
-    }
-}
+/* Media queries eliminadas - usando flexbox wrap e clamp() para adaptação automática */
+/* O flexbox wrap faz os containers se empilharem automaticamente quando necessário */
+/* O clamp() ajusta tamanhos de fonte e espaçamentos fluidamente */
