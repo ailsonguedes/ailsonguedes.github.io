@@ -1,5 +1,5 @@
 import styles from './ProjectsSection.module.css';
-import { ProjectItem } from '../ProjectItem/ProjectItem'; 
+import { ProjectCard } from '../ProjectCard/ProjectCard';
 import { projectsSectionData, type Project } from '../../../pages/ProjectsSection/ProjectsSectionData'; 
 
 /**
@@ -41,18 +41,23 @@ export function ProjectsSection(){
             <div className={styles.cardGrid}>
                 {/* Itera sobre os grupos de ano já classificados */}
                 {groupedAndSortedProjects.map(group => (
-                    <ProjectItem 
-                        key={group.year} 
-                        year={group.year}
-                        // O ProjectItem só precisa receber o array de projetos e o ano
-                        projects={group.projects} 
-                    />
+                    <div key={group.year} className={styles.projectContainer}>
+                        <div className={styles.header}>
+                            <h4 className={styles.projectYear}>{group.year}</h4>
+                        </div>
+                        <div className={styles.contentWrapper}>
+                            {group.projects.map((project) => (
+                                <ProjectCard 
+                                    key={project.title} 
+                                    title={project.title}
+                                    description={project.description}
+                                    link={project.link}
+                                />
+                            ))}
+                        </div>
+                    </div>
                 ))}
             </div> 
-            
-            <a href="https://github.com/ailsonguedes" target='_blank' className={styles.sectionViewMoreLink}>
-                view more...
-            </a>
 
         </section>
     );

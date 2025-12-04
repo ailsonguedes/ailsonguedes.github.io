@@ -1,144 +1,32 @@
-/* Hero.module.css */
+/* Hero.module.css - Modernizado com práticas CSS modernas */
+/* Usa clamp() e min() para adaptação automática */
 
 .heroContainer {
-  /* --- A MÁGICA (Sincronizado com .navContainer) --- */
-  /* 1. Define a mesma largura máxima */
-  max-width: 550px; 
-
-  /* 2. Centraliza o container */
-  margin-left: auto;
-  margin-right: auto;
-
-  /* 3. Usa o mesmo padding lateral (essencial para o alinhamento) */
-  padding: 0 2rem; 
-
-  /* --- Estilo do Hero --- */
-
-  /* Espaçamento abaixo do NavBar */
-  margin-top: 2rem; /* 64px (ajuste conforme o gosto) */
-  margin-bottom: -1rem;
+    max-width: min(550px, 100%);
+    margin-inline: auto;
+    
+    /* Padding fluido */
+    padding-inline: clamp(1rem, 4vw, 2rem);
+    
+    margin-top: clamp(1rem, 3vw, 2rem);
+    margin-bottom: -1rem;
 }
 
 .heroTitle {
-  font-family: "Open Sans", sans-serif;
-  font-size: 1.2rem; /* 40px */
-  color: var(--cor-texto-principal);
-  margin: 0; /* Remove margem padrão do h1 */
-  padding: 0;
+    font-family: "Open Sans", sans-serif;
+    /* Tamanho de fonte fluido */
+    font-size: clamp(0.9rem, 2vw + 0.5rem, 1.2rem);
+    color: var(--cor-texto-principal);
+    margin: 0;
+    padding: 0;
 }
 
 .heroText {
-  font-family: "Open Sans", sans-serif;
-  font-size: 0.9rem; /* 18px */
-  color: var(--cor-universal-base); /* Um cinza claro para diferenciar do título */
-  line-height: 1.6; /* Melhora a legibilidade das duas linhas */
-  margin-top: 1.5rem; /* Espaço entre o título e o texto */
-  max-width: 100%; /* Opcional: se quiser que o texto pare antes do fim */
-}
-
-/* ------------------------------------------------------------------- */
-/* Mídia Queries para Responsividade */
-/* ------------------------------------------------------------------- */
-
-/* Tablets grandes e laptops pequenos (1024px - 1366px) */
-@media (max-width: 1366px) {
-  .heroContainer {
-    max-width: 600px;
-    padding: 0 1rem;
-    margin-top: 1.5rem;
-  }
-  
-  .heroTitle {
-    font-size: 1.1rem;
-  }
-  
-  .heroText {
-    font-size: 0.85rem;
-  }
-}
-
-/* Tablets landscape (iPad, etc.) - 768px a 1024px */
-@media (max-width: 1024px) {
-  .heroContainer {
-    max-width: 600px;
-    padding: 0 1rem;
-    margin-top: 1.5rem;
-  }
-  
-  .heroTitle {
-    font-size: 1.1rem;
-  }
-  
-  .heroText {
-    font-size: 0.85rem;
-  }
-}
-
-/* Tablets portrait e celulares grandes (640px - 768px) */
-@media (max-width: 768px) {
-  .heroContainer {
+    font-family: "Open Sans", sans-serif;
+    /* Tamanho de fonte fluido */
+    font-size: clamp(0.75rem, 1.5vw + 0.4rem, 0.9rem);
+    color: var(--cor-universal-base);
+    line-height: clamp(1.4, 0.1vw + 1.4, 1.6);
+    margin-top: clamp(1rem, 2vw, 1.5rem);
     max-width: 100%;
-    padding: 0 1rem;
-    margin-top: 1rem;
-  }
-  
-  .heroTitle {
-    font-size: 1rem;
-  }
-  
-  .heroText {
-    font-size: 0.8rem;
-    margin-top: 1rem;
-  }
-}
-
-/* Celulares médios e grandes (480px - 640px) */
-@media (max-width: 640px) {
-  .heroContainer {
-    max-width: 100%;
-    padding: 0 0.75rem;
-    margin-top: 0.75rem;
-  }
-  
-  .heroTitle {
-    font-size: 0.95rem;
-  }
-  
-  .heroText {
-    font-size: 0.75rem;
-    line-height: 1.5;
-    margin-top: 0.75rem;
-  }
-}
-
-/* Celulares pequenos e médios (360px - 480px) */
-@media (max-width: 480px) {
-  .heroContainer {
-    max-width: 100%;
-    padding: 0 0.75rem;
-  }
-  
-  .heroTitle {
-    font-size: 0.9rem;
-  }
-  
-  .heroText {
-    font-size: 0.7rem;
-  }
-}
-
-/* Celulares muito pequenos (até 360px) */
-@media (max-width: 360px) {
-  .heroContainer {
-    max-width: 100%;
-    padding: 0 0.5rem;
-  }
-  
-  .heroTitle {
-    font-size: 0.85rem;
-  }
-  
-  .heroText {
-    font-size: 0.65rem;
-  }
 }
