@@ -30,9 +30,9 @@ export function CurriculumVittae(){
                 </div>
 
                 <div className={styles.workDescriptionContainer}>
-                    <p className={styles.workPerformanceDescription}>Atuei no desenvolvimento front-end de landing pages responsivas para eventos sociais e corporativos (como casamentos). Colaborei com os clientes para entender os requisitos e entregar uma interface elegante e funcional, focada na experiência dos convidados.</p>
+                    <p className={styles.workPerformanceDescription}>Atualmente atuo como Programador Júnior na NTT DATA, em minha primeira experiência como profissional contratado. Trabalho no desenvolvimento e manutenção de aplicações web, colaborando com times multidisciplinares na implementação de soluções alinhadas às necessidades do negócio.</p>
                     <br />
-                    <p className={styles.workTechDescription}>Desenvolvi estas aplicações (SPAs) utilizando Angular, aplicando sua arquitetura de componentes e formulários reativos (para RSVPs). A escolha do framework foi uma decisão estratégica de aprendizado, aplicando conceitos de uma tecnologia robusta em projetos de escopo controlado.</p>
+                    <p className={styles.workTechDescription}>No front-end, utilizo React para criar interfaces responsivas e componentizadas. No back-end, atuo com Java Spring Boot, Python Flask e FastAPI, contribuindo no desenvolvimento e integração de APIs. Essa experiência tem sido essencial para consolidar minha base técnica e meu aprendizado em ambientes corporativos.</p>
                 </div>
 
                 <div className={styles.workTagContainer}>
