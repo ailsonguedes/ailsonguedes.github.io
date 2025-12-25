@@ -1,143 +1,96 @@
-/* ------------------------------------------------------------------- */
-/* Footer.module.css - Estilo para o componente de rodapé             */
-/* Modernizado com práticas CSS modernas: clamp(), flexbox wrap */
-/* Elimina todas as media queries baseadas em largura de tela */
-/* ------------------------------------------------------------------- */
+/* Footer.module.css */
 
-.footerContainer {
-    background-color: transparent;
-    margin-block-start: clamp(1rem, 2vw, 2rem);
-    padding-block: clamp(10rem, 5vw, 3rem) clamp(0.5rem, 2vw, 1rem);
+.footer {
+    padding-top: clamp(4rem, 8vw, 6rem);
+    padding-bottom: clamp(2rem, 4vw, 3rem);
 }
 
-/* Wrapper Interno: Define a largura máxima e alinha o conteúdo */
-.footerInnerWrapper {
-    max-width: min(47%, 100%);
-    margin: 0 auto; 
-    
-    /* Configuração Flexbox com wrap para adaptação automática */
+.footerContent {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 clamp(1rem, 4vw, 2rem);
     display: flex;
-    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    gap: clamp(1rem, 2vw, 1.5rem);
-    
-    padding: 0 clamp(0.5rem, 2vw, 1rem);
+    gap: clamp(1rem, 3vw, 2rem);
+    flex-wrap: wrap;
 }
 
-/* Containers Esquerdo e Direito */
-.footerLeftContainer,
-.footerRightContainer {
+.leftSection {
     display: flex;
-    flex-wrap: wrap;
+    align-items: center;
+    gap: clamp(0.5rem, 1.5vw, 0.75rem);
+}
+
+.siteName {
+    font-size: clamp(0.85rem, 1.5vw, 0.925rem);
+    color: var(--cor-universal-base);
+    font-weight: 400;
+}
+
+.socialLinks {
+    display: flex;
+    align-items: center;
+    gap: clamp(0.5rem, 1.5vw, 0.75rem);
+}
+
+.socialLink {
+    display: flex;
     align-items: center;
     justify-content: center;
-    gap: clamp(0.5rem, 1.5vw, 1rem);
-    flex: 1 1 min-content;
-    min-width: min(200px, 100%);
+    padding: 0.4rem;
+    color: var(--cor-universal-base);
+    transition: color 0.15s ease;
+    border-radius: 4px;
 }
 
-/* Link Geral */
-.footerLink {
-    text-decoration: none;
-    color: var(--cor-universal-base); /* Cor de texto cinza claro */
-    transition: color 0.3s ease;
-}
-
-/* Efeito Hover */
-.footerLink:hover {
-    color: var(--cor--universal-hovere); /* Cor branca no hover */
-}
-
-/* Texto de Domínio */
-.footerText {
-    margin: 0;
-    font-size: clamp(0.7rem, 1.2vw + 0.4rem, 0.9rem);
-    font-weight: 500;
-}
-
-/* Ícones */
-.footerIcon {
-    /*  ESTE É O CÓDIGO QUE MUDA O ÍCONE PRETO PARA CINZA CLARO */
-    filter: invert(60%) sepia(0%) saturate(0%) hue-rotate(230deg) brightness(50%) contrast(90%); /* Cor cinza nos ícones */
-    transition: filter 0.3s ease;
-}
-
-/* Efeito Hover nos Ícones (muda para branco) */
-.footerLink:hover .footerIcon {
-    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(230deg) brightness(70%) contrast(100%); /* Cor branca no hover */
+.socialLink:hover {
+    color: var(--cor-texto-principal);
 }
 
 .themeToggle {
-    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.4rem;
+    background: none;
     border: none;
     cursor: pointer;
-    padding: 0;
-    margin: 0;
-    
-    /* Para alinhar com os outros ícones se eles tiverem margins/paddings */
+    color: var(--cor-universal-base);
+    transition: color 0.15s ease;
+    border-radius: 4px;
+}
+
+.themeToggle:hover {
+    color: var(--cor-texto-principal);
+}
+
+.themeIcon {
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-  
-  /* O .footerIcon dentro do botão se comportará como os outros */
-  /* (herda os estilos de .footerIcon automaticamente) */
-
-  /* Footer.module.css */
-  .footerLeftButtonContainer {
-    position: relative;
-    width: clamp(25px, 2vw + 20px, 30px); 
-    height: clamp(25px, 2vw + 20px, 30px);
-    border-radius: 100%;
-    overflow: hidden;
-    
-    /* Mantenha também as propriedades de centralização aqui */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* Adicione as transições para um efeito suave, se desejar */
-    transition: background-color 0.2s ease;
 }
 
-.footerLeftButtonContainer:hover{
-    background-color: rgba(149, 148, 148, 0.097);
+.themeIconAnimate {
+    animation: fadeRotate 0.3s ease;
 }
 
-.footerIcon {
-    /* ...seus outros estilos (width, height)... */
-    color: var(--cor-universal-base); /* <-- Pega a cor do theme.css */
-    transition: color 0.3s ease;
-    will-change: transform, opacity;
-  }
-  
-  /* O hover também! */
-  .footerLink:hover .footerIcon,
-  .themeToggle:hover .footerIcon {
-    color: var(--cor--universal-hover);
-
-  }
-
-  
-.themeIconSlide {
-    animation: footerIconSlideDown 0.4s ease forwards;
-}
-
-@keyframes footerIconSlideDown {
+@keyframes fadeRotate {
     0% {
         opacity: 0;
-        transform: translateY(-120%);
-    }
-    70% {
-        opacity: 1;
-        transform: translateY(10%);
+        transform: rotate(-90deg) scale(0.5);
     }
     100% {
         opacity: 1;
-        transform: translateY(0);
+        transform: rotate(0deg) scale(1);
     }
 }
 
-/* Media queries eliminadas - usando flexbox wrap e clamp() para adaptação automática */
-/* O flexbox wrap faz os containers se empilharem automaticamente quando necessário */
-/* O clamp() ajusta tamanhos de fonte e espaçamentos fluidamente */
+/* Responsividade */
+@media (max-width: 400px) {
+    .footerContent {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+}

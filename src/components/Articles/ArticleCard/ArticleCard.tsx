@@ -5,25 +5,23 @@ interface ArticleCardProps {
   article: Article;
 }
 
+// Mapeamento para mês abreviado
+const monthAbbr: Record<string, string> = {
+    'January': 'Jan', 'February': 'Feb', 'March': 'Mar', 'April': 'Apr',
+    'May': 'May', 'June': 'Jun', 'July': 'Jul', 'August': 'Aug',
+    'September': 'Sep', 'October': 'Oct', 'November': 'Nov', 'December': 'Dec',
+};
+
 export function ArticleCard({ article }: ArticleCardProps){
-  // Formata a data para exibir 'Mês Dia, Ano'
-  const formattedDate = `${article.month} ${article.day}, ${article.year}`;
+  // Formato: "Oct 30, 2025" como no gelzin.com
+  const formattedDate = `${monthAbbr[article.month]} ${article.day}, ${article.year}`;
   
   return (
-    // Envolva tudo em uma div principal com a classe de layout.
-  <div className={styles.articleCardContainer}> 
-        
-        {/* Item Flex 1: Data */}
-        <p className={styles.articleDate}>{formattedDate}</p>
-
-        {/* Item Flex 2: Link/Conteúdo */}
+    <div className={styles.articleCard}>
+        <span className={styles.articleDate}>{formattedDate}</span>
         <a href={article.link} className={styles.articleLink} target="_blank" rel="noopener noreferrer">
-            
-            <div className={styles.articleContent}>
-              <h5 className={styles.articleTitle}>{article.title}</h5>
-            </div>
-            
+            <span className={styles.articleTitle}>{article.title}</span>
         </a>
-      </div>
+    </div>
   );
 }

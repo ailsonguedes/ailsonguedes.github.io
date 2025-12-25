@@ -1,52 +1,39 @@
-/* ------------------------------------------------------------------- */
-/* ArticlesSection.module.css – Alinhado ao eixo editorial              */
-/* ------------------------------------------------------------------- */
+/* ArticlesSection.module.css – Layout como gelzin.com */
 
 .articlesContainer {
-    display: flex;
-    flex-direction: column;
-    max-width: min(34.37rem, 100%);
-    margin-inline: auto;
-    box-sizing: border-box;
-
-    /* 🔑 MESMO CONCEITO DOS PROJECTS */
-    padding-inline-start: clamp(0.5rem, 3vw, 1.5rem);
-    padding-inline-end: clamp(1rem, 4vw, 2rem);
-
-    margin-block-start: clamp(-4rem, -3vw, -6rem);
-    padding-block: clamp(3rem, 4vw, 4rem);
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 clamp(1rem, 4vw, 2rem);
+    padding-top: clamp(1.5rem, 3vw, 2rem);
+    padding-bottom: clamp(2rem, 4vw, 3rem);
 }
 
 .sectionTitle {
-    font-size: clamp(0.75rem, 1.5vw + 0.3rem, 0.9rem);
-    font-weight: 700;
-    letter-spacing: 0.05em;
+    font-size: clamp(0.7rem, 1.2vw, 0.8rem);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
     color: var(--cor-texto-secundario);
-
-    margin: 0;
-    margin-block-end: clamp(1.5rem, 3vw, 2rem);
-    text-align: start;
+    margin: 0 0 clamp(1.5rem, 3vw, 2rem) 0;
+    padding-left: calc(clamp(2.5rem, 6vw, 3.5rem) + clamp(1rem, 2.5vw, 1.5rem));
 }
 
 .cardGrid {
     display: flex;
     flex-direction: column;
-    width: 100%;
-    gap: clamp(1rem, 1.5vw, 1.5rem);
+    gap: clamp(0.85rem, 1.8vw, 1.15rem);
 }
 
 .sectionViewMoreLink {
     display: inline-block;
-    width: fit-content;
     margin-top: clamp(1.5rem, 3vw, 2rem);
-
-    font-size: clamp(0.75rem, 1.5vw + 0.3rem, 0.9rem);
-    color: var(--cor-texto-secundario);
-    text-decoration: none;
-    text-underline-offset: 4px;
-    transition: color 0.3s ease;
+    font-size: clamp(0.85rem, 1.5vw, 0.925rem);
+    color: var(--cor-universal-base);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color 0.15s ease;
 }
 
 .sectionViewMoreLink:hover {
-    color: var(--cor-universal-hover);
+    color: var(--cor-texto-principal);
 }
