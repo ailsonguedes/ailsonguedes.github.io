@@ -1,102 +1,102 @@
 // Footer.tsx
 import { useEffect, useState } from 'react';
 import styles from './Footer.module.css';
+import { useTheme } from '../../hooks/useTheme';
 
-// Importa o hook que acabamos de criar
-import { useTheme } from '../../hooks/useTheme'; // <-- Ajuste o caminho se necessário
+// Ícones SVG inline para melhor controle de cor
+const GithubIcon = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/>
+        <path d="M9 18c-4.51 2-5-2-7-2"/>
+    </svg>
+);
 
-// URLs dos ícones (incluindo Sol e Lua)
-const GITHUB_ICON_URL = "https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/github.svg";
-const GITLAB_ICON_URL = "https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/gitlab.svg";
-const LINKEDIN_ICON_URL = "https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/linkedin.svg";
-const MAIL_ICON_URL = "https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/mail.svg";
-const MOON_ICON_URL = "https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/moon.svg";
-const SUN_ICON_URL = "https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/sun.svg";
+const GitlabIcon = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="m22 13.29-3.33-10a.42.42 0 0 0-.14-.18.38.38 0 0 0-.22-.11.39.39 0 0 0-.23.07.42.42 0 0 0-.14.18l-2.26 6.67H8.32L6.1 3.26a.42.42 0 0 0-.1-.18.38.38 0 0 0-.26-.08.39.39 0 0 0-.23.07.42.42 0 0 0-.14.18L2 13.29a.74.74 0 0 0 .27.83L12 21l9.69-6.88a.71.71 0 0 0 .31-.83Z"/>
+    </svg>
+);
 
+const LinkedinIcon = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+        <rect width="4" height="12" x="2" y="9"/>
+        <circle cx="4" cy="4" r="2"/>
+    </svg>
+);
+
+const TwitterIcon = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/>
+    </svg>
+);
+
+const SunIcon = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="12" cy="12" r="4"/>
+        <path d="M12 2v2"/>
+        <path d="M12 20v2"/>
+        <path d="m4.93 4.93 1.41 1.41"/>
+        <path d="m17.66 17.66 1.41 1.41"/>
+        <path d="M2 12h2"/>
+        <path d="M20 12h2"/>
+        <path d="m6.34 17.66-1.41 1.41"/>
+        <path d="m19.07 4.93-1.41 1.41"/>
+    </svg>
+);
+
+const MoonIcon = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
+    </svg>
+);
 
 export function Footer(){
-    // Aqui está a mágica!
     const { theme, toggleTheme } = useTheme();
-    const [isIconAnimating, setIsIconAnimating] = useState(false);
+    const [isAnimating, setIsAnimating] = useState(false);
 
     const handleToggleTheme = () => {
         toggleTheme();
-        setIsIconAnimating(true);
+        setIsAnimating(true);
     };
 
     useEffect(() => {
-        if (!isIconAnimating) {
-            return;
-        }
-
-        const timeoutId = window.setTimeout(() => {
-            setIsIconAnimating(false);
-        }, 400);
-
-        return () => window.clearTimeout(timeoutId);
-    }, [isIconAnimating]);
+        if (!isAnimating) return;
+        const timeout = setTimeout(() => setIsAnimating(false), 300);
+        return () => clearTimeout(timeout);
+    }, [isAnimating]);
 
     return(
-        <footer className={styles.footerContainer}>
-            <div className={styles.footerInnerWrapper}>
-                
-                {/* 1. Container Esquerdo (Idêntico) */}
-                <div className={styles.footerLeftContainer}>
-                    {/*  NOSSO NOVO BOTÃO DE TEMA  */}
-                    <div className={styles.footerLeftButtonContainer}>
-                        <button 
-                            className={styles.themeToggle} // Um novo estilo para o botão
-                            onClick={handleToggleTheme}         // A função do nosso hook!
-                            title="Alternar tema"         // Dica para acessibilidade
-                        >
-                            {/* Renderização condicional: 
-                            Mostra o Sol se o tema for 'dark', ou a Lua se for 'light'
-                            */}
-                            {theme === 'light' ? (
-                                <img 
-                                    key="moon"
-                                    src={MOON_ICON_URL} 
-                                    alt="Tema Escuro" 
-                                    className={`${styles.footerIcon} ${isIconAnimating ? styles.themeIconSlide : ''}`} 
-                                    onAnimationEnd={() => setIsIconAnimating(false)}
-                                    width="20" 
-                                    height="20" 
-                                />
-                            ) : (
-                                <img 
-                                    key="sun"
-                                    src={SUN_ICON_URL} 
-                                    alt="Tema Claro" 
-                                    className={`${styles.footerIcon} ${isIconAnimating ? styles.themeIconSlide : ''}`} 
-                                    onAnimationEnd={() => setIsIconAnimating(false)}
-                                    width="20" 
-                                    height="20" 
-                                />
-                            )}
-                        </button> 
-                    </div>                   
-                    <a href="ailsonguedes.com" className={styles.footerLink}>
-                        <p className={styles.footerText}>ailsonguedes.github.io</p>
-                    </a>
+        <footer className={styles.footer}>
+            <div className={styles.footerContent}>
+                {/* Lado esquerdo: botão de tema + nome do site */}
+                <div className={styles.leftSection}>
+                    <button 
+                        className={styles.themeToggle}
+                        onClick={handleToggleTheme}
+                        aria-label="Alternar tema"
+                    >
+                        <span className={`${styles.themeIcon} ${isAnimating ? styles.themeIconAnimate : ''}`}>
+                            {theme === 'light' ? <MoonIcon /> : <SunIcon />}
+                        </span>
+                    </button>
+                    <span className={styles.siteName}>ailsonguedes.github.io</span>
                 </div>
 
-                {/* 2. Container Direito (Com o novo botão) */}
-                <div className={styles.footerRightContainer}>
-                    
-                    {/* Links de contato (Idênticos) */}
-                    <a href="mailto:ailsonsixseven@gmail.com" target='_blank' className={styles.footerLink}>
-                        <img src={MAIL_ICON_URL} alt="Email" className={styles.footerIcon} width="20" height="20"></img>
+                {/* Lado direito: ícones sociais */}
+                <div className={styles.socialLinks}>
+                    <a href="https://twitter.com/ailsonguedes" target="_blank" rel="noopener noreferrer" className={styles.socialLink} aria-label="Twitter">
+                        <TwitterIcon />
                     </a>
-                    <a href="https://github.com/ailsonguedes" target='_blank' className={styles.footerLink}>
-                        <img src={GITHUB_ICON_URL} alt="GitHub" className={styles.footerIcon} width="20" height="20"></img>
+                    <a href="https://github.com/ailsonguedes" target="_blank" rel="noopener noreferrer" className={styles.socialLink} aria-label="GitHub">
+                        <GithubIcon />
                     </a>
-                    <a href="https://gitlab.com/ailsonguedes" target='_blank' className={styles.footerLink}>
-                        <img src={GITLAB_ICON_URL} alt="GitLab" className={styles.footerIcon} width="20" height="20"></img>
+                    <a href="https://gitlab.com/ailsonguedes" target="_blank" rel="noopener noreferrer" className={styles.socialLink} aria-label="GitLab">
+                        <GitlabIcon />
                     </a>
-                    <a href="https://www.linkedin.com/in/ailson-guedes-059795149/" target='_blank' className={styles.footerLink}>
-                        <img src={LINKEDIN_ICON_URL} alt="LinkedIn" className={styles.footerIcon} width="20" height="20"></img>
+                    <a href="https://www.linkedin.com/in/ailson-guedes-059795149/" target="_blank" rel="noopener noreferrer" className={styles.socialLink} aria-label="LinkedIn">
+                        <LinkedinIcon />
                     </a>
-                    
                 </div>
             </div>
         </footer>

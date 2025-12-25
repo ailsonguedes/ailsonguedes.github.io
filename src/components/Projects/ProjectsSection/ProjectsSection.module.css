@@ -1,51 +1,59 @@
-/* ------------------------------------------------------------------- */
-/* ProjectsSection.module.css – Modelo editorial alinhado ao CV         */
-/* ------------------------------------------------------------------- */
+/* ProjectsSection.module.css – Layout como gelzin.com */
 
 .projectsContainer {
-    display: flex;
-    flex-direction: column;
-    max-width: min(550px, 100%);
-    margin-inline: auto;
-    box-sizing: border-box;
-
-    /* 🔑 ÚNICO eixo horizontal do layout */
-    padding-inline-start: clamp(0.5rem, 3vw, 1.5rem);
-    padding-inline-end: clamp(1rem, 4vw, 2rem);
-
-    margin-top: clamp(1rem, 3vw, 1.8rem);
-    margin-bottom: clamp(1rem, 2vw, 2rem);
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 clamp(1rem, 4vw, 2rem);
+    padding-top: clamp(1.5rem, 3vw, 2rem);
+    padding-bottom: clamp(2rem, 4vw, 3rem);
 }
 
 .sectionTitle {
-    font-size: clamp(0.9rem, 2.5vw + 0.5rem, 1.3rem);
-    font-weight: 1000;
+    font-size: clamp(0.7rem, 1.2vw, 0.8rem);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
     color: var(--cor-texto-secundario);
-    margin: 0;
-    margin-bottom: clamp(1rem, 2vw, 1.5rem);
-    text-align: left;
+    margin: 0 0 clamp(1.5rem, 3vw, 2rem) 0;
+    padding-left: calc(clamp(2.5rem, 6vw, 3.5rem) + clamp(1rem, 2.5vw, 1.5rem));
 }
 
 .cardGrid {
     display: flex;
     flex-direction: column;
-    gap: clamp(1.5rem, 3vw, 2rem);
+    gap: clamp(1.75rem, 4vw, 2.5rem);
 }
 
-/* Cada ProjectCard é o contexto do ano */
 .projectContainer {
-    position: relative;
-    width: 100%;
+    display: grid;
+    grid-template-columns: clamp(2.5rem, 6vw, 3.5rem) 1fr;
+    gap: clamp(1rem, 2.5vw, 1.5rem);
+    align-items: start;
 }
 
-/* Ano estilo gelzin.com */
-.projectYear {
-    position: absolute;
-    left: calc(-1 * clamp(2.5rem, 6vw, 4rem));
-    top: 0;
+.header {
+    padding-top: 0.15rem;
+}
 
-    font-size: clamp(0.75rem, 1.2vw + 0.4rem, 0.9rem);
+.projectYear {
+    font-size: clamp(0.8rem, 1.4vw, 0.875rem);
+    font-weight: 400;
     color: var(--cor-universal-base);
-    white-space: nowrap;
-    opacity: 0.8;
+    margin: 0;
+    opacity: 0.7;
+}
+
+.contentWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(1.25rem, 2.5vw, 1.75rem);
+    min-width: 0;
+}
+
+/* Responsividade */
+@media (max-width: 400px) {
+    .projectContainer {
+        grid-template-columns: 1fr;
+        gap: 0.35rem;
+    }
 }
