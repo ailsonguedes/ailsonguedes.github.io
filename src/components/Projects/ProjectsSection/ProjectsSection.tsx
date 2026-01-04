@@ -36,11 +36,11 @@ export function ProjectsSection(){
     return (
         <section className={styles.projectsContainer}>
             
-            <h3 className={styles.sectionTitle}>ALGUNS PROJETOS</h3> 
+            <h3 className={styles.sectionTitle}>SOME PROJECTS</h3> 
 
             <div className={styles.cardGrid}>
                 {/* Itera sobre os grupos de ano já classificados */}
-                {groupedAndSortedProjects.map(group => (
+                {groupedAndSortedProjects.map((group) => (
                     <div key={group.year} className={styles.projectContainer}>
                         <div className={styles.header}>
                             <h4 className={styles.projectYear}>{group.year}</h4>

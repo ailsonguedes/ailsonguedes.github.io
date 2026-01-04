@@ -5,16 +5,9 @@ interface ArticleCardProps {
   article: Article;
 }
 
-// Mapeamento para mês abreviado
-const monthAbbr: Record<string, string> = {
-    'January': 'Jan', 'February': 'Feb', 'March': 'Mar', 'April': 'Apr',
-    'May': 'May', 'June': 'Jun', 'July': 'Jul', 'August': 'Aug',
-    'September': 'Sep', 'October': 'Oct', 'November': 'Nov', 'December': 'Dec',
-};
-
 export function ArticleCard({ article }: ArticleCardProps){
-  // Formato: "Oct 30, 2025" como no gelzin.com
-  const formattedDate = `${monthAbbr[article.month]} ${article.day}, ${article.year}`;
+  // Formato: "October 30, 2025" como no gelzin.com
+  const formattedDate = `${article.month} ${article.day}, ${article.year}`;
   
   return (
     <div className={styles.articleCard}>

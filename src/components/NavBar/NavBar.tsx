@@ -13,6 +13,7 @@ export function NavBar(){
                 </a>
                 <div className={styles.navLinks}>
                     <a className={styles.navLink} href="/#">Home</a>
+                    <a className={styles.navLink} href='https://medium.com/@ailsonsixseven' target='_blank' rel='noopener noreferrer'>Projects</a>
                     <a className={styles.navLink} href='https://medium.com/@ailsonsixseven' target='_blank' rel='noopener noreferrer'>Blog</a>
                     <a className={styles.navLink} href="/cv" onClick={(e) => {e.preventDefault(); navigate("/cv");}}>CV</a>
                 </div>

@@ -17,20 +17,8 @@ const monthMap: Record<string, number> = {
  */
 const sortArticlesByDate = (articles: Article[]) => {
     return [...articles].sort((a, b) => {
-        // Constrói a data completa para A
-        const dateA = new Date(
-            parseInt(a.year),
-            monthMap[a.month],
-            parseInt(a.day)
-        );
-        // Constrói a data completa para B
-        const dateB = new Date(
-            parseInt(b.year),
-            monthMap[b.month],
-            parseInt(b.day)
-        );
-        
-        // Classificação decrescente: B - A
+        const dateA = new Date(parseInt(a.year), monthMap[a.month], parseInt(a.day));
+        const dateB = new Date(parseInt(b.year), monthMap[b.month], parseInt(b.day));
         return dateB.getTime() - dateA.getTime();
     });
 };
@@ -43,10 +31,9 @@ export function ArticlesSection(){
     return (
         <section className={styles.articlesContainer}>
             
-            <h3 className={styles.sectionTitle}>ULTIMOS ARTIGOS</h3> 
+            <h3 className={styles.sectionTitle}>LATEST ARTICLES</h3> 
 
             <div className={styles.cardGrid}>
-                {/* Mapeia a lista de artigos já classificada */}
                 {sortedArticles.map((article) => (
                     <ArticleCard 
                         key={`${article.year}-${article.month}-${article.day}-${article.title}`} 
@@ -56,7 +43,7 @@ export function ArticlesSection(){
             </div> 
             
             <a href="https://medium.com/@ailsonsixseven" target="_blank" className={styles.sectionViewMoreLink}>
-                view more...
+                See all articles
             </a>
 
         </section>
