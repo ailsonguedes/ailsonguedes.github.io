@@ -3,7 +3,7 @@
 .projectCard {
     display: flex;
     flex-direction: column;
-    gap: clamp(0.25rem, 0.5vw, 0.35rem);
+    gap: 0.4rem;
 }
 
 .projectLink {
@@ -17,16 +17,16 @@
 }
 
 .projectTitle {
-    font-size: clamp(0.95rem, 1.8vw, 1.05rem);
+    font-size: 15px;
     font-weight: 500;
     color: var(--cor-texto-principal);
-    line-height: 1.35;
-    transition: color 0.15s ease;
+    line-height: 1.4;
+    transition: color 0.2s ease;
 }
 
 .projectDescription {
-    font-size: clamp(0.85rem, 1.5vw, 0.925rem);
+    font-size: 13px;
     color: var(--cor-universal-base);
-    line-height: 1.55;
+    line-height: 1.5;
     margin: 0;
 }

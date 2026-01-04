@@ -1,37 +1,37 @@
 /* ArticlesSection.module.css – Layout como gelzin.com */
 
 .articlesContainer {
-    max-width: 680px;
+    max-width: 650px;
     margin: 0 auto;
     padding: 0 clamp(1rem, 4vw, 2rem);
-    padding-top: clamp(1.5rem, 3vw, 2rem);
-    padding-bottom: clamp(2rem, 4vw, 3rem);
+    padding-top: clamp(2rem, 4vw, 3rem);
+    padding-bottom: clamp(3rem, 6vw, 4rem);
 }
 
 .sectionTitle {
-    font-size: clamp(0.7rem, 1.2vw, 0.8rem);
-    font-weight: 600;
+    font-size: 11px;
+    font-weight: 500;
     letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--cor-texto-secundario);
     margin: 0 0 clamp(1.5rem, 3vw, 2rem) 0;
-    padding-left: calc(clamp(2.5rem, 6vw, 3.5rem) + clamp(1rem, 2.5vw, 1.5rem));
+    text-align: left;
 }
 
 .cardGrid {
     display: flex;
     flex-direction: column;
-    gap: clamp(0.85rem, 1.8vw, 1.15rem);
+    gap: clamp(0.75rem, 1.5vw, 1rem);
 }
 
 .sectionViewMoreLink {
-    display: inline-block;
-    margin-top: clamp(1.5rem, 3vw, 2rem);
-    font-size: clamp(0.85rem, 1.5vw, 0.925rem);
+    display: block;
+    margin-top: clamp(2rem, 4vw, 3rem);
+    font-size: 13px;
     color: var(--cor-universal-base);
-    text-decoration: underline;
-    text-underline-offset: 3px;
-    transition: color 0.15s ease;
+    text-decoration: none;
+    transition: color 0.2s ease;
+    text-align: left;
 }
 
 .sectionViewMoreLink:hover {
