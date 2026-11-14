@@ -20,9 +20,52 @@
 
 /* Avatar */
 .avatarLink {
+    position: relative;
     display: flex;
     align-items: center;
     flex-shrink: 0;
+    border-radius: 20%;
+}
+
+/*
+ * Brilho de aço (só no hover): um arco de luz percorre a moldura (anel mascarado).
+ * Ao entrar com o mouse ele desce do topo à base pela direita; ao sair, sobe de volta.
+ * --brilho-t (0→1) é o progresso: define o ângulo e a opacidade (some nas pontas),
+ * então a transição é reversível e retoma de onde estava se o mouse sair no meio.
+ */
+.avatarLink::after {
+    content: '';
+    position: absolute;
+    inset: -1.5px;
+    padding: 3px;
+    border-radius: calc(20% + 1.5px);
+    pointer-events: none;
+    background: conic-gradient(
+        from calc(var(--brilho-t) * 172deg - 40deg),
+        transparent 0deg,
+        var(--brilho-aco-cauda) 26deg,
+        var(--brilho-aco-ponta) 40deg,
+        var(--brilho-aco-cauda) 54deg,
+        transparent 80deg,
+        transparent 360deg
+    );
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+    opacity: min(1, calc(sin(calc(var(--brilho-t) * 180deg)) * 2.5));
+    transition: --brilho-t 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (hover: hover) {
+    .avatarLink:hover::after {
+        --brilho-t: 1;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .avatarLink::after {
+        transition: none;
+    }
 }
 
 .avatar {

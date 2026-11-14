@@ -16,6 +16,9 @@
     --cor-fundo-hover-componente: rgba(0, 0, 0, 0.04);
     --cor-tag-fundo: rgba(0, 0, 0, 0.05);
     --cor-tag-texto: #525252;
+    /* Brilho de aço da moldura do avatar: cauda suave → ponta de luz */
+    --brilho-aco-cauda: rgba(100, 116, 139, 0.45);
+    --brilho-aco-ponta: #0f172a;
     color-scheme: light;
 }
 
@@ -29,7 +32,16 @@ html[data-theme="dark"] {
     --cor-fundo-hover-componente: rgba(255, 255, 255, 0.06);
     --cor-tag-fundo: rgba(255, 255, 255, 0.07);
     --cor-tag-texto: #A3A3A3;
+    --brilho-aco-cauda: rgba(148, 163, 184, 0.5);
+    --brilho-aco-ponta: #ffffff;
     color-scheme: dark;
+}
+
+/* Progresso (0→1) do brilho de aço do avatar; registrado para permitir transição */
+@property --brilho-t {
+    syntax: '<number>';
+    inherits: false;
+    initial-value: 0;
 }
 
 /* Tokens compartilhados */
