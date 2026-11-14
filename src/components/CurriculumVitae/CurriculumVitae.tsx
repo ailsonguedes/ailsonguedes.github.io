@@ -25,7 +25,7 @@ export function CurriculumVittae(){
             <div className={styles.curriculumContent}>
                 <h3 className={styles.workTitle}>NTT DATA</h3>
                 <div className={styles.workInfoContainer}>
-                    <h5 className={styles.workType}>Fullstack Software Developer,</h5>
+                    <h5 className={styles.workType}>Fullstack Software Developer</h5>
                     <h5 className={styles.workPeriod}>dez/2025 - present</h5>
                 </div>
 
@@ -58,7 +58,7 @@ export function CurriculumVittae(){
             <div className={styles.curriculumContent}>
                 <h3 className={styles.workTitle}>Freelance</h3>
                 <div className={styles.workInfoContainer}>
-                    <h5 className={styles.workType}>Front-end Developer,</h5>
+                    <h5 className={styles.workType}>Front-end Developer</h5>
                     <h5 className={styles.workPeriod}>jun/2024 - aug/2025</h5>
                 </div>
 

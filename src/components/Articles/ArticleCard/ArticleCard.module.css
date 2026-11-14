@@ -1,12 +1,11 @@
 /* ArticleCard.module.css */
 
 .articleCard {
-    display: grid;
-    grid-template-columns: clamp(8rem, 22vw, 10rem) 1fr;
-    gap: clamp(1rem, 3vw, 1.5rem);
-    align-items: baseline;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
     padding: 0.75rem;
-    margin: 0 -0.75rem;
+    margin: -0.75rem;
     border-radius: var(--raio-componente);
     text-decoration: none;
     transition: background-color 0.25s var(--easing-suave);
@@ -16,36 +15,21 @@
     background-color: var(--cor-fundo-hover-componente);
 }
 
-.articleDate {
-    font-size: 13px;
-    font-weight: 400;
-    color: var(--cor-universal-base);
-    font-variant-numeric: tabular-nums;
-    white-space: nowrap;
-    text-align: left;
-}
-
-.articleBody {
-    display: flex;
-    flex-direction: column;
-    gap: 0.3rem;
-    min-width: 0;
-}
-
 .titleRow {
     display: block;
 }
 
 .articleTitle {
-    font-size: 15px;
-    font-weight: 500;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: -0.025em;
     color: var(--cor-texto-principal);
-    line-height: 1.4;
+    line-height: 24px;
 }
 
 .arrow {
     display: inline-block;
-    margin-left: 0.4rem;
+    margin-left: 0.5rem;
     vertical-align: -1px;
     flex-shrink: 0;
     color: var(--cor-universal-base);
@@ -61,22 +45,14 @@
 }
 
 .articleDescription {
-    font-size: 13px;
+    font-size: 14px;
     color: var(--cor-universal-base);
-    line-height: 1.55;
+    line-height: 20px;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
-}
-
-/* Responsividade */
-@media (max-width: 500px) {
-    .articleCard {
-        grid-template-columns: 1fr;
-        gap: 0.25rem;
-    }
 }
 
 /* Em telas sem hover a seta fica sempre visível */

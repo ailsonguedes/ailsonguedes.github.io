@@ -48,6 +48,13 @@ html[data-theme="dark"] {
 :root {
     --raio-componente: 10px;
     --easing-suave: cubic-bezier(0.22, 1, 0.36, 1);
+
+    /* Escala de layout (proporções calibradas a partir do gelzin.com) */
+    --coluna-max: 624px;                       /* 560px de texto + 2 × 32px de respiro */
+    --pad-x: clamp(1rem, 4vw, 2rem);
+    --secao-espaco: 3rem;                      /* distância entre seções */
+    --rotulo-largura: 9rem;                    /* ano / data / mês pendurados na margem */
+    --rotulo-espaco: 1rem;
 }
 
 /* Transições globais */

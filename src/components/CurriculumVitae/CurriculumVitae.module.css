@@ -5,33 +5,34 @@
 
 .curriculumContainer {
     width: 100%;
-    max-width: 650px;
+    max-width: var(--coluna-max);
     margin: 0 auto;
-    padding: 0 clamp(1rem, 4vw, 2rem);
-    padding-top: clamp(1rem, 2vw, 1.5rem);
-    padding-bottom: clamp(2rem, 4vw, 3rem);
+    padding: 0 var(--pad-x);
+    padding-top: 0.75rem;
+    padding-bottom: var(--secao-espaco);
 }
 
 .curriculumTitle {
     font-size: 20px;
     font-weight: 500;
     color: var(--cor-texto-principal);
-    margin: 0 0 24px 0;
+    margin: 0 0 3rem 0;
     line-height: 28px;
 }
 
 .curriculumContent {
+    position: relative;
     display: block;
     width: 100%;
-    margin-bottom: clamp(2.5rem, 5vw, 3.5rem);
+    margin-bottom: var(--secao-espaco);
 }
 
 .workTitle {
-    font-size: clamp(0.95rem, 1.8vw, 1.05rem);
+    font-size: 16px;
     font-weight: 500;
     color: var(--cor-texto-principal);
-    margin: 0 0 clamp(0.25rem, 0.5vw, 0.35rem) 0;
-    line-height: 1.35;
+    margin: 0 0 0.25rem 0;
+    line-height: 24px;
 }
 
 .workInfoContainer {
@@ -39,16 +40,43 @@
     flex-wrap: wrap;
     align-items: baseline;
     gap: 0.25rem;
-    margin-bottom: clamp(1rem, 2vw, 1.25rem);
+    margin-bottom: 1rem;
 }
 
 .workType,
 .workPeriod {
-    font-size: clamp(0.85rem, 1.5vw, 0.925rem);
+    font-size: 14px;
     font-weight: 400;
     color: var(--cor-universal-base);
     margin: 0;
-    line-height: 1.55;
+    line-height: 20px;
+}
+
+.workPeriod {
+    font-weight: 500;
+    font-variant-numeric: tabular-nums;
+}
+
+/* Estreito: o período vem na mesma linha do cargo, separado por "·" */
+.workPeriod::before {
+    content: '·';
+    margin-right: 0.25rem;
+}
+
+/* Largo: o período "pendura" na margem esquerda, alinhado à direita (como no gelzin.com) */
+@media (min-width: 960px) {
+    .workPeriod {
+        position: absolute;
+        top: 2px;
+        right: calc(100% + var(--rotulo-espaco));
+        width: var(--rotulo-largura);
+        text-align: right;
+        white-space: nowrap;
+    }
+
+    .workPeriod::before {
+        content: none;
+    }
 }
 
 .workType {
@@ -57,15 +85,15 @@
 
 .workDescriptionContainer {
     width: 100%;
-    margin-bottom: clamp(1rem, 2vw, 1.25rem);
+    margin-bottom: 1rem;
 }
 
 .workPerformanceDescription,
 .workTechDescription {
-    font-size: clamp(0.85rem, 1.5vw, 0.925rem);
-    color: var(--cor-universal-base);
-    line-height: 1.7;
-    margin: 0 0 clamp(0.75rem, 1.5vw, 1rem) 0;
+    font-size: 14px;
+    color: var(--cor-texto-secundario);
+    line-height: 24.5px;
+    margin: 0 0 0.75rem 0;
 }
 
 .workTagContainer {
@@ -80,7 +108,7 @@
     padding: 0.35rem 0.6rem;
     background-color: var(--cor-fundo-hover-componente);
     border-radius: 4px;
-    font-size: clamp(0.75rem, 1.2vw, 0.85rem);
+    font-size: 12px;
     font-weight: 400;
     color: var(--cor-universal-base);
     transition: color 0.15s ease;

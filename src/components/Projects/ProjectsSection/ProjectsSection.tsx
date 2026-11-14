@@ -1,38 +1,17 @@
 import type { CSSProperties } from 'react';
+import { Link } from 'react-router-dom';
 import styles from './ProjectsSection.module.css';
 import { ProjectCard } from '../ProjectCard/ProjectCard';
-import { projectsSectionData, type Project } from '../../../pages/ProjectsSection/ProjectsSectionData'; 
+import { projectsSectionData } from '../../../pages/ProjectsSection/ProjectsSectionData';
+import { groupProjectsByYear, sortProjectsByDate } from '../../../pages/ProjectsSection/projectsUtils';
 
-/**
- * 💡 Função para agrupar e classificar os projetos por ano.
- * Retorna um objeto onde as chaves são os anos (ex: { '2025': [proj1, proj2], '2023': [proj3], ... })
- */
-const groupProjectsByYear = (projects: Project[]) => {
-    // 1. Agrupa os projetos por ano
-    const grouped = projects.reduce((acc, project) => {
-        const year = project.year;
-        if (!acc[year]) {
-            acc[year] = [];
-        }
-        acc[year].push(project);
-        return acc;
-    }, {} as Record<string, Project[]>);
-
-    // 2. Classifica os anos em ordem decrescente (do mais novo para o mais antigo)
-    const sortedYears = Object.keys(grouped).sort((a, b) => b.localeCompare(a));
-    
-    // 3. Constrói o array final de grupos na ordem correta
-    return sortedYears.map(year => ({
-        year,
-        projects: grouped[year],
-    }));
-};
-
-/* const SECTION_VIEW_ALL_LINK = "/todos-os-projetos"; */
+// Quantos projetos (os mais recentes) aparecem na home; todos ficam em /projects
+const LATEST_PROJECTS_LIMIT = 3;
 
 export function ProjectsSection(){
-    // 💡 Chamada da função para obter os dados agrupados e classificados
-    const groupedAndSortedProjects = groupProjectsByYear(projectsSectionData);
+    const latestProjects = sortProjectsByDate(projectsSectionData).slice(0, LATEST_PROJECTS_LIMIT);
+    const groupedAndSortedProjects = groupProjectsByYear(latestProjects);
+    const hasMore = projectsSectionData.length > LATEST_PROJECTS_LIMIT;
 
     return (
         <section className={styles.projectsContainer}>
@@ -64,6 +43,12 @@ export function ProjectsSection(){
                     </div>
                 ))}
             </div> 
+
+            {hasMore && (
+                <Link to="/projects" className={styles.sectionViewMoreLink}>
+                    See all projects
+                </Link>
+            )}
 
         </section>
     );

@@ -41,6 +41,7 @@ export function ArticlesSection(){
                         className={styles.cardItem}
                         style={{ '--i': index } as CSSProperties}
                     >
+                        <span className={styles.date}>{`${article.month} ${article.day}, ${article.year}`}</span>
                         <ArticleCard article={article} />
                     </div>
                 ))}
