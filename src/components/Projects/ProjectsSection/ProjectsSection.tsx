@@ -1,3 +1,4 @@
+import type { CSSProperties } from 'react';
 import styles from './ProjectsSection.module.css';
 import { ProjectCard } from '../ProjectCard/ProjectCard';
 import { projectsSectionData, type Project } from '../../../pages/ProjectsSection/ProjectsSectionData'; 
@@ -40,8 +41,12 @@ export function ProjectsSection(){
 
             <div className={styles.cardGrid}>
                 {/* Itera sobre os grupos de ano já classificados */}
-                {groupedAndSortedProjects.map((group) => (
-                    <div key={group.year} className={styles.projectContainer}>
+                {groupedAndSortedProjects.map((group, index) => (
+                    <div
+                        key={group.year}
+                        className={styles.projectContainer}
+                        style={{ '--i': index } as CSSProperties}
+                    >
                         <div className={styles.header}>
                             <h4 className={styles.projectYear}>{group.year}</h4>
                         </div>
@@ -52,6 +57,7 @@ export function ProjectsSection(){
                                     title={project.title}
                                     description={project.description}
                                     link={project.link}
+                                    tags={project.tags}
                                 />
                             ))}
                         </div>

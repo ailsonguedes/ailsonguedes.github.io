@@ -25,11 +25,13 @@ const LinkedinIcon = () => (
     </svg>
 );
 
+/* Twitter/X desativado temporariamente (comentado junto com o link no JSX abaixo)
 const TwitterIcon = () => (
     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/>
     </svg>
 );
+*/
 
 const SunIcon = () => (
     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -85,9 +87,11 @@ export function Footer(){
 
                 {/* Lado direito: ícones sociais */}
                 <div className={styles.socialLinks}>
+                    {/* Twitter/X desativado temporariamente (para reativar, descomente aqui e o TwitterIcon acima)
                     <a href="https://twitter.com/ailsonguedes" target="_blank" rel="noopener noreferrer" className={styles.socialLink} aria-label="Twitter">
                         <TwitterIcon />
                     </a>
+                    */}
                     <a href="https://github.com/ailsonguedes" target="_blank" rel="noopener noreferrer" className={styles.socialLink} aria-label="GitHub">
                         <GithubIcon />
                     </a>

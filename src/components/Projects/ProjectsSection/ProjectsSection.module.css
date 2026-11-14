@@ -1,27 +1,38 @@
 /* ProjectsSection.module.css – Layout como gelzin.com */
 
 .projectsContainer {
+    width: 100%;
     max-width: 650px;
     margin: 0 auto;
     padding: 0 clamp(1rem, 4vw, 2rem);
-    padding-top: clamp(2rem, 4vw, 3rem);
+    padding-top: 0;
     padding-bottom: clamp(3rem, 6vw, 4rem);
 }
 
 .sectionTitle {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
     font-size: 11px;
     font-weight: 500;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--cor-texto-secundario);
-    margin: 0 0 clamp(1.5rem, 3vw, 2rem) 0;
+    margin: 0 0 clamp(1.75rem, 3.5vw, 2.5rem) 0;
     text-align: left;
+}
+
+.sectionTitle::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background-color: var(--cor-borda-componente);
 }
 
 .cardGrid {
     display: flex;
     flex-direction: column;
-    gap: clamp(1.5rem, 3vw, 2rem);
+    gap: clamp(1.75rem, 3.5vw, 2.5rem);
 }
 
 .projectContainer {
@@ -29,6 +40,8 @@
     grid-template-columns: 3rem 1fr;
     gap: 1.5rem;
     align-items: start;
+    animation: reveal 0.6s var(--easing-suave) both;
+    animation-delay: calc(var(--i, 0) * 80ms);
 }
 
 .header {
@@ -39,6 +52,7 @@
     font-size: 13px;
     font-weight: 400;
     color: var(--cor-universal-base);
+    font-variant-numeric: tabular-nums;
     margin: 0;
     opacity: 0.7;
 }
@@ -46,18 +60,33 @@
 .contentWrapper {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 1.5rem;
     min-width: 0;
 }
 
-@keyframes fadeInUp {
+@keyframes reveal {
     from {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(12px);
     }
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+/* Onde houver suporte, a revelação acompanha o scroll */
+@supports (animation-timeline: view()) {
+    .projectContainer {
+        animation-delay: 0s;
+        animation-timeline: view();
+        animation-range: entry 0% entry 35%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .projectContainer {
+        animation: none;
     }
 }
 

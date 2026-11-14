@@ -6,15 +6,26 @@ interface ProjectCardProps {
   title: string;
   description: string;
   link: string;
+  tags?: string[];
 }
 
-export function ProjectCard({ title, description, link }: ProjectCardProps){
+export function ProjectCard({ title, description, link, tags = [] }: ProjectCardProps){
     return (
-        <div className={styles.projectCard}>
-            <a href={link} className={styles.projectLink} target="_blank" rel="noopener noreferrer">
+        <a href={link} className={styles.projectCard} target="_blank" rel="noopener noreferrer">
+            <span className={styles.titleRow}>
                 <span className={styles.projectTitle}>{title}</span>
-            </a>
-            <p className={styles.projectDescription}>{description}</p>
-        </div>
+                <svg className={styles.arrow} viewBox="0 0 16 16" width="12" height="12" aria-hidden="true">
+                    <path d="M4.5 11.5l7-7M5.5 4.5h6v6" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+            </span>
+            <span className={styles.projectDescription}>{description}</span>
+            {tags.length > 0 && (
+                <span className={styles.tags}>
+                    {tags.map((tag) => (
+                        <span key={tag} className={styles.tag}>{tag}</span>
+                    ))}
+                </span>
+            )}
+        </a>
     );
 }

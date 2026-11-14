@@ -1,19 +1,22 @@
-/* ProjectCard.module.css – Card como gelzin.com */
+/* ProjectCard.module.css */
 
 .projectCard {
     display: flex;
     flex-direction: column;
     gap: 0.4rem;
-}
-
-.projectLink {
-    display: inline-flex;
+    padding: 0.75rem;
+    margin: -0.75rem;
+    border-radius: var(--raio-componente);
     text-decoration: none;
-    width: fit-content;
+    transition: background-color 0.25s var(--easing-suave);
 }
 
-.projectLink:hover .projectTitle {
-    color: var(--cor-universal-hover);
+.projectCard:hover {
+    background-color: var(--cor-fundo-hover-componente);
+}
+
+.titleRow {
+    display: block;
 }
 
 .projectTitle {
@@ -21,12 +24,59 @@
     font-weight: 500;
     color: var(--cor-texto-principal);
     line-height: 1.4;
-    transition: color 0.2s ease;
+}
+
+.arrow {
+    display: inline-block;
+    margin-left: 0.4rem;
+    vertical-align: -1px;
+    flex-shrink: 0;
+    color: var(--cor-universal-base);
+    opacity: 0;
+    transform: translate(-3px, 3px);
+    transition: opacity 0.25s var(--easing-suave), transform 0.25s var(--easing-suave);
+}
+
+.projectCard:hover .arrow,
+.projectCard:focus-visible .arrow {
+    opacity: 1;
+    transform: translate(0, 0);
 }
 
 .projectDescription {
     font-size: 13px;
     color: var(--cor-universal-base);
-    line-height: 1.5;
-    margin: 0;
+    line-height: 1.55;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    margin-top: 0.15rem;
+}
+
+.tag {
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 1;
+    padding: 0.3rem 0.55rem;
+    border-radius: 999px;
+    color: var(--cor-tag-texto);
+    background-color: var(--cor-tag-fundo);
+}
+
+/* Em telas sem hover a seta fica sempre visível */
+@media (hover: none) {
+    .arrow {
+        opacity: 0.6;
+        transform: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .projectCard,
+    .arrow {
+        transition: none;
+    }
 }

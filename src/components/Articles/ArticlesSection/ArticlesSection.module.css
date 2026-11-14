@@ -1,32 +1,48 @@
 /* ArticlesSection.module.css – Layout como gelzin.com */
 
 .articlesContainer {
+    width: 100%;
     max-width: 650px;
     margin: 0 auto;
     padding: 0 clamp(1rem, 4vw, 2rem);
-    padding-top: clamp(2rem, 4vw, 3rem);
+    padding-top: 0;
     padding-bottom: clamp(3rem, 6vw, 4rem);
 }
 
 .sectionTitle {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
     font-size: 11px;
     font-weight: 500;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--cor-texto-secundario);
-    margin: 0 0 clamp(1.5rem, 3vw, 2rem) 0;
+    margin: 0 0 clamp(1.25rem, 2.5vw, 1.75rem) 0;
     text-align: left;
+}
+
+.sectionTitle::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background-color: var(--cor-borda-componente);
 }
 
 .cardGrid {
     display: flex;
     flex-direction: column;
-    gap: clamp(0.75rem, 1.5vw, 1rem);
+    gap: 0.25rem;
+}
+
+.cardItem {
+    animation: reveal 0.6s var(--easing-suave) both;
+    animation-delay: calc(var(--i, 0) * 80ms);
 }
 
 .sectionViewMoreLink {
-    display: block;
-    margin-top: clamp(2rem, 4vw, 3rem);
+    display: inline-block;
+    margin-top: clamp(1.5rem, 3vw, 2rem);
     font-size: 13px;
     color: var(--cor-universal-base);
     text-decoration: none;
@@ -34,6 +50,53 @@
     text-align: left;
 }
 
+.sectionViewMoreLink::after {
+    content: '→';
+    display: inline-block;
+    margin-left: 0.35rem;
+    transition: transform 0.25s var(--easing-suave);
+}
+
 .sectionViewMoreLink:hover {
     color: var(--cor-texto-principal);
+}
+
+.sectionViewMoreLink:hover::after {
+    transform: translateX(3px);
+}
+
+@keyframes reveal {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Telas de toque: alvo de 44px sem alterar o espaçamento visual */
+@media (pointer: coarse) {
+    .sectionViewMoreLink {
+        padding: 0.75rem 0;
+        margin-top: calc(clamp(1.5rem, 3vw, 2rem) - 0.75rem);
+    }
+}
+
+/* Onde houver suporte, a revelação acompanha o scroll */
+@supports (animation-timeline: view()) {
+    .cardItem {
+        animation-delay: 0s;
+        animation-timeline: view();
+        animation-range: entry 0% entry 35%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .cardItem,
+    .sectionViewMoreLink::after {
+        animation: none;
+        transition: none;
+    }
 }
