@@ -4,6 +4,8 @@ import { NavBar } from './components/NavBar/NavBar'
 import { Hero } from './components/Hero/Hero'
 import { ProjectsSection } from './components/Projects/ProjectsSection/ProjectsSection'
 import { ArticlesSection } from './components/Articles/ArticlesSection/ArticlesSection'
+import { ArticlesPage } from './components/Articles/ArticlesPage/ArticlesPage'
+import { ArticleDetailsPage } from './components/Articles/ArticleDetailsPage/ArticleDetailsPage'
 import { Footer } from './components/Footer/Footer'
 
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom"
@@ -35,7 +37,9 @@ function App() {
             <ArticlesSection />
           </>
         } />
-        <Route path="/projects/:projectId" element={<ProjectDetailsPage />} />
+        <Route path="/articles/:articleName" element={<ArticleDetailsPage />} />
+        <Route path="/articles" element={<ArticlesPage />} />
+        <Route path="/projects/:projectName" element={<ProjectDetailsPage />} />
         <Route path="/projects" element={<ProjectsPage />} />
         <Route path="/cv" element={<CurriculumVittae />} />
       </Routes>

@@ -1,55 +1,49 @@
 import type { CSSProperties } from 'react';
+import { Link } from 'react-router-dom';
 import styles from './ArticlesSection.module.css'; 
 import { ArticleCard } from '../ArticleCard/ArticleCard.tsx'; 
-import { articlesSectionData, type Article } from '../../../pages/ArticlesSection/ArticlesSectionData.ts'; 
-
-/**
- * Mapeamento para converter o nome do mês para seu índice (0-11) para uso no construtor Date.
- */
-const monthMap: Record<string, number> = {
-    'January': 0, 'February': 1, 'March': 2, 'April': 3,
-    'May': 4, 'June': 5, 'July': 6, 'August': 7,
-    'September': 8, 'October': 9, 'November': 10, 'December': 11,
-};
-
-/**
- * Função para classificar os artigos pela data completa (Ano, Mês, Dia)
- * do mais novo para o mais antigo (Decrescente).
- */
-const sortArticlesByDate = (articles: Article[]) => {
-    return [...articles].sort((a, b) => {
-        const dateA = new Date(parseInt(a.year), monthMap[a.month], parseInt(a.day));
-        const dateB = new Date(parseInt(b.year), monthMap[b.month], parseInt(b.day));
-        return dateB.getTime() - dateA.getTime();
-    });
-};
-
-/* const SECTION_VIEW_ALL_LINK = "/todos-os-artigos"; */
+import { sortArticlesByDate } from '../../../pages/ArticlesSection/articlesUtils';
+import { fetchArticles } from '../../../services/api';
+import { useApiData } from '../../../hooks/useApiData';
 
 export function ArticlesSection(){
-    const sortedArticles = sortArticlesByDate(articlesSectionData);
+    const { data: articles, isLoading, error, retry } = useApiData(fetchArticles);
+    const sortedArticles = sortArticlesByDate(articles ?? []);
 
     return (
         <section className={styles.articlesContainer}>
             
             <h3 className={styles.sectionTitle}>LATEST ARTICLES</h3> 
 
-            <div className={styles.cardGrid}>
-                {sortedArticles.map((article, index) => (
-                    <div
-                        key={`${article.year}-${article.month}-${article.day}-${article.title}`}
-                        className={styles.cardItem}
-                        style={{ '--i': index } as CSSProperties}
-                    >
-                        <span className={styles.date}>{`${article.month} ${article.day}, ${article.year}`}</span>
-                        <ArticleCard article={article} />
-                    </div>
-                ))}
-            </div> 
+            {isLoading ? (
+                <p role="status">Loading articles...</p>
+            ) : error ? (
+                <div role="alert">
+                    <p>Could not load articles: {error}</p>
+                    <button type="button" onClick={retry}>Try again</button>
+                </div>
+            ) : sortedArticles.length === 0 ? (
+                <p>No articles available.</p>
+            ) : (
+                <div className={styles.cardGrid}>
+                    {sortedArticles.map((article, index) => (
+                        <div
+                            key={article.id ?? `${article.title}-${index}`}
+                            className={styles.cardItem}
+                            style={{ '--i': index } as CSSProperties}
+                        >
+                            {article.month && article.day && article.year && (
+                                <span className={styles.date}>{`${article.month} ${article.day}, ${article.year}`}</span>
+                            )}
+                            <ArticleCard article={article} />
+                        </div>
+                    ))}
+                </div>
+            )}
             
-            <a href="https://medium.com/@ailsonsixseven" target="_blank" className={styles.sectionViewMoreLink}>
+            <Link to="/articles" className={styles.sectionViewMoreLink}>
                 See all articles
-            </a>
+            </Link>
 
         </section>
     );

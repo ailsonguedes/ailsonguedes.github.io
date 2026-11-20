@@ -4,7 +4,7 @@ import styles from './ProjectCard.module.css';
 import { Link } from 'react-router-dom';
 
 interface ProjectCardProps {
-  projectId?: string;
+  projectName?: string;
   title: string;
   description?: string;
   link?: string;
@@ -13,7 +13,7 @@ interface ProjectCardProps {
   icon?: string;
 }
 
-export function ProjectCard({ projectId, title, description, link, tags = [], showIcon = false, icon }: ProjectCardProps){
+export function ProjectCard({ projectName, title, description, link, tags = [], showIcon = false, icon }: ProjectCardProps){
     const content = (
         <>
             <span className={styles.titleRow}>
@@ -38,8 +38,8 @@ export function ProjectCard({ projectId, title, description, link, tags = [], sh
         </>
     );
 
-    return projectId ? (
-        <Link to={`/projects/${encodeURIComponent(projectId)}`} className={styles.projectCard}>
+    return projectName ? (
+        <Link to={`/projects/${encodeURIComponent(projectName)}`} className={styles.projectCard}>
             {content}
         </Link>
     ) : link ? (

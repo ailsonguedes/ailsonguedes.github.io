@@ -13,7 +13,7 @@ export function NavBar(){
                 </a>
                 <div className={styles.navLinks}>
                     <a className={styles.navLink} href="/#">home</a>
-                    <a className={styles.navLink} href='https://medium.com/@ailsonsixseven' target='_blank' rel='noopener noreferrer'>articles</a>
+                    <a className={styles.navLink} href="/articles" onClick={(e) => {e.preventDefault(); navigate("/articles");}}>articles</a>
                     <a className={styles.navLink} href="/projects" onClick={(e) => {e.preventDefault(); navigate("/projects");}}>projects</a>
                     <a className={styles.navLink} href="/cv" onClick={(e) => {e.preventDefault(); navigate("/cv");}}>cv</a>
                 </div>

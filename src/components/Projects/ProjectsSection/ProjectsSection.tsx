@@ -43,7 +43,7 @@ export function ProjectsSection() {
                                 {group.projects.map((project, projectIndex) => (
                                     <ProjectCard
                                         key={project.id ?? `${project.title}-${projectIndex}`}
-                                        projectId={project.id}
+                                        projectName={project.title}
                                         title={project.title}
                                         description={project.description}
                                         link={project.link}

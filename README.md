@@ -30,18 +30,24 @@ O projeto foi construído utilizando uma **stack moderna e eficiente**, garantin
 
 ## Integração com o backend
 
-O frontend consome `GET /api/v1/public_projects` e `GET /api/v1/experiences`.
+O frontend consome `GET /api/v1/public_projects`, `GET /api/v1/experiences` e
+`GET /api/v1/articles`.
 Por padrão, a API é esperada em `http://localhost:5000/api/v1`. Para usar outra
 URL, defina `VITE_API_BASE_URL` no ambiente do Vite (consulte `.env.example`).
 Configure também `FRONTEND_ORIGIN` no backend para permitir a origem do frontend
-via CORS. Os artigos continuam locais porque o backend ainda não fornece uma API
-para eles.
+via CORS. A seção de artigos carrega os dados do endpoint público de artigos.
 
-Os cards de projeto abrem a página `/projects/:id`, que usa o mesmo endpoint
-público. O campo `description` é o resumo; `text` é opcional e pode conter a
-descrição longa em Markdown. A página também apresenta data, tecnologias e o
-conteúdo do projeto quando esses dados estiverem disponíveis. Para incluir um
-link externo, adicione-o ao campo `text`, por exemplo:
+Os artigos são listados em `/articles`; cada card abre `/articles/:name`, que
+consulta o artigo pelo título usando `GET /api/v1/articles?name={name}`. O campo
+`text` pode conter o conteúdo em Markdown, e `link` pode apontar para a
+publicação original.
+
+Os cards de projeto abrem a página `/projects/:name`, que consulta o projeto
+pelo título usando `GET /api/v1/public_projects?name={name}`. O campo
+`description` é o resumo; `text` é opcional e pode conter a descrição longa em
+Markdown. A página também apresenta tecnologias e o conteúdo do projeto quando
+esses dados estiverem disponíveis. Para incluir um link externo, adicione-o ao
+campo `text`, por exemplo:
 
 ```markdown
 [Ver projeto](https://exemplo.com)
@@ -59,11 +65,22 @@ cd projeto
 Blocos sem linguagem também têm botão de cópia. Imagens Markdown recebem moldura
 e se ajustam à largura disponível.
 
-O campo `text` também aceita HTML, por exemplo `<br>`, `<strong>`, `<details>`
-e `<img>`. Por segurança, o HTML é sanitizado: scripts, iframes, estilos inline,
-atributos de eventos e outros elementos ou atributos não permitidos são removidos.
-Imagens e links HTML recebem o mesmo tratamento visual e de segurança dos
-equivalentes em Markdown.
+O campo `text` também aceita HTML, por exemplo `<br>`, `<strong>`, `<details>`,
+`<img>` e iframes de vídeo. Iframes são limitados a embeds HTTPS do YouTube,
+YouTube NoCookie, Vimeo, TikTok e Instagram; outras origens e atributos não
+permitidos são removidos pelo sanitizador. Use a URL oficial de incorporação,
+como:
+
+```html
+<iframe
+  src="https://www.youtube.com/embed/VIDEO_ID"
+  title="Título do vídeo"
+></iframe>
+```
+
+Scripts, estilos inline e atributos de eventos também são removidos. Imagens e
+links HTML recebem o mesmo tratamento visual e de segurança dos equivalentes
+em Markdown.
 
 ## Galeria de Imagens: Temas de Interface
 

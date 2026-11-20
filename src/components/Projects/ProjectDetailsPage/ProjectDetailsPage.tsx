@@ -1,11 +1,13 @@
 import { Link, useParams } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
-import { Children, isValidElement, useEffect, useState, type ReactElement, type ReactNode } from 'react';
+import { Children, isValidElement, useCallback, useEffect, useState, type ReactElement, type ReactNode } from 'react';
 import rehypeRaw from 'rehype-raw';
 import rehypeSanitize from 'rehype-sanitize';
 import remarkGfm from 'remark-gfm';
 import { useApiData } from '../../../hooks/useApiData';
-import { fetchPublicProjects } from '../../../services/api';
+import { fetchPublicProjectByName } from '../../../services/api';
+import { MarkdownVideoEmbed } from '../../MarkdownVideoEmbed/MarkdownVideoEmbed';
+import { markdownSanitizeSchema } from '../../../utils/markdownSanitizeSchema';
 import styles from './ProjectDetailsPage.module.css';
 
 interface MarkdownCodeProps {
@@ -83,9 +85,12 @@ function removeRepeatedProjectTitle(markdown: string, title: string): string {
 }
 
 export function ProjectDetailsPage() {
-    const { projectId } = useParams();
-    const { data: projects, isLoading, error, retry } = useApiData(fetchPublicProjects);
-    const project = projects?.find((item) => item.id === projectId);
+    const { projectName } = useParams();
+    const loadProject = useCallback(
+        () => fetchPublicProjectByName(projectName ?? ''),
+        [projectName],
+    );
+    const { data: project, isLoading, error, retry } = useApiData(loadProject);
 
     if (isLoading) {
         return (
@@ -148,10 +153,11 @@ export function ProjectDetailsPage() {
                     <div className={styles.body}>
                         <ReactMarkdown
                             remarkPlugins={[remarkGfm]}
-                            rehypePlugins={[rehypeRaw, rehypeSanitize]}
+                            rehypePlugins={[rehypeRaw, [rehypeSanitize, markdownSanitizeSchema]]}
                             components={{
                                 h1: ({ children }) => <h2>{children}</h2>,
                                 pre: ({ children }) => <MarkdownCodeBlock>{children}</MarkdownCodeBlock>,
+                                iframe: ({ src, title }) => <MarkdownVideoEmbed src={src} title={title} />,
                                 a: ({ href, children }) => {
                                     const isExternal = /^https?:\/\//i.test(href ?? '');
                                     return (

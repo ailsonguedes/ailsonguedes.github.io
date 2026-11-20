@@ -39,7 +39,7 @@ export function ProjectsPage() {
                                 >
                                     <span className={styles.month}>{project.month ?? '—'}</span>
                                     <ProjectCard
-                                        projectId={project.id}
+                                        projectName={project.title}
                                         showIcon
                                         icon={project.icon}
                                         title={project.title}
