@@ -194,7 +194,6 @@
 }
 
 .body :global(img) {
-    display: block;
     max-width: 100%;
     height: auto;
     margin: 1.5rem 0;
@@ -202,6 +201,26 @@
     border-radius: 12px;
     background: var(--cor-fundo-componente);
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.body :global(p img) {
+    display: inline-block;
+    margin: 0 0.5rem 0 0;
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    vertical-align: middle;
+}
+
+.body :global(p a img) {
+    display: inline-block;
+    margin: 0 0.5rem 0 0;
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    vertical-align: middle;
 }
 
 .body :global(table) {
