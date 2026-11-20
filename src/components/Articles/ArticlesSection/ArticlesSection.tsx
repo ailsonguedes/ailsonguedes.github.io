@@ -1,3 +1,4 @@
+import type { CSSProperties } from 'react';
 import styles from './ArticlesSection.module.css'; 
 import { ArticleCard } from '../ArticleCard/ArticleCard.tsx'; 
 import { articlesSectionData, type Article } from '../../../pages/ArticlesSection/ArticlesSectionData.ts'; 
@@ -34,11 +35,15 @@ export function ArticlesSection(){
             <h3 className={styles.sectionTitle}>LATEST ARTICLES</h3> 
 
             <div className={styles.cardGrid}>
-                {sortedArticles.map((article) => (
-                    <ArticleCard 
-                        key={`${article.year}-${article.month}-${article.day}-${article.title}`} 
-                        article={article}
-                    />
+                {sortedArticles.map((article, index) => (
+                    <div
+                        key={`${article.year}-${article.month}-${article.day}-${article.title}`}
+                        className={styles.cardItem}
+                        style={{ '--i': index } as CSSProperties}
+                    >
+                        <span className={styles.date}>{`${article.month} ${article.day}, ${article.year}`}</span>
+                        <ArticleCard article={article} />
+                    </div>
                 ))}
             </div> 
             

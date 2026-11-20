@@ -2,34 +2,75 @@
 
 .navContainer {
     width: 100%;
-    padding-top: clamp(2rem, 5vw, 3.5rem);
-    padding-bottom: clamp(1rem, 2vw, 1.5rem);
+    padding-top: clamp(2rem, 8vw, 6rem);
+    padding-bottom: 1.625rem;
     background-color: transparent;
 }
 
 .navContent {
-    max-width: 650px;
+    max-width: var(--coluna-max);
     margin: 0 auto;
-    padding: 0 clamp(1rem, 4vw, 2rem);
+    padding: 0 var(--pad-x);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 5rem;
-    border-block-end: 20rem;
 }
 
 /* Avatar */
 .avatarLink {
+    position: relative;
     display: flex;
     align-items: center;
     flex-shrink: 0;
+    border-radius: 8px;
+}
+
+/*
+ * Brilho de aço (só no hover): um arco de luz percorre a moldura (anel mascarado).
+ * Ao entrar com o mouse ele desce do topo à base pela direita; ao sair, sobe de volta.
+ * --brilho-t (0→1) é o progresso: define o ângulo e a opacidade (some nas pontas),
+ * então a transição é reversível e retoma de onde estava se o mouse sair no meio.
+ */
+.avatarLink::after {
+    content: '';
+    position: absolute;
+    inset: -1.5px;
+    padding: 3px;
+    border-radius: calc(8px + 1.5px);
+    pointer-events: none;
+    background: conic-gradient(
+        from calc(var(--brilho-t) * 172deg - 40deg),
+        transparent 0deg,
+        var(--brilho-aco-cauda) 26deg,
+        var(--brilho-aco-ponta) 40deg,
+        var(--brilho-aco-cauda) 54deg,
+        transparent 80deg,
+        transparent 360deg
+    );
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+    opacity: min(1, calc(sin(calc(var(--brilho-t) * 180deg)) * 2.5));
+    transition: --brilho-t 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (hover: hover) {
+    .avatarLink:hover::after {
+        --brilho-t: 1;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .avatarLink::after {
+        transition: none;
+    }
 }
 
 .avatar {
-    width: 50px;
-    height: 50px;
+    width: 44px;
+    height: 44px;
     border: 0.2px solid white;
-    border-radius: 20%;
+    border-radius: 8px;
     object-fit: cover;
     transition: opacity 0.15s ease;
 }
@@ -47,7 +88,8 @@
 
 .navLink {
     color: var(--cor-universal-base);
-    font-size: 13px;
+    font-size: 14px;
+    line-height: 20px;
     font-weight: 400;
     padding: 0;
     margin-right: 16px;
@@ -62,4 +104,17 @@
 
 .navLink:last-child {
     margin-right: 0;
+}
+
+/* Telas de toque: área clicável de 44px sem alterar o visual */
+@media (pointer: coarse) {
+    .navLink {
+        position: relative;
+    }
+
+    .navLink::after {
+        content: '';
+        position: absolute;
+        inset: -13px -8px;
+    }
 }

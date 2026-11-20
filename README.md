@@ -24,8 +24,46 @@ O projeto foi construído utilizando uma **stack moderna e eficiente**, garantin
 
 * **Design Responsivo:** Layout adaptável para desktop, tablets e smartphones.
 * **Temas light e dark (Toggle):** Alternância instantânea entre modos de visualização para melhor conforto do usuário.
-* **Seção de Projetos:** Exposição detalhada dos projetos de desenvolvimento com links e descrições.
+* **Seção de Projetos:** Exposição dos projetos carregados pela API do backend.
+* **Currículo:** Experiências profissionais carregadas pela API do backend.
 * **Blog/Artigos:** Espaço dedicado para artigos técnicos e reflexões sobre tecnologia.
+
+## Integração com o backend
+
+O frontend consome `GET /api/v1/public_projects` e `GET /api/v1/experiences`.
+Por padrão, a API é esperada em `http://localhost:5000/api/v1`. Para usar outra
+URL, defina `VITE_API_BASE_URL` no ambiente do Vite (consulte `.env.example`).
+Configure também `FRONTEND_ORIGIN` no backend para permitir a origem do frontend
+via CORS. Os artigos continuam locais porque o backend ainda não fornece uma API
+para eles.
+
+Os cards de projeto abrem a página `/projects/:id`, que usa o mesmo endpoint
+público. O campo `description` é o resumo; `text` é opcional e pode conter a
+descrição longa em Markdown. A página também apresenta data, tecnologias e o
+conteúdo do projeto quando esses dados estiverem disponíveis. Para incluir um
+link externo, adicione-o ao campo `text`, por exemplo:
+
+```markdown
+[Ver projeto](https://exemplo.com)
+```
+
+Para exibir a linguagem e o botão de cópia em um bloco de código, escreva a
+linguagem após a abertura e coloque o código nas linhas seguintes:
+
+````markdown
+```bash
+cd projeto
+```
+````
+
+Blocos sem linguagem também têm botão de cópia. Imagens Markdown recebem moldura
+e se ajustam à largura disponível.
+
+O campo `text` também aceita HTML, por exemplo `<br>`, `<strong>`, `<details>`
+e `<img>`. Por segurança, o HTML é sanitizado: scripts, iframes, estilos inline,
+atributos de eventos e outros elementos ou atributos não permitidos são removidos.
+Imagens e links HTML recebem o mesmo tratamento visual e de segurança dos
+equivalentes em Markdown.
 
 ## Galeria de Imagens: Temas de Interface
 

@@ -1,42 +1,71 @@
 /* ArticleCard.module.css */
 
 .articleCard {
-    display: grid;
-    grid-template-columns: clamp(8rem, 22vw, 10rem) 1fr;
-    gap: clamp(1rem, 3vw, 1.5rem);
-    align-items: baseline;
-}
-
-.articleDate {
-    font-size: 13px;
-    font-weight: 400;
-    color: var(--cor-universal-base);
-    opacity: 0.7;
-    white-space: nowrap;
-    text-align: left;
-}
-
-.articleLink {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 0.75rem;
+    margin: -0.75rem;
+    border-radius: var(--raio-componente);
     text-decoration: none;
-    display: inline;
+    transition: background-color 0.25s var(--easing-suave);
+}
+
+.articleCard:hover {
+    background-color: var(--cor-fundo-hover-componente);
+}
+
+.titleRow {
+    display: block;
 }
 
 .articleTitle {
-    font-size: 15px;
-    font-weight: 500;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: -0.025em;
     color: var(--cor-texto-principal);
-    line-height: 1.4;
-    transition: color 0.2s ease;
+    line-height: 24px;
 }
 
-.articleLink:hover .articleTitle {
-    color: var(--cor-universal-hover);
+.arrow {
+    display: inline-block;
+    margin-left: 0.5rem;
+    vertical-align: -1px;
+    flex-shrink: 0;
+    color: var(--cor-universal-base);
+    opacity: 0;
+    transform: translate(-3px, 3px);
+    transition: opacity 0.25s var(--easing-suave), transform 0.25s var(--easing-suave);
 }
 
-/* Responsividade */
-@media (max-width: 500px) {
-    .articleCard {
-        grid-template-columns: 1fr;
-        gap: 0.25rem;
+.articleCard:hover .arrow,
+.articleCard:focus-visible .arrow {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+.articleDescription {
+    font-size: 14px;
+    color: var(--cor-universal-base);
+    line-height: 20px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Em telas sem hover a seta fica sempre visível */
+@media (hover: none) {
+    .arrow {
+        opacity: 0.6;
+        transform: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .articleCard,
+    .arrow {
+        transition: none;
     }
 }

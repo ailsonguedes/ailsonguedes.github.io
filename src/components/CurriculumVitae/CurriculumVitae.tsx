@@ -1,92 +1,82 @@
-import styles from './CurriculumVitae.module.css'
+import styles from './CurriculumVitae.module.css';
+import { fetchExperiences } from '../../services/api';
+import { useApiData } from '../../hooks/useApiData';
 
-// Mapeamento de tecnologias para ícones do lucide-static
-const techIconsNttData: Record<string, string> = {
-    'React': 'https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/react.svg',
-    'Python': 'https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/python.svg',
-    'Java': 'https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/java.svg',
-    'SpringBoot': 'https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/springboot.svg',
+const techIcons: Record<string, string> = {
+    React: 'https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/react.svg',
+    Python: 'https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/python.svg',
+    Java: 'https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/java.svg',
+    SpringBoot: 'https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/springboot.svg',
+    Angular: 'https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/angular.svg',
+    JavaScript: 'https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/javascript.svg',
+    TypeScript: 'https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/typescript.svg',
+    Figma: 'https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/figma.svg',
 };
 
-const techIconsFreelance: Record<string, string> = {
-    'Angular': 'https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/angular.svg',
-    'JavaScript': 'https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/javascript.svg',
-    'TypeScript': 'https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/typescript.svg',
-    'Figma': 'https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/figma.svg',
-};
+export function CurriculumVittae() {
+    const { data: experiences, isLoading, error, retry } = useApiData(fetchExperiences);
 
-export function CurriculumVittae(){
-    // Formata a data para exibir 'Mês Dia, Ano'
-    
     return (
         <section className={styles.curriculumContainer}>
             <h1 className={styles.curriculumTitle}>Ailson Guedes Da Fonseca</h1>
 
-            <div className={styles.curriculumContent}>
-                <h3 className={styles.workTitle}>NTT DATA</h3>
-                <div className={styles.workInfoContainer}>
-                    <h5 className={styles.workType}>Fullstack Software Developer,</h5>
-                    <h5 className={styles.workPeriod}>dez/2025 - present</h5>
+            {isLoading ? (
+                <p role="status">Loading work experience...</p>
+            ) : error ? (
+                <div role="alert">
+                    <p>Could not load work experience: {error}</p>
+                    <button type="button" onClick={retry}>Try again</button>
                 </div>
+            ) : experiences?.length ? (
+                experiences.map((experience) => (
+                    <div className={styles.curriculumContent} key={experience.id}>
+                        <h3 className={styles.workTitle}>{experience.title}</h3>
+                        <div className={styles.workInfoContainer}>
+                            <h5 className={styles.workType}>{experience.func}</h5>
+                            <h5 className={styles.workPeriod}>{experience.period}</h5>
+                        </div>
 
-                <div className={styles.workDescriptionContainer}>
-                    <p className={styles.workPerformanceDescription}>Atualmente atuo como Programador Júnior na NTT DATA, em minha primeira experiência como profissional contratado. Trabalho no desenvolvimento e manutenção de aplicações web, colaborando com times multidisciplinares na implementação de soluções alinhadas às necessidades do negócio.</p>
-                    <br />
-                    <p className={styles.workTechDescription}>No front-end, utilizo React para criar interfaces responsivas e componentizadas. No back-end, atuo com Java Spring Boot, Python Flask e FastAPI, contribuindo no desenvolvimento e integração de APIs. Essa experiência tem sido essencial para consolidar minha base técnica e meu aprendizado em ambientes corporativos.</p>
-                </div>
+                        <div className={styles.workDescriptionContainer}>
+                            {experience.description.split(/\r?\n\s*\r?\n/).map((paragraph, index) => (
+                                <p
+                                    key={`${experience.id}-description-${index}`}
+                                    className={index === 0
+                                        ? styles.workPerformanceDescription
+                                        : styles.workTechDescription}
+                                >
+                                    {paragraph}
+                                </p>
+                            ))}
+                        </div>
 
-                <div className={styles.workTagContainer}>
-                    {Object.keys(techIconsNttData).map((tech) => (
-                        <span 
-                            key={tech} 
-                            className={styles.workTag}
-                            data-tech={tech}
-                        >
-                            <div className={styles.workTagTooltip}>
-                                <img 
-                                    src={techIconsNttData[tech]} 
-                                    alt={`${tech} icon`}
-                                    className={styles.workTagIcon}
-                                />
-                            </div>
-                            {tech}
-                        </span>
-                    ))}
-                </div>
-            </div>
-            
-            <div className={styles.curriculumContent}>
-                <h3 className={styles.workTitle}>Freelance</h3>
-                <div className={styles.workInfoContainer}>
-                    <h5 className={styles.workType}>Front-end Developer,</h5>
-                    <h5 className={styles.workPeriod}>jun/2024 - aug/2025</h5>
-                </div>
-
-                <div className={styles.workDescriptionContainer}>
-                    <p className={styles.workPerformanceDescription}>Atuei no desenvolvimento front-end de landing pages responsivas para eventos sociais e corporativos (como casamentos). Colaborei com os clientes para entender os requisitos e entregar uma interface elegante e funcional, focada na experiência dos convidados.</p>
-                    <br />
-                    <p className={styles.workTechDescription}>Desenvolvi estas aplicações (SPAs) utilizando Angular, aplicando sua arquitetura de componentes e formulários reativos (para RSVPs). A escolha do framework foi uma decisão estratégica de aprendizado, aplicando conceitos de uma tecnologia robusta em projetos de escopo controlado.</p>
-                </div>
-
-                <div className={styles.workTagContainer}>
-                    {Object.keys(techIconsFreelance).map((tech) => (
-                        <span 
-                            key={tech} 
-                            className={styles.workTag}
-                            data-tech={tech}
-                        >
-                            <div className={styles.workTagTooltip}>
-                                <img 
-                                    src={techIconsFreelance[tech]} 
-                                    alt={`${tech} icon`}
-                                    className={styles.workTagIcon}
-                                />
-                            </div>
-                            {tech}
-                        </span>
-                    ))}
-                </div>
-            </div>
+                        <div className={styles.workTagContainer}>
+                            {experience.tags.map((tech) => {
+                                const icon = techIcons[tech];
+                                return (
+                                    <span
+                                        key={tech}
+                                        className={styles.workTag}
+                                        data-tech={tech}
+                                    >
+                                        {icon && (
+                                            <div className={styles.workTagTooltip}>
+                                                <img
+                                                    src={icon}
+                                                    alt={`${tech} icon`}
+                                                    className={styles.workTagIcon}
+                                                />
+                                            </div>
+                                        )}
+                                        {tech}
+                                    </span>
+                                );
+                            })}
+                        </div>
+                    </div>
+                ))
+            ) : (
+                <p>No work experience available.</p>
+            )}
         </section>
     );
-  }
+}

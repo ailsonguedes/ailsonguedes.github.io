@@ -1,0 +1,93 @@
+/* ProjectsPage.module.css – página /projects (linha do tempo: mês | projeto) */
+
+.page {
+    width: 100%;
+    max-width: var(--coluna-max);
+    margin: 0 auto;
+    padding: 0 var(--pad-x);
+    padding-top: 0.75rem;
+    padding-bottom: var(--secao-espaco);
+}
+
+.title {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 28px;
+    color: var(--cor-texto-principal);
+    margin: 0 0 3rem 0;
+}
+
+.yearGroup {
+    margin-bottom: 4rem;
+    animation: reveal 0.6s var(--easing-suave) both;
+    animation-delay: calc(var(--i, 0) * 80ms);
+}
+
+.year {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    color: var(--cor-universal-base);
+    margin: 0 0 1.5rem 0;
+}
+
+.list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Estreito: o mês fica acima do projeto */
+.row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.25rem;
+}
+
+.month {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    color: var(--cor-universal-base);
+    font-variant-numeric: tabular-nums;
+}
+
+/* Largo: o mês "pendura" na margem esquerda, alinhado à direita (como no gelzin.com) */
+@media (min-width: 960px) {
+    .row {
+        grid-template-columns: var(--rotulo-largura) minmax(0, 1fr);
+        column-gap: var(--rotulo-espaco);
+        margin-left: calc(-1 * (var(--rotulo-largura) + var(--rotulo-espaco)));
+    }
+
+    .month {
+        text-align: right;
+        padding-top: 2px;
+    }
+}
+
+@keyframes reveal {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@supports (animation-timeline: view()) {
+    .yearGroup {
+        animation-delay: 0s;
+        animation-timeline: view();
+        animation-range: entry 0% entry 35%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .yearGroup {
+        animation: none;
+    }
+}

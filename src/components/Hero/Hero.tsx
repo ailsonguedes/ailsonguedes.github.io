@@ -5,8 +5,9 @@ export function Hero(){
         <section className={styles.heroContainer}>
             <div className={styles.heroContent}>
                 <h1 className={styles.heroTitle}>Ailson Guedes</h1>
+                <p className={styles.heroRole}>Software Developer</p>
                 <p className={styles.heroText}>
-                    Desenvolvedor de Software, Músico e Produtor Musical. Sou movido pelo desafio de criar soluções robustas e de alta performance, onde a funcionalidade e a simplicidade técnica prevalecem para entregar resultados sólidos e impactantes.
+                    Sou Desenvolvedor de Software, Músico e Produtor Musical. Gosto de construir soluções que funcionam bem, fazem sentido e têm propósito. Explore meus projetos, trabalhos e um pouco mais sobre mim no CV.
                 </p>
             </div>
         </section>

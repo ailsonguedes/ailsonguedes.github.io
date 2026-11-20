@@ -1,64 +1,66 @@
+import type { CSSProperties } from 'react';
+import { Link } from 'react-router-dom';
 import styles from './ProjectsSection.module.css';
 import { ProjectCard } from '../ProjectCard/ProjectCard';
-import { projectsSectionData, type Project } from '../../../pages/ProjectsSection/ProjectsSectionData'; 
+import { groupProjectsByYear, sortProjectsByDate } from '../../../pages/ProjectsSection/projectsUtils';
+import { fetchPublicProjects } from '../../../services/api';
+import { useApiData } from '../../../hooks/useApiData';
 
-/**
- * 💡 Função para agrupar e classificar os projetos por ano.
- * Retorna um objeto onde as chaves são os anos (ex: { '2025': [proj1, proj2], '2023': [proj3], ... })
- */
-const groupProjectsByYear = (projects: Project[]) => {
-    // 1. Agrupa os projetos por ano
-    const grouped = projects.reduce((acc, project) => {
-        const year = project.year;
-        if (!acc[year]) {
-            acc[year] = [];
-        }
-        acc[year].push(project);
-        return acc;
-    }, {} as Record<string, Project[]>);
+const LATEST_PROJECTS_LIMIT = 3;
 
-    // 2. Classifica os anos em ordem decrescente (do mais novo para o mais antigo)
-    const sortedYears = Object.keys(grouped).sort((a, b) => b.localeCompare(a));
-    
-    // 3. Constrói o array final de grupos na ordem correta
-    return sortedYears.map(year => ({
-        year,
-        projects: grouped[year],
-    }));
-};
-
-/* const SECTION_VIEW_ALL_LINK = "/todos-os-projetos"; */
-
-export function ProjectsSection(){
-    // 💡 Chamada da função para obter os dados agrupados e classificados
-    const groupedAndSortedProjects = groupProjectsByYear(projectsSectionData);
+export function ProjectsSection() {
+    const { data: projects, isLoading, error, retry } = useApiData(fetchPublicProjects);
+    const projectList = projects ?? [];
+    const latestProjects = sortProjectsByDate(projectList).slice(0, LATEST_PROJECTS_LIMIT);
+    const groupedAndSortedProjects = groupProjectsByYear(latestProjects);
+    const hasMore = projectList.length > LATEST_PROJECTS_LIMIT;
 
     return (
         <section className={styles.projectsContainer}>
-            
-            <h3 className={styles.sectionTitle}>SOME PROJECTS</h3> 
+            <h3 className={styles.sectionTitle}>SOME PROJECTS</h3>
 
-            <div className={styles.cardGrid}>
-                {/* Itera sobre os grupos de ano já classificados */}
-                {groupedAndSortedProjects.map((group) => (
-                    <div key={group.year} className={styles.projectContainer}>
-                        <div className={styles.header}>
-                            <h4 className={styles.projectYear}>{group.year}</h4>
+            {isLoading ? (
+                <p role="status">Loading projects...</p>
+            ) : error ? (
+                <div role="alert">
+                    <p>Could not load projects: {error}</p>
+                    <button type="button" onClick={retry}>Try again</button>
+                </div>
+            ) : projectList.length === 0 ? (
+                <p>No projects available.</p>
+            ) : (
+                <div className={styles.cardGrid}>
+                    {groupedAndSortedProjects.map((group, index) => (
+                        <div
+                            key={group.year}
+                            className={styles.projectContainer}
+                            style={{ '--i': index } as CSSProperties}
+                        >
+                            <div className={styles.header}>
+                                <h4 className={styles.projectYear}>{group.year}</h4>
+                            </div>
+                            <div className={styles.contentWrapper}>
+                                {group.projects.map((project, projectIndex) => (
+                                    <ProjectCard
+                                        key={project.id ?? `${project.title}-${projectIndex}`}
+                                        projectId={project.id}
+                                        title={project.title}
+                                        description={project.description}
+                                        link={project.link}
+                                        tags={project.tags}
+                                    />
+                                ))}
+                            </div>
                         </div>
-                        <div className={styles.contentWrapper}>
-                            {group.projects.map((project) => (
-                                <ProjectCard 
-                                    key={project.title} 
-                                    title={project.title}
-                                    description={project.description}
-                                    link={project.link}
-                                />
-                            ))}
-                        </div>
-                    </div>
-                ))}
-            </div> 
+                    ))}
+                </div>
+            )}
 
+            {!isLoading && !error && hasMore && (
+                <Link to="/projects" className={styles.sectionViewMoreLink}>
+                    See all projects
+                </Link>
+            )}
         </section>
     );
 }
