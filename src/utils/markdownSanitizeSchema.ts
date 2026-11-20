@@ -6,6 +6,7 @@ export const markdownSanitizeSchema = {
     attributes: {
         ...defaultSchema.attributes,
         iframe: ['src', 'title'],
+        img: ['src', 'alt', 'title', 'width', 'height'],
     },
     protocols: {
         ...defaultSchema.protocols,
