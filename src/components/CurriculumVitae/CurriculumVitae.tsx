@@ -4,7 +4,16 @@ import { useApiData } from '../../hooks/useApiData';
 import { TechnologyTag } from '../TechnologyTag/TechnologyTag';
 
 export function CurriculumVittae() {
-    const { data: experiences, isLoading, error, retry } = useApiData(fetchExperiences);
+    const { data: rawExperiences, isLoading, error, retry } = useApiData(fetchExperiences);
+
+    // Sort experiences from most recent to oldest
+    const experiences = rawExperiences
+        ? [...rawExperiences].sort((a, b) => {
+            const dateA = new Date(a.period.split(' - ')[1] || a.period).getTime();
+            const dateB = new Date(b.period.split(' - ')[1] || b.period).getTime();
+            return dateB - dateA;
+        })
+        : undefined;
 
     return (
         <section className={styles.curriculumContainer}>
