@@ -9,8 +9,21 @@ export function CurriculumVittae() {
     // Sort experiences from most recent to oldest
     const experiences = rawExperiences
         ? [...rawExperiences].sort((a, b) => {
-            const dateA = new Date(a.period.split(' - ')[1] || a.period).getTime();
-            const dateB = new Date(b.period.split(' - ')[1] || b.period).getTime();
+            const getEndDate = (period: string) => {
+                const parts = period.split(' - ');
+                const endDateStr = parts[1]?.trim() || '';
+                
+                // If end date is "present", treat it as a future date (infinite)
+                if (endDateStr.toLowerCase() === 'present') {
+                    return Infinity;
+                }
+                
+                // Parse date in format "mês/YYYY"
+                return new Date(endDateStr).getTime();
+            };
+
+            const dateA = getEndDate(a.period);
+            const dateB = getEndDate(b.period);
             return dateB - dateA;
         })
         : undefined;
