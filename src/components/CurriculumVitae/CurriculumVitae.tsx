@@ -1,17 +1,7 @@
 import styles from './CurriculumVitae.module.css';
 import { fetchExperiences } from '../../services/api';
 import { useApiData } from '../../hooks/useApiData';
-
-const techIcons: Record<string, string> = {
-    React: 'https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/react.svg',
-    Python: 'https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/python.svg',
-    Java: 'https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/java.svg',
-    SpringBoot: 'https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/springboot.svg',
-    Angular: 'https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/angular.svg',
-    JavaScript: 'https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/javascript.svg',
-    TypeScript: 'https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/typescript.svg',
-    Figma: 'https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/figma.svg',
-};
+import { TechnologyTag } from '../TechnologyTag/TechnologyTag';
 
 export function CurriculumVittae() {
     const { data: experiences, isLoading, error, retry } = useApiData(fetchExperiences);
@@ -50,27 +40,9 @@ export function CurriculumVittae() {
                         </div>
 
                         <div className={styles.workTagContainer}>
-                            {experience.tags.map((tech) => {
-                                const icon = techIcons[tech];
-                                return (
-                                    <span
-                                        key={tech}
-                                        className={styles.workTag}
-                                        data-tech={tech}
-                                    >
-                                        {icon && (
-                                            <div className={styles.workTagTooltip}>
-                                                <img
-                                                    src={icon}
-                                                    alt={`${tech} icon`}
-                                                    className={styles.workTagIcon}
-                                                />
-                                            </div>
-                                        )}
-                                        {tech}
-                                    </span>
-                                );
-                            })}
+                            {experience.tags.map((tech) => (
+                                <TechnologyTag key={tech} name={tech} className={styles.workTag} />
+                            ))}
                         </div>
                     </div>
                 ))

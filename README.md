@@ -37,6 +37,12 @@ URL, defina `VITE_API_BASE_URL` no ambiente do Vite (consulte `.env.example`).
 Configure também `FRONTEND_ORIGIN` no backend para permitir a origem do frontend
 via CORS. A seção de artigos carrega os dados do endpoint público de artigos.
 
+As tags de tecnologias no currículo e nos projetos são reconhecidas pelo catálogo
+Simple Icons, incluindo aliases e diferenças de maiúsculas ou espaços. Os ícones
+são carregados do jsDelivr; nomes não encontrados ou falhas de carregamento são
+indicados com `?`. Na área de trabalho, passe o cursor sobre a tag para ver o
+ícone; em telas sem hover, ele aparece ao lado do nome.
+
 Os artigos são listados em `/articles`; cada card abre `/articles/:name`, que
 consulta o artigo pelo título usando `GET /api/v1/articles?name={name}`. O campo
 `text` pode conter o conteúdo em Markdown, e `link` pode apontar para a

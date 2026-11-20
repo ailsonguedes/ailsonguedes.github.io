@@ -2,6 +2,7 @@
 
 import styles from './ProjectCard.module.css';
 import { Link } from 'react-router-dom';
+import { TechnologyTag } from '../../TechnologyTag/TechnologyTag';
 
 interface ProjectCardProps {
   projectName?: string;
@@ -31,7 +32,7 @@ export function ProjectCard({ projectName, title, description, link, tags = [], 
             {tags.length > 0 && (
                 <span className={styles.tags}>
                     {tags.map((tag) => (
-                        <span key={tag} className={styles.tag}>{tag}</span>
+                        <TechnologyTag key={tag} name={tag} className={styles.tag} />
                     ))}
                 </span>
             )}

@@ -8,6 +8,7 @@ import { useApiData } from '../../../hooks/useApiData';
 import { fetchPublicProjectByName } from '../../../services/api';
 import { MarkdownVideoEmbed } from '../../MarkdownVideoEmbed/MarkdownVideoEmbed';
 import { markdownSanitizeSchema } from '../../../utils/markdownSanitizeSchema';
+import { TechnologyTag } from '../../TechnologyTag/TechnologyTag';
 import styles from './ProjectDetailsPage.module.css';
 
 interface MarkdownCodeProps {
@@ -144,7 +145,7 @@ export function ProjectDetailsPage() {
                     </div>
                     {(project.tags?.length ?? 0) > 0 && (
                         <ul className={styles.tags} aria-label="Technologies">
-                            {project.tags?.map((tag) => <li key={tag}>{tag}</li>)}
+                            {project.tags?.map((tag) => <li key={tag}><TechnologyTag name={tag} /></li>)}
                         </ul>
                     )}
                 </header>
