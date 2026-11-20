@@ -23,5 +23,10 @@ export const groupProjectsByYear = (projects: Project[]) => {
         const year = project.year ?? 'Undated';
         byYear.set(year, [...(byYear.get(year) ?? []), project]);
     }
-    return [...byYear].map(([year, items]) => ({ year, projects: items }));
+    return [...byYear].sort(([yearA], [yearB]) => {
+        // Sort by year descending (most recent first)
+        if (yearA === 'Undated') return 1;
+        if (yearB === 'Undated') return -1;
+        return Number(yearB) - Number(yearA);
+    }).map(([year, items]) => ({ year, projects: items }));
 };
