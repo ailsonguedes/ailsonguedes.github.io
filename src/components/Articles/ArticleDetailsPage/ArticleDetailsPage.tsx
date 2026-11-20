@@ -7,6 +7,7 @@ import { useCallback } from 'react';
 import { fetchArticleByName } from '../../../services/api';
 import { useApiData } from '../../../hooks/useApiData';
 import { MarkdownVideoEmbed } from '../../MarkdownVideoEmbed/MarkdownVideoEmbed';
+import { MarkdownImage } from './MarkdownImage';
 import { markdownSanitizeSchema } from '../../../utils/markdownSanitizeSchema';
 import styles from './ArticleDetailsPage.module.css';
 
@@ -99,6 +100,7 @@ export function ArticleDetailsPage() {
                             components={{
                                 h1: ({ children }) => <h2>{children}</h2>,
                                 iframe: ({ src, title }) => <MarkdownVideoEmbed src={src} title={title} />,
+                                img: ({ src, alt, title }) => <MarkdownImage src={src} alt={alt} title={title} />,
                                 a: ({ href, children }) => {
                                     const isExternal = /^https?:\/\//i.test(href ?? '');
                                     return (
@@ -111,9 +113,6 @@ export function ArticleDetailsPage() {
                                         </a>
                                     );
                                 },
-                                img: ({ src, alt }) => (
-                                    <img src={src} alt={alt ?? ''} loading="lazy" decoding="async" />
-                                ),
                             }}
                         >
                             {markdown}
