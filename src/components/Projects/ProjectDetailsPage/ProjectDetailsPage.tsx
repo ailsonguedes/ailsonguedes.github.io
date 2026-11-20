@@ -7,6 +7,7 @@ import remarkGfm from 'remark-gfm';
 import { useApiData } from '../../../hooks/useApiData';
 import { fetchPublicProjectByName } from '../../../services/api';
 import { MarkdownVideoEmbed } from '../../MarkdownVideoEmbed/MarkdownVideoEmbed';
+import { MarkdownImage } from '../../Articles/ArticleDetailsPage/MarkdownImage';
 import { markdownSanitizeSchema } from '../../../utils/markdownSanitizeSchema';
 import { TechnologyTag } from '../../TechnologyTag/TechnologyTag';
 import styles from './ProjectDetailsPage.module.css';
@@ -159,6 +160,7 @@ export function ProjectDetailsPage() {
                                 h1: ({ children }) => <h2>{children}</h2>,
                                 pre: ({ children }) => <MarkdownCodeBlock>{children}</MarkdownCodeBlock>,
                                 iframe: ({ src, title }) => <MarkdownVideoEmbed src={src} title={title} />,
+                                img: ({ src, alt, title }) => <MarkdownImage src={src} alt={alt} title={title} />,
                                 a: ({ href, children }) => {
                                     const isExternal = /^https?:\/\//i.test(href ?? '');
                                     return (
@@ -171,9 +173,6 @@ export function ProjectDetailsPage() {
                                         </a>
                                     );
                                 },
-                                img: ({ src, alt }) => (
-                                    <img src={src} alt={alt ?? ''} loading="lazy" decoding="async" />
-                                ),
                             }}
                         >
                             {markdown}
