@@ -43,13 +43,15 @@ são carregados do jsDelivr; nomes não encontrados ou falhas de carregamento s�
 indicados com `?`. Na área de trabalho, passe o cursor sobre a tag para ver o
 ícone; em telas sem hover, ele aparece ao lado do nome.
 
-Os artigos são listados em `/articles`; cada card abre `/articles/:name`, que
-consulta o artigo pelo título usando `GET /api/v1/articles?name={name}`. O campo
-`text` pode conter o conteúdo em Markdown, e `link` pode apontar para a
-publicação original.
+O site usa `HashRouter` para permitir acesso direto às rotas no GitHub Pages.
+As URLs públicas incluem `/#/`: artigos em `/#/articles` e detalhes em
+`/#/articles/:name`; cada card consulta o artigo pelo título usando
+`GET /api/v1/articles?name={name}`. O campo `text` pode conter o conteúdo em
+Markdown, e `link` pode apontar para a publicação original.
 
-Os cards de projeto abrem a página `/projects/:name`, que consulta o projeto
-pelo título usando `GET /api/v1/public_projects?name={name}`. O campo
+Os projetos ficam em `/#/projects` e seus detalhes em `/#/projects/:name`,
+consultando o projeto pelo título usando
+`GET /api/v1/public_projects?name={name}`. O currículo fica em `/#/cv`. O campo
 `description` é o resumo; `text` é opcional e pode conter a descrição longa em
 Markdown. A página também apresenta tecnologias e o conteúdo do projeto quando
 esses dados estiverem disponíveis. Para incluir um link externo, adicione-o ao

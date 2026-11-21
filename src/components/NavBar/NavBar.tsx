@@ -1,21 +1,19 @@
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import logoUrl from '../../assets/logo_nosllyah.jpeg';
 import styles from './NavBar.module.css'
 
 export function NavBar(){
-    const navigate = useNavigate();
-
     return (
         <nav className={styles.navContainer}>
             <div className={styles.navContent}>
-                <a href="/#" className={styles.avatarLink}>
+                <Link to="/" className={styles.avatarLink}>
                     <img src={logoUrl} alt="Avatar" className={styles.avatar} />
-                </a>
+                </Link>
                 <div className={styles.navLinks}>
-                    <a className={styles.navLink} href="/#">home</a>
-                    <a className={styles.navLink} href="/articles" onClick={(e) => {e.preventDefault(); navigate("/articles");}}>articles</a>
-                    <a className={styles.navLink} href="/projects" onClick={(e) => {e.preventDefault(); navigate("/projects");}}>projects</a>
-                    <a className={styles.navLink} href="/cv" onClick={(e) => {e.preventDefault(); navigate("/cv");}}>cv</a>
+                    <Link className={styles.navLink} to="/">home</Link>
+                    <Link className={styles.navLink} to="/articles">articles</Link>
+                    <Link className={styles.navLink} to="/projects">projects</Link>
+                    <Link className={styles.navLink} to="/cv">cv</Link>
                 </div>
             </div>
         </nav>
